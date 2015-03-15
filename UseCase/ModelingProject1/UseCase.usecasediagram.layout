@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.75, 9.25" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="bf7cb8ed-7054-4bc6-ac13-7787829823f0" />
+  <nestedChildShapes>
+    <actorShape Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" absoluteBounds="4.5, 3.375, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="f7de0dcc-d997-426e-82a4-8dd2990ca17a" LastKnownName="User" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseShape Id="8521d430-c234-42c1-b98a-324ecbb819fa" absoluteBounds="2.125, 1.875, 1.125, 0.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="40929d40-2a41-4113-80c2-366580b545bb" LastKnownName="Добавить организацию" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.5 : 3.45075757575758); (3.03811300144926 : 2.43186663737372)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="40d82092-124e-4903-b148-4e5427403f46" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="8521d430-c234-42c1-b98a-324ecbb819fa" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="0110c5f2-ddcc-4a9d-ba51-72c239e16828" absoluteBounds="1.625, 1, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bdc49aea-acfe-4e60-9eed-700d8b2facf4" LastKnownName="Указать название" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.50962188161553 : 1.89103646935921); (2.26867394278317 : 1.48945657130529)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="ebbd5b29-ab4a-459a-913b-a5f43eb1ab6c" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="8521d430-c234-42c1-b98a-324ecbb819fa" />
+        <useCaseShapeMoniker Id="0110c5f2-ddcc-4a9d-ba51-72c239e16828" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="dfe35187-769f-4f95-a5e6-f97b9a8c1d69" absoluteBounds="0.625, 1.25, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5907b79a-cdb5-4aeb-9f56-94e7dd2a9802" LastKnownName="Указать страну" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.2465457645263 : 1.99348013639157); (1.50035675846138 : 1.66515697372301)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="0cafdc7d-95ee-4ddb-9f51-424b0b00f453" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="1.4375, 1.9375, 0.63541666666666674, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="8521d430-c234-42c1-b98a-324ecbb819fa" />
+        <useCaseShapeMoniker Id="dfe35187-769f-4f95-a5e6-f97b9a8c1d69" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="cfba9be3-0a34-48ed-94c3-b7f36f6052f9" absoluteBounds="0.5, 2, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="cd8a589c-de06-430e-8ee3-4695ed4f41e0" LastKnownName="Указать сайт" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(1.49863387722835 : 2.23153207862117); (2.12624584870567 : 2.20828719078868)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="f659b90a-06c6-41d9-92af-5ec6d1ecc986" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="1.4375, 2.375, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="cfba9be3-0a34-48ed-94c3-b7f36f6052f9" />
+        <useCaseShapeMoniker Id="8521d430-c234-42c1-b98a-324ecbb819fa" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="b87d0e3a-f959-48c0-9491-402c70e1ddd6" absoluteBounds="2, 2.875, 1.125, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2f848222-bf3e-42b9-a4ce-b6d6be7aa812" LastKnownName="Удалить организацию" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.5 : 3.58214285714286); (3.10727727458573 : 3.34339038992898)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="6461b9da-a718-4dfc-b303-e6c71b12d30c" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="b87d0e3a-f959-48c0-9491-402c70e1ddd6" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="c61beef7-6a2b-4e93-a149-05802698daf0" absoluteBounds="0.5, 2.625, 1, 1.625" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c0091180-7c0a-4c92-a286-50213ec82b66" LastKnownName="Проверить наличие научных сотрудников, принадлежащих организации" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.0088968802648 : 3.31643237436822); (1.49864223704397 : 3.37766293155472)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="293636bf-4292-405b-8cd0-2e090dcdcfb6" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="1.4819278433899181, 3.0298326090077872, 0.59374999999999956, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="b87d0e3a-f959-48c0-9491-402c70e1ddd6" />
+        <useCaseShapeMoniker Id="c61beef7-6a2b-4e93-a149-05802698daf0" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="9daad009-115f-45ea-a83f-35b1e7363e94" absoluteBounds="1.875, 3.75, 1.25, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5f801058-7e3f-42f4-9294-5773a8567e85" LastKnownName="Изменить сайт организации" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.5 : 3.68055555555556); (3.08609297545231 : 3.99475711656615)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="45ad4b9f-d5ab-4435-8124-31e0a369b2e3" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="9daad009-115f-45ea-a83f-35b1e7363e94" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" absoluteBounds="6.25, 1.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="335d9e22-49d9-46bb-a3de-54bd1e8bdb97" LastKnownName="Добавить журнал" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.4375); (6.47264990188739 : 2.33301257358446)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="2e3f7d73-9ad6-4e79-845c-c3d33a63dadf" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="aee7c2e7-3aa1-422a-bf06-298a003f93fc" absoluteBounds="7.625, 0.75, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="18864d44-463a-48f4-ac55-677816c5f68b" LastKnownName="Выбрать тему из списка" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(7.03326441144353 : 1.91898951895016); (7.76604980327447 : 1.38605468852766)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="d9dc994e-3dd9-465a-98ad-02200d30b754" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="6.5625, 1.5625, 0.67708333333333348, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" />
+        <useCaseShapeMoniker Id="aee7c2e7-3aa1-422a-bf06-298a003f93fc" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="5c7bcc9d-cba3-4ef4-baf7-d9dc918a222c" absoluteBounds="6.5, 0.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="0dbc81e1-6aeb-4e18-bc87-7889c9a2fe44" LastKnownName="Указать название" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(6.93070634458948 : 1.89189851082355); (7.42017337823908 : 1.26051229853703)]" fixedFrom="Algorithm" fixedTo="Caller" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="41d4e905-6a85-4b44-a39f-99a185863d5d" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="7.1875, 1.5, 0.67708333333333348, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" />
+        <useCaseShapeMoniker Id="5c7bcc9d-cba3-4ef4-baf7-d9dc918a222c" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="a4677c10-9ef6-4f0b-a56b-e903f0074edd" absoluteBounds="9, 0.75, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="a80d310c-2f6d-4d25-9747-f4218ebd342a" LastKnownName="Указать издателя" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(9.11302135039834 : 1.15830944756432); (7.13697864960166 : 1.96669055243568)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="b8dd8f57-af88-4f7c-aac1-f3ff1c7f7386" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="8.9268703684743258, 1.3661467044907969, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="a4677c10-9ef6-4f0b-a56b-e903f0074edd" />
+        <useCaseShapeMoniker Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="1f3336c6-2bc9-4f47-95ea-4b3d7b3479f1" absoluteBounds="10.25, 0.75, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="ffeb584d-946b-4944-b197-322b3c17d4bf" LastKnownName="Указать импакт- фактор" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(10.2756583509747 : 1.24358541225631); (7.19721359549996 : 2.01319660112501)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="4f6b2b04-3bbf-464b-845b-93fbec0d9e73" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="9.5, 1.4375, 0.770833333333333, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="1f3336c6-2bc9-4f47-95ea-4b3d7b3479f1" />
+        <useCaseShapeMoniker Id="52fa438d-ef5f-4c2c-aede-e3dfd670c3c5" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="5b48b74a-909d-41c2-9b14-a574738104f9" absoluteBounds="5.125, 1.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="939d28eb-475c-4ace-8b1d-42957381162e" LastKnownName="Удалить журнал" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.89583333333333 : 3.375); (5.485 : 2.365)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="bd7ee05b-9e06-4a8f-b08e-d79c767c2f7c" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="5b48b74a-909d-41c2-9b14-a574738104f9" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="4f063f5e-daf5-4242-8f62-e0ffc0ee2ca9" absoluteBounds="5.625, 0.75, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="91b9661e-aeed-4e40-9584-4559caa3f6aa" LastKnownName="Проверить наличие научных работ, опубликованных в журнале" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(5.75383132528017 : 1.88344126509969); (5.91355726733444 : 1.58395512374793)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="88a8fdbf-6d4d-434d-aa6f-fc0226dc09b7" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="5.625, 1.625, 0.82291666666666607, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="5b48b74a-909d-41c2-9b14-a574738104f9" />
+        <useCaseShapeMoniker Id="4f063f5e-daf5-4242-8f62-e0ffc0ee2ca9" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="7427fb53-752a-48eb-88d6-2269225e4eaa" absoluteBounds="4.5, 0.75, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="fa30ce26-31de-4c89-9ecf-ca378d149deb" LastKnownName="Изменить импакт-фактор журнала" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.77564102564103 : 3.375); (4.95530781765719 : 1.62324877784242)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="551e64c4-3a95-4659-bf76-1b309ed23aa3" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="7427fb53-752a-48eb-88d6-2269225e4eaa" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="e01f90bd-a762-46bb-81af-f8b5450bd3a6" absoluteBounds="3.375, 0.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="25deed83-de7e-4cc2-a355-2f990e667583" LastKnownName="Добавить новый язык" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.6625 : 3.375); (3.96119016587612 : 1.37125761678893)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="ebf8017d-18f5-4d35-b3db-a1144fb0b60f" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="e01f90bd-a762-46bb-81af-f8b5450bd3a6" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="4860c43a-f5b8-4c48-9270-338b00b1b4dc" absoluteBounds="2.625, 1.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="9594754c-a77b-4f64-b84a-abc26725e4f2" LastKnownName="Добавить новую тему" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.546875 : 3.375); (3.31318852347797 : 1.85661664428058)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="3db55c9c-e53f-41bf-ac75-2216b5083b9e" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="4860c43a-f5b8-4c48-9270-338b00b1b4dc" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="9b00057d-7389-4146-87af-e2f59c61aeed" absoluteBounds="2.5, 7, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5537343d-d0ca-48ed-9ccc-882d3d9538a2" LastKnownName="Добавить научную работу" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.63333333333333 : 3.875); (3.16517521236405 : 7.02105311636274)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="6cac634c-c298-49ad-8a46-d493d4c46dad" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="50e398db-a100-4ee0-9263-318c6f9a859c" absoluteBounds="2.25, 4.75, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" LastKnownName="Добавить научного сотрудника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.5 : 3.8125); (3.10355339059327 : 4.85983495705504)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="0b5ed4a8-766a-483a-8ca2-e3122a011a0b" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" absoluteBounds="5.875, 6.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="fa151650-fdc3-47e8-8933-b33e2ae03df7" LastKnownName="Добавить связь " />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.89772727272727 : 3.875); (6.2333269294913 : 6.13524557298527)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="abc2c1c1-7779-4112-808e-d2df0cc33e4b" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="d3b379ce-7253-4a46-9979-02387e1ca1dc" absoluteBounds="7.75, 1.875, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="9cfe700e-d24d-415c-b14d-eb38ef9efb10" LastKnownName="Удалить связь" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.51785714285714); (7.87037169881735 : 2.28769784336399)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="34d2ec17-d600-40fa-b53d-63d96e9d1f72" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="d3b379ce-7253-4a46-9979-02387e1ca1dc" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="fad10294-dc9a-4a82-aa1e-1eaca170a322" absoluteBounds="9, 2.5, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5ac33dac-8bdb-432b-af72-a78da7dbcc3a" LastKnownName="Удалить научного сотрудника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.58552631578947); (9.01072510750662 : 2.95225393039369)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="54cff877-49f6-43cd-a4df-0675a739306e" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="fad10294-dc9a-4a82-aa1e-1eaca170a322" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="819383c1-63b4-4a3d-9cc7-f90adbfee5fb" absoluteBounds="8.875, 1.75, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2f5f3fdd-27a1-4573-a112-73f8c09e9e15" LastKnownName="Удалить научную работу" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.54391891891892); (8.91607148201993 : 2.27384168150705)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="9b91c9be-17ce-4fb3-b996-cffc987be259" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="819383c1-63b4-4a3d-9cc7-f90adbfee5fb" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="460925fc-5a81-4d50-aedd-42532aabf460" absoluteBounds="7.75, 3.125, 1.25, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="76a24cd6-1980-4578-9d23-16711eb2737f" LastKnownName="Изменить организацию сотрудника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.62068965517241); (7.75018949615683 : 3.57327259489385)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="058d617c-bd7c-4c55-ae5c-fa92aef34a0e" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="460925fc-5a81-4d50-aedd-42532aabf460" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="77e52df0-e45e-4fc2-98ac-9343329acf8f" absoluteBounds="3.375, 6.5, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="7a6d6ce2-da7e-4368-a382-9b74481b5f12" LastKnownName="Изменить почту сотрудника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.68269230769231 : 3.875); (3.97396416530258 : 6.50741881459043)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="49a563b9-e8db-455a-a6d4-ef0b2b1e2378" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="77e52df0-e45e-4fc2-98ac-9343329acf8f" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="f922fbf4-972d-42e8-bc91-f1c641eedbe4" absoluteBounds="4.125, 5.75, 1.125, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="988c34f3-8fb2-4ee9-abe3-e9d00f29955b" LastKnownName="Изменить индекс цитируемости" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.74390243902439 : 3.875); (4.69816881219742 : 5.75007869990574)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="c5e8a199-8abf-450a-aaa8-41c7e4a73840" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="f922fbf4-972d-42e8-bc91-f1c641eedbe4" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="ce234dee-d802-4f09-a95b-71bc9ac8e7ea" absoluteBounds="8.5, 7.25, 1.125, 1.125" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c38511c2-8987-4772-b339-1c2100eb2a35" LastKnownName="Вывести авторов по убыванию индекса цитируемости" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.86775362318841); (8.65894684113858 : 7.42064403414906)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="d311db5e-b34a-4018-bc4d-8eae1f9343fe" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="ce234dee-d802-4f09-a95b-71bc9ac8e7ea" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="568f1554-0e2c-416c-ac33-8a3d0819e14d" absoluteBounds="8.125, 6.25, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="3dc760db-51b6-4303-88cc-8e01ce059f57" LastKnownName="Вывести все работы по заданной теме" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.82258064516129); (8.25394867862443 : 6.39424976213866)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="3909865a-08db-4ecb-9706-386a26792f10" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="568f1554-0e2c-416c-ac33-8a3d0819e14d" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="8f4df52b-0d23-427b-a858-8aacfc6159ad" absoluteBounds="9.125, 3.5, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2e9bcd38-1b0a-4176-a390-291ff4fd529f" LastKnownName="Вывести все работы заданного автора" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.64102564102564); (9.12633638267023 : 3.9055343835045)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="a41684fc-cd34-4e54-b085-9fa2ba933f60" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="8f4df52b-0d23-427b-a858-8aacfc6159ad" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="7d96a178-5175-4a5f-bdac-5228ce9fb600" absoluteBounds="9.5, 6.125, 1.375, 1.125" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="712dd9b8-dbec-4a22-8ed9-8a374f70fea5" LastKnownName="Вывести все работы, опубликованные в заданном журнале" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.76580459770115); (9.62120340501998 : 6.36855134305723)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="e8aa4a78-c186-49cb-9034-9dd206e26c39" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="7d96a178-5175-4a5f-bdac-5228ce9fb600" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="c6de2b43-f6b3-406c-994e-073e05fffdfa" absoluteBounds="8, 4.5, 1.375, 1.125" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2c2d515d-cf8e-411b-a584-0b9fab9f9ead" LastKnownName="Вывести всех научных сотрудников из заданной организации" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.71626984126984); (8.05966619400079 : 4.83329083273045)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="fb99fcba-5fb8-42d4-8d26-5146514b360a" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="c6de2b43-f6b3-406c-994e-073e05fffdfa" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="68b42a71-ec9d-4e5d-8513-0261b2c1e291" absoluteBounds="10.25, 4.375, 1, 1" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="30077b14-84a5-44bb-b44d-3e4587d311cc" LastKnownName="Вывести всех рецензентов заданной статьи" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(5 : 3.67708333333333); (10.2605097901312 : 4.773022872944)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="199fe469-b0c9-4cc4-86ca-a0e4bc41accc" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="68b42a71-ec9d-4e5d-8513-0261b2c1e291" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="1d039a1e-ee14-416c-8d45-307e4d06da64" absoluteBounds="1, 4.375, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="30e25cee-9f28-4703-a923-3092c9e78949" LastKnownName="Указать имя" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.30882352941176 : 4.94852941176471); (1.89043440472152 : 4.78117376188861)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="2caa1f8a-420e-447a-9140-6195d63e9148" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="1.375, 4.9375, 0.78125, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+        <useCaseShapeMoniker Id="1d039a1e-ee14-416c-8d45-307e4d06da64" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="3363205e-2ba9-4e35-ad9f-3589c906adc8" absoluteBounds="0.75, 5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="2e5e5414-d983-4a19-a6c2-8064253c83b1" LastKnownName="Указать фамилию" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.25305813266319 : 5.16641182227807); (1.74319696191607 : 5.20890025317366)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="84a751f7-f053-469c-9b2d-21e43efe4f9f" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="1.75, 5.3125, 0.71875, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+        <useCaseShapeMoniker Id="3363205e-2ba9-4e35-ad9f-3589c906adc8" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="bacbf1bc-58b4-4806-88d8-290dd5a319ce" absoluteBounds="0.5, 5.5, 1.375, 1" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="087e36a3-2ebf-4c30-a9cd-0d3e2e4df312" LastKnownName="Выбрать организацию из списка существующих" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(1.73222642839129 : 5.69495320010088); (2.34935988896115 : 5.34935846218176)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="43315e39-e81d-4da2-a177-3041e345dabb" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="1.8003743290901184, 5.625, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="bacbf1bc-58b4-4806-88d8-290dd5a319ce" />
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="e9d82609-28a9-4d06-b915-4659a79373c9" absoluteBounds="1.125, 6.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="9d5a12ce-4442-4aec-993c-47e08731e024" LastKnownName="Указать почту" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(1.78855528194158 : 6.51375348163994); (2.51959236467647 : 5.45781102880065)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="b0f48e8e-75dc-448b-9f5d-38ced7701fb3" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="1.9878743290901184, 6, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="e9d82609-28a9-4d06-b915-4659a79373c9" />
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="1d35b6a1-bbe9-4f1a-ba80-cb4a64ec375e" absoluteBounds="2.25, 6.125, 1.125, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="8df4d5bb-d531-4bf1-a020-8c375d9ca529" LastKnownName="Указать индекс цитируемости" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(2.79348912771104 : 6.1252499373539); (2.7662956863061 : 5.49980078504039)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="65c99a0d-bfee-4128-b054-2bb0f4fccc23" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.8628743290901184, 5.75, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="1d35b6a1-bbe9-4f1a-ba80-cb4a64ec375e" />
+        <useCaseShapeMoniker Id="50e398db-a100-4ee0-9263-318c6f9a859c" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="07621800-983c-4b7e-893c-5bed8776d3a5" absoluteBounds="0.625, 7.125, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="d4f4a3c6-67c1-45c0-8a67-b9bc291e4c12" LastKnownName="Выбрать язык из списка" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(2.50196367965366 : 7.40820242135642); (1.62303632034634 : 7.46679757864358)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="a9119aba-f3e7-443a-a8cb-45d716635846" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="1.5270623906453458, 7.1875000000000009, 0.79625000000000035, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+        <useCaseShapeMoniker Id="07621800-983c-4b7e-893c-5bed8776d3a5" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="a66c7fef-2b98-4382-b306-ca38b13abbc8" absoluteBounds="0.75, 8, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="33d8d91c-26b5-4999-9d1a-59cfa9766d9e" LastKnownName="Выбрать журнал из списка" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(1.64771586001625 : 8.14773379427643); (2.60228413998375 : 7.60226620572357)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="e8407cd7-3626-4e49-80d9-d318517dab79" />
+      <relativeChildShapes />
+      <nodes>
+        <useCaseShapeMoniker Id="a66c7fef-2b98-4382-b306-ca38b13abbc8" />
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="e9e7a178-653f-4ebc-9c0c-95bc6fcf1d46" absoluteBounds="1.875, 8.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="64c0f6f4-f954-431f-86f0-4ebd691bc506" LastKnownName="Указать UDC" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(2.52413749656797 : 8.13638000549124); (2.78778306188464 : 7.71454710098458)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="8ba1aae1-9fc3-44f3-a7c1-ef5cd06658b3" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.1875, 7.875, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="e9e7a178-653f-4ebc-9c0c-95bc6fcf1d46" />
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="a792f8d1-9d4a-4754-b224-370508fc5ff2" absoluteBounds="3, 8.125, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="c6bba75a-da0e-4ffa-a7dd-810d6bc4ea4c" LastKnownName="Выбрать тему из списка" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(3.15811388300842 : 7.73075623676894); (3.34188611699158 : 8.14424376323106)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="e1d03ce0-36a5-49fc-b2e2-d27a29476ada" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="2.8125, 7.9375, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+        <useCaseShapeMoniker Id="a792f8d1-9d4a-4754-b224-370508fc5ff2" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="1bb710c1-24ac-4455-a8af-1b30707dfb81" absoluteBounds="4.125, 8.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="42d7895f-c9a1-4ad2-939b-3b0f98978b47" LastKnownName="Указать название" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(3.3865366852413 : 7.61286872937926); (4.30970368745277 : 8.18097149997093)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="f6a91c45-eb2b-4494-b420-bdcf5699e16b" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="3.625, 8.0625, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+        <useCaseShapeMoniker Id="1bb710c1-24ac-4455-a8af-1b30707dfb81" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="f627c7f4-e4a3-4430-95c9-520484cd62ee" absoluteBounds="4.125, 7.5, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5f592892-6820-457c-9774-bb1d880a482e" LastKnownName="Указать дату" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(3.47788950436098 : 7.48528219331407); (4.17102030774977 : 7.64523545563456)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="b3849221-7786-4ebb-aec8-94b785417cb8" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="3.511962890625, 7.5625, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="9b00057d-7389-4146-87af-e2f59c61aeed" />
+        <useCaseShapeMoniker Id="f627c7f4-e4a3-4430-95c9-520484cd62ee" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="531290a0-9241-4823-9e4e-2201c10792f8" absoluteBounds="4.75, 5.125, 1, 0.5" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="db481abd-97b4-4d72-a3a4-d40f1102d85e" LastKnownName="Изменить аннотацию" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.82142857142857 : 3.875); (5.17928932188135 : 5.12751262658471)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="6a8d6c30-c6de-4992-a1a8-1192d4ccf199" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="531290a0-9241-4823-9e4e-2201c10792f8" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="b469e004-8b2a-440f-b325-bcacc2caf412" absoluteBounds="4.625, 6.625, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="69c0b441-8a26-4808-a0a6-7a8e4ec3e499" LastKnownName="Выбрать научного сотрудника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(6.02144660940673 : 6.55177669529664); (5.54102514716892 : 6.79198742641554)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="583ddb79-fbd6-4102-8e7a-3f5c493175f7" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallySized="true" manuallyPlaced="true" absoluteBounds="5.25, 6.4375, 0.67708333333333393, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" />
+        <useCaseShapeMoniker Id="b469e004-8b2a-440f-b325-bcacc2caf412" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="f65399b8-c395-4719-8add-b41761b3b8df" absoluteBounds="5.125, 7.375, 1, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="bb3fa0dc-21c3-4e0b-b073-1de624ff7b25" LastKnownName="Выбрать научную работу" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(6.24344129710395 : 6.61619095530943); (5.81431642286025 : 7.40291989142287)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="7c529ac5-e01d-4133-a80f-2cc8c51c7167" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="5.5625, 6.9375, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" />
+        <useCaseShapeMoniker Id="f65399b8-c395-4719-8add-b41761b3b8df" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="bad28177-1014-41ce-b114-923243a0839f" absoluteBounds="5.5, 8.125, 1, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="84d908ed-3961-4069-a3ff-763d584b2fd6" LastKnownName="Указать роль научного работника" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(6.33229942932678 : 6.62408666226044); (6.07417022646512 : 8.12984034562012)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="9ffc441a-77d7-468d-a0c3-d5a3b74de932" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="6, 7.3125, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" />
+        <useCaseShapeMoniker Id="bad28177-1014-41ce-b114-923243a0839f" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="c054cdde-31f9-4072-a73b-050114518967" absoluteBounds="6.25, 7.5, 1.125, 0.75" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="1f592ade-b21e-41bb-a7fc-e14138a7fb13" LastKnownName="Указать комментарий" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <extendConnector edgePoints="[(6.705135816755 : 7.50689422887428); (6.44715344653586 : 6.62238324526582)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«extend»">
+      <extendMoniker Id="54cf06a7-dc08-4621-9dc1-e7383978b04e" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="6.3628743290901193, 7.0625, 0.51066982746124268, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="c054cdde-31f9-4072-a73b-050114518967" />
+        <useCaseShapeMoniker Id="287f7660-8a9a-4d0a-ab16-09f8556d1a2c" />
+      </nodes>
+    </extendConnector>
+    <useCaseShape Id="54b480d8-1b76-413b-9fa0-e219158983be" absoluteBounds="7.375, 7.25, 1.125, 0.875" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="a4b0b61a-61e5-4dd3-b86e-b27c4ba7c5d1" LastKnownName="Изменить комментарий" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <useCaseAssociationConnector edgePoints="[(4.94615384615385 : 3.875); (7.64448322560959 : 7.31404724832595)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="" targetMultiplicity="">
+      <associationMoniker Id="23f597ec-1836-4ce1-9c1c-01e5cbf5d4ab" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="9b9b81f9-537f-4a08-ada6-55fcff4032ef" />
+        <useCaseShapeMoniker Id="54b480d8-1b76-413b-9fa0-e219158983be" />
+      </nodes>
+    </useCaseAssociationConnector>
+    <useCaseShape Id="905e82b4-c824-4617-bfa3-4bd67d8aecf2" absoluteBounds="10.125, 1.5, 1, 1.125" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="5dc3cb30-faa8-4831-9224-932e5a97bac2" LastKnownName="Удалить все связи с заданной научной работой" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(9.87389257892831 : 2.10005537105359); (10.1254930967669 : 2.08747534516165)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="b59409b8-af69-4632-8270-a2543093c67c" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="9.761962890625, 2.25, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="819383c1-63b4-4a3d-9cc7-f90adbfee5fb" />
+        <useCaseShapeMoniker Id="905e82b4-c824-4617-bfa3-4bd67d8aecf2" />
+      </nodes>
+    </includeConnector>
+    <useCaseShape Id="582edfed-3883-406b-a779-2d27a872b7ac" absoluteBounds="11.375, 2.25, 1.125, 1" customColor="238, 237, 131" heightOffset="0">
+      <useCaseMoniker Id="02176fc2-8819-48af-87ae-7579fa3f78f5" LastKnownName="Удалить все связи с научным сотрудником" />
+      <relativeChildShapes />
+    </useCaseShape>
+    <includeConnector edgePoints="[(9.99883526084799 : 2.8494187045719); (11.3759337828075 : 2.77879826754834)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black" useCaseStereotype="«include»">
+      <includeMoniker Id="7f5eb2b8-8cf2-4576-ac31-e7d3c9ca3b46" />
+      <relativeChildShapes />
+      <moveableDecoratorHostShapes>
+        <moveableDecoratorHostShape manuallyPlaced="true" absoluteBounds="10.449462890625, 2.8125000000000004, 0.52439594268798828, 0.14800345897674561" shapeFieldName="NameDecorator" />
+      </moveableDecoratorHostShapes>
+      <nodes>
+        <useCaseShapeMoniker Id="fad10294-dc9a-4a82-aa1e-1eaca170a322" />
+        <useCaseShapeMoniker Id="582edfed-3883-406b-a779-2d27a872b7ac" />
+      </nodes>
+    </includeConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

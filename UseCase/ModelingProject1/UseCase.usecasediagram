@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="bf7cb8ed-7054-4bc6-ac13-7787829823f0" name="UMLUseCaseDiagram1" linkedPackageId="27f70a6a-4469-4def-8fcd-489930dc4ef6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="f7de0dcc-d997-426e-82a4-8dd2990ca17a" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="eff85ffd-dd6a-41c5-9960-058e17eb92d5" />
+        <targetEnds>
+          <association Id="40d82092-124e-4903-b148-4e5427403f46" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить организацию" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="40929d40-2a41-4113-80c2-366580b545bb" LastKnownName="Добавить организацию" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5b36427-8bda-4c6c-9299-1e68ce581ed0" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="74a45629-cf61-4ef1-85bb-0c65921ade43" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0893315a-d691-419a-ba7a-8e315bf8af99" name="Добавить организацию" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a2510ffd-b12c-4745-a4f4-c129d2d24cea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="13f48d59-0b85-4a98-816d-3321a62f221f" />
+          </association>
+          <association Id="6461b9da-a718-4dfc-b303-e6c71b12d30c" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Удалить организацию" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2f848222-bf3e-42b9-a4ce-b6d6be7aa812" LastKnownName="Удалить организацию" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3a7041df-b5e7-4f6a-90f6-0dd55f653bbe" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="96624b46-5f89-4395-85f7-c8e148a39a9d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="722fb99d-009e-4622-a92a-4110423b6d62" name="Удалить организацию" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="731e7957-b35c-467f-8c7e-ed06ccb20eb0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6451576d-94d0-4661-928d-53f8e4fa7de6" />
+          </association>
+          <association Id="45ad4b9f-d5ab-4435-8124-31e0a369b2e3" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Редактировать сайт организации" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5f801058-7e3f-42f4-9294-5773a8567e85" LastKnownName="Изменить сайт организации" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5fee464a-6f8c-43d7-8e80-dfd68fe60a76" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e157703c-b386-480a-b92a-aebf0e68fadf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fec037a2-e4c0-4301-afea-879cae0b181e" name="Редактировать сайт организации" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="272bf07f-6961-4c16-adfe-4636404410f2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e108ff4c-83b0-4ea6-9bc7-fd477a747b14" />
+          </association>
+          <association Id="2e3f7d73-9ad6-4e79-845c-c3d33a63dadf" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить журнал" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="335d9e22-49d9-46bb-a3de-54bd1e8bdb97" LastKnownName="Добавить журнал" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4851831c-43a3-4dbb-9da4-e39228bf6806" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="32a9865d-3f09-41e1-bcd7-0dabcae52f7c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6f2b9687-5325-43e0-ba2d-5662e21cb419" name="Добавить журнал" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="06ce3cc9-9b15-491f-86bf-149a74933938" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="86472aa4-b17d-4a65-b0f9-ceb68f47b5b5" />
+          </association>
+          <association Id="bd7ee05b-9e06-4a8f-b08e-d79c767c2f7c" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Удалить журнал" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="939d28eb-475c-4ace-8b1d-42957381162e" LastKnownName="Удалить журнал" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6a74c8da-3c5a-4e81-ab77-fa40c7fb568c" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="80a2679f-376d-4dfd-aae2-da478683fe65" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5e1081e7-61c7-4d1a-8782-9cf819940654" name="Удалить журнал" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4bfc8030-c731-4cec-92db-27d248815e91" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="76ad9c0a-98c8-4cab-84e2-c7245b89e3ee" />
+          </association>
+          <association Id="551e64c4-3a95-4659-bf76-1b309ed23aa3" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить импакт-фактор журнала" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fa30ce26-31de-4c89-9ecf-ca378d149deb" LastKnownName="Изменить импакт-фактор журнала" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb934dea-3bd4-49f5-b820-915ef55103d0" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2237b619-a0a2-4f41-9c0b-0cebf5b62130" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="53f01958-fb84-4c2e-b011-83f4f8c8db84" name="Изменить импакт-фактор журнала" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="408350d9-55e6-46f6-9696-27f389943f25" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a3d510f7-4124-4f0d-bb65-683b7b7920b7" />
+          </association>
+          <association Id="ebf8017d-18f5-4d35-b3db-a1144fb0b60f" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить новый язык" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="25deed83-de7e-4cc2-a355-2f990e667583" LastKnownName="Добавить новый язык" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b93aac8-61e6-473b-87e9-1898c82e5a35" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2d37fd8a-07fa-4579-ab1a-143a990b0aaa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="740c6bff-1f2b-48e1-9eb6-9c35fca69443" name="Добавить новый язык" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7516c906-20c5-4058-abad-fa895dc1bc60" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7217118a-a327-4d4c-9c92-6f19fdeb65d2" />
+          </association>
+          <association Id="3db55c9c-e53f-41bf-ac75-2216b5083b9e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить новую тему" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9594754c-a77b-4f64-b84a-abc26725e4f2" LastKnownName="Добавить новую тему" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8291e5b6-8d03-4575-b062-93943ecc98e1" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5266e88f-4f39-403c-b698-a163a24b507f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7ee22eea-ce37-41b4-8094-ce69c7828b6a" name="Добавить новую тему" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4035a130-bead-4bb9-8f9c-4425bd186029" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="987dc818-420d-4973-b499-0740962d4d29" />
+          </association>
+          <association Id="0b5ed4a8-766a-483a-8ca2-e3122a011a0b" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить научного сотрудника" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" LastKnownName="Добавить научного сотрудника" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d88d3b4c-bffc-48ac-b8cb-0d9a85bb2cd7" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="685c890c-d3f1-44c9-879c-75bd92b8f180" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b83e47c2-8910-4be5-bc2c-528c8c2a557e" name="Добавить научного сотрудника" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4537505f-9a11-4aff-8029-a3f9463bdd46" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="67c4bc41-ca48-4270-ae95-1d827bf99ced" />
+          </association>
+          <association Id="6cac634c-c298-49ad-8a46-d493d4c46dad" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить научную работу" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5537343d-d0ca-48ed-9ccc-882d3d9538a2" LastKnownName="Добавить научную работу" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="50850401-94e7-48af-b268-ef4f8046efb0" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="75e110b9-4528-4d57-a88c-cb1f1d0e72e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="eda8b517-7c2f-443e-8e12-509826f6a8ef" name="Добавить научную работу" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="10a43b0c-5921-4faf-9f50-0893e177c11a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cfa6b527-c349-4066-811d-1d04418d9722" />
+          </association>
+          <association Id="6a8d6c30-c6de-4992-a1a8-1192d4ccf199" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить аннотацию" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="db481abd-97b4-4d72-a3a4-d40f1102d85e" LastKnownName="Изменить аннотацию" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e3a5b0bd-54f9-496b-b2c1-a9a1f5ede00b" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="da0006c1-654d-4ce7-a0cc-37cc95d2f0b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="37102ea6-34c9-48ed-b6c8-83ae638a6056" name="Изменить аннотацию" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="39616c98-efb7-4505-af94-a4560b93f0ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c32d007a-e5cc-4a0b-807b-718e5f28e98d" />
+          </association>
+          <association Id="c5e8a199-8abf-450a-aaa8-41c7e4a73840" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить индекс цитируемости" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="988c34f3-8fb2-4ee9-abe3-e9d00f29955b" LastKnownName="Изменить индекс цитируемости" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="190e6797-d2a6-4042-9863-1d2017292393" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a3b633e2-b4af-472e-9d9c-35d431d9037d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8f91b69b-4f51-4353-bee7-9cfd8bf88b0b" name="Изменить индекс цитируемости" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e2e14b4a-d118-427a-8e2b-1ffa6b32e5f8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f6dde25f-61f8-487f-b165-6ffb01513ac8" />
+          </association>
+          <association Id="49a563b9-e8db-455a-a6d4-ef0b2b1e2378" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить почту сотрудника" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="7a6d6ce2-da7e-4368-a382-9b74481b5f12" LastKnownName="Изменить почту сотрудника" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b808d3b7-3bb3-408f-8738-a86ff002c793" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c19cefab-78b7-414a-82b0-d6e2b5a4aaa4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b1ec3759-6ccd-4073-8a5b-140171d0012f" name="Изменить почту сотрудника" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4cf87710-8079-410c-b466-b12e6fc9ff1b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a4415be6-0974-4577-bf23-23f29f7df5b8" />
+          </association>
+          <association Id="abc2c1c1-7779-4112-808e-d2df0cc33e4b" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Добавить связь " isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fa151650-fdc3-47e8-8933-b33e2ae03df7" LastKnownName="Добавить связь " />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb5c2a68-83cd-4793-a7fa-e73750c76400" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4289466c-33e5-4a5c-a64e-ed9606ea48a3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="95ddb5b7-fc89-4be3-956e-409a67393428" name="Добавить связь " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fd0fca41-68b1-44d5-8fae-ba5a18ffda6b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7cf4f417-4820-4e84-ad4e-95de973c58ff" />
+          </association>
+          <association Id="34d2ec17-d600-40fa-b53d-63d96e9d1f72" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Удалить связь" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9cfe700e-d24d-415c-b14d-eb38ef9efb10" LastKnownName="Удалить связь" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3bca3b05-31f0-4cb3-bc2d-a62b93cca605" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6625b8fe-8d08-4ca1-8c5a-133ff28b0aa7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5bc22fd-7d13-4a4b-97e3-3b620cf29808" name="Удалить связь" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c4e04ee4-a3cd-41ac-bb3b-8e0ee1b9fa20" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1766b934-291e-4786-8511-a16375cf6cb6" />
+          </association>
+          <association Id="9b91c9be-17ce-4fb3-b996-cffc987be259" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Удалить научную работу" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2f5f3fdd-27a1-4573-a112-73f8c09e9e15" LastKnownName="Удалить научную работу" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7e9eef67-5a5d-4423-b5ff-04aaf5ba6156" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="21b07b9e-366e-4505-928d-3f443c20fb5d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b896fbc-3ba3-4649-920c-63772c5478d8" name="Удалить научную работу" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cf69d40c-3510-417a-95d4-762a1432e36c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="66c66ac8-6009-45f5-8aee-9166fd4b34b8" />
+          </association>
+          <association Id="54cff877-49f6-43cd-a4df-0675a739306e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Удалить научного сотрудника" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="5ac33dac-8bdb-432b-af72-a78da7dbcc3a" LastKnownName="Удалить научного сотрудника" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d2c1e16f-d53f-47f8-b2a8-9f7e547bd712" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7f36813a-bf01-48a8-b007-a081086acf96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3ba491ad-41e6-4dde-bb67-62f0ed06d3c3" name="Удалить научного сотрудника" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7a129f83-9830-4e91-9ddc-d1a3ffb475de" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="66a15973-b70d-46a7-b1b2-2870ad7b58af" />
+          </association>
+          <association Id="058d617c-bd7c-4c55-ae5c-fa92aef34a0e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить организацию сотрудника" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="76a24cd6-1980-4578-9d23-16711eb2737f" LastKnownName="Изменить организацию сотрудника" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a5cf3a40-1f3e-4f03-8433-4edda3ad2626" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c642df41-ff5c-4a73-b3d3-66cc3ff70960" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c0ea827d-13f7-419d-993f-de06227ccd13" name="Изменить организацию сотрудника" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0b22ef1d-d903-474e-aef6-bfb81ef8a93b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a0d07793-cd09-45f7-9124-d1e15d44ee7e" />
+          </association>
+          <association Id="3909865a-08db-4ecb-9706-386a26792f10" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести все работы по заданной теме" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3dc760db-51b6-4303-88cc-8e01ce059f57" LastKnownName="Вывести все работы по заданной теме" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="84bd5ddb-3357-40bf-9bf1-c1caeac411db" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1772853d-3d74-4aee-a01b-b09c32bbef9f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b4e8c3c8-1075-4f06-ad44-fbfc9f817f3f" name="Вывести все работы по заданной теме" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="495c221a-d287-40dc-92e6-fec579183e8e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="63292c77-f3cc-4ca5-9af4-0102589e8549" />
+          </association>
+          <association Id="a41684fc-cd34-4e54-b085-9fa2ba933f60" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести все работы заданного автора" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2e9bcd38-1b0a-4176-a390-291ff4fd529f" LastKnownName="Вывести все работы заданного автора" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6e9a5b63-6cb3-4dc1-bf0e-d79e73d7fcfd" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="efc93f55-e347-4f79-8c70-b10d911ce489" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49f9b98a-34b2-44fe-929a-b212cf288835" name="Вывести все работы заданного автора" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f190d786-2bd2-45e9-96c4-22a6d546ec8c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="040cf595-17f9-4ca3-b96c-6986f08558d3" />
+          </association>
+          <association Id="199fe469-b0c9-4cc4-86ca-a0e4bc41accc" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести всех рецензентов заданной статьи" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="30077b14-84a5-44bb-b44d-3e4587d311cc" LastKnownName="Вывести всех рецензентов заданной статьи" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bf399850-a768-4706-ae57-473b5654a43a" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="874082dc-29df-4140-90d4-d3a9ae95dfec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ca315111-208a-4a47-9501-2522c8221b6c" name="Вывести всех рецензентов заданной статьи" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b10527ab-25ec-4b48-8019-cb1d385b6c82" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="83e28d86-20df-4cca-a586-7e9599dfd5ed" />
+          </association>
+          <association Id="fb99fcba-5fb8-42d4-8d26-5146514b360a" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести всех научных сотрудников из заданной организации" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2c2d515d-cf8e-411b-a584-0b9fab9f9ead" LastKnownName="Вывести всех научных сотрудников из заданной организации" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2fe3bf44-96da-4e02-9687-3e17bcb6493f" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d77ff7c7-db5c-4575-9a79-39cd75b49522" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ff0e0335-3e99-4919-af5e-604501b516e4" name="Вывести всех научных сотрудников из заданной организации" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="47820ae0-9ad9-4d59-a624-03d7393114db" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aa9b89e3-93a4-415a-93a9-579c9c26efae" />
+          </association>
+          <association Id="e8aa4a78-c186-49cb-9034-9dd206e26c39" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести все работы, опубликованные в заданном журнале" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="712dd9b8-dbec-4a22-8ed9-8a374f70fea5" LastKnownName="Вывести все работы, опубликованные в заданном журнале" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="90ae2878-fce5-401c-a90d-ce52931e5f6d" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="79a88ecf-716d-4842-9da5-d9c91f033000" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3e3896ca-de5a-42d7-954f-c3a990376eef" name="Вывести все работы, опубликованные в заданном журнале" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="befd7a58-e7eb-4a5f-85dc-38319aef66a8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9db5f415-76ea-4014-a787-75fcae2769a8" />
+          </association>
+          <association Id="23f597ec-1836-4ce1-9c1c-01e5cbf5d4ab" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Изменить комментарий" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a4b0b61a-61e5-4dd3-b86e-b27c4ba7c5d1" LastKnownName="Изменить комментарий" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8896dda8-8066-422b-a1ba-af8c95b25706" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c2d3a8b6-20e6-4d8f-91b5-dae4e3deabc2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d1b353fa-8b5a-449c-8503-ec9e57e91591" name="Изменить комментарий" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f632c53a-0c68-458d-be7a-695fd8cd4527" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4e3832dd-fb50-431a-8d26-018837c6f52a" />
+          </association>
+          <association Id="d311db5e-b34a-4018-bc4d-8eae1f9343fe" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Вывести авторов по убыванию индекса цитируемости" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c38511c2-8987-4772-b339-1c2100eb2a35" LastKnownName="Вывести авторов по убыванию индекса цитируемости" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e1ae2cbc-5062-457b-a839-f270a7d268dc" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f45f1e7e-face-453d-baea-0fd486f8ba17" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9a76f56e-d34d-44e2-805c-30c3dcc8b093" name="Вывести авторов по убыванию индекса цитируемости" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a703f6be-f81f-4032-bf10-032865ba9990" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="27a25d46-1a98-46b3-a3ba-65321bf1ee43" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="40929d40-2a41-4113-80c2-366580b545bb" name="Добавить организацию" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2b54ede5-42c7-40fe-8692-a672b0ab2408" />
+        <additions>
+          <include Id="ebbd5b29-ab4a-459a-913b-a5f43eb1ab6c">
+            <useCaseMoniker Id="bdc49aea-acfe-4e60-9eed-700d8b2facf4" LastKnownName="Указать название" />
+            <elementDefinition Id="f48da42f-aa57-4251-98fd-03e6d4f9fb75" />
+          </include>
+          <include Id="0cafdc7d-95ee-4ddb-9f51-424b0b00f453">
+            <useCaseMoniker Id="5907b79a-cdb5-4aeb-9f56-94e7dd2a9802" LastKnownName="Указать страну" />
+            <elementDefinition Id="282b5368-268d-4089-9b95-8347b696e4cf" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bdc49aea-acfe-4e60-9eed-700d8b2facf4" name="Указать название" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="12a521e0-d735-469c-a38d-74aa356d0ae3" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5907b79a-cdb5-4aeb-9f56-94e7dd2a9802" name="Указать страну" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="75b63c49-e388-4bbb-b918-9d73404a6b52" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cd8a589c-de06-430e-8ee3-4695ed4f41e0" name="Указать сайт" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6ab4194b-cbfc-4003-8eb6-90cb8c98ee8f" />
+        <extendedCases>
+          <extend Id="f659b90a-06c6-41d9-92af-5ec6d1ecc986">
+            <useCaseMoniker Id="40929d40-2a41-4113-80c2-366580b545bb" LastKnownName="Добавить организацию" />
+            <elementDefinition Id="f7a4ed70-db91-435b-9545-96066bc2d3aa" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2f848222-bf3e-42b9-a4ce-b6d6be7aa812" name="Удалить организацию" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7a489a1b-809d-436a-873b-a2e673e6671f" />
+        <additions>
+          <include Id="293636bf-4292-405b-8cd0-2e090dcdcfb6">
+            <useCaseMoniker Id="c0091180-7c0a-4c92-a286-50213ec82b66" LastKnownName="Проверить наличие научных сотрудников, принадлежащих организации" />
+            <elementDefinition Id="24ecfb6a-321e-4e04-b47b-e2f374b76ffb" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c0091180-7c0a-4c92-a286-50213ec82b66" name="Проверить наличие научных сотрудников, принадлежащих организации" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="02aaab63-d3da-481c-bdce-9a7bf61b7de6" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f801058-7e3f-42f4-9294-5773a8567e85" name="Изменить сайт организации" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2f181669-787b-4dad-b38d-3de8033787fd" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="335d9e22-49d9-46bb-a3de-54bd1e8bdb97" name="Добавить журнал" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2e5ab872-aacb-4efc-9c10-35a4feecfe7b" />
+        <additions>
+          <include Id="d9dc994e-3dd9-465a-98ad-02200d30b754">
+            <useCaseMoniker Id="18864d44-463a-48f4-ac55-677816c5f68b" LastKnownName="Выбрать тему из списка" />
+            <elementDefinition Id="57af38eb-4280-4d96-bbe9-4ab4f2a0a92c" />
+          </include>
+          <include Id="41d4e905-6a85-4b44-a39f-99a185863d5d">
+            <useCaseMoniker Id="0dbc81e1-6aeb-4e18-bc87-7889c9a2fe44" LastKnownName="Указать название" />
+            <elementDefinition Id="c0f66620-9f3d-476c-a2d1-6ff9813e3d0f" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="18864d44-463a-48f4-ac55-677816c5f68b" name="Выбрать тему из списка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e78145b7-b80a-4dfe-9f32-da7f639613c3" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0dbc81e1-6aeb-4e18-bc87-7889c9a2fe44" name="Указать название" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3676f1a8-b16b-4abe-97f7-442ff3a55cc9" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a80d310c-2f6d-4d25-9747-f4218ebd342a" name="Указать издателя" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="007e8380-204d-4f62-acaa-5d0113058719" />
+        <extendedCases>
+          <extend Id="b8dd8f57-af88-4f7c-aac1-f3ff1c7f7386">
+            <useCaseMoniker Id="335d9e22-49d9-46bb-a3de-54bd1e8bdb97" LastKnownName="Добавить журнал" />
+            <elementDefinition Id="57270596-1f33-4ee3-9cf5-fc1278eb1ab7" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ffeb584d-946b-4944-b197-322b3c17d4bf" name="Указать импакт- фактор" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="83c995e1-4d65-45f6-ae83-3fdfad9f42dc" />
+        <extendedCases>
+          <extend Id="4f6b2b04-3bbf-464b-845b-93fbec0d9e73">
+            <useCaseMoniker Id="335d9e22-49d9-46bb-a3de-54bd1e8bdb97" LastKnownName="Добавить журнал" />
+            <elementDefinition Id="c00a4757-b9a0-4878-976a-29049b1a5be2" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="939d28eb-475c-4ace-8b1d-42957381162e" name="Удалить журнал" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7e4fc049-85ee-49c4-91be-7add24d9af74" />
+        <additions>
+          <include Id="88a8fdbf-6d4d-434d-aa6f-fc0226dc09b7">
+            <useCaseMoniker Id="91b9661e-aeed-4e40-9584-4559caa3f6aa" LastKnownName="Проверить наличие научных работ, опубликованных в журнале" />
+            <elementDefinition Id="1d31a539-d4b6-4f65-842f-b02d8cce2dc9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="91b9661e-aeed-4e40-9584-4559caa3f6aa" name="Проверить наличие научных работ, опубликованных в журнале" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="749ffcb7-4d15-43cc-ba2f-af15e68361ad" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fa30ce26-31de-4c89-9ecf-ca378d149deb" name="Изменить импакт-фактор журнала" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="410b40b0-aea7-4629-b2a8-28149a526cfc" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="25deed83-de7e-4cc2-a355-2f990e667583" name="Добавить новый язык" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="45829e75-145c-41a3-aff3-9521391674cc" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9594754c-a77b-4f64-b84a-abc26725e4f2" name="Добавить новую тему" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f0bcd5e7-5b14-4632-a160-f124db905f37" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5537343d-d0ca-48ed-9ccc-882d3d9538a2" name="Добавить научную работу" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="43f5aac0-cbc1-42f4-beab-4033e87b9996" />
+        <additions>
+          <include Id="a9119aba-f3e7-443a-a8cb-45d716635846">
+            <useCaseMoniker Id="d4f4a3c6-67c1-45c0-8a67-b9bc291e4c12" LastKnownName="Выбрать язык из списка" />
+            <elementDefinition Id="4f0d95b1-35cc-417e-937a-e4eec57be66f" />
+          </include>
+          <include Id="e1d03ce0-36a5-49fc-b2e2-d27a29476ada">
+            <useCaseMoniker Id="c6bba75a-da0e-4ffa-a7dd-810d6bc4ea4c" LastKnownName="Выбрать тему из списка" />
+            <elementDefinition Id="7ba201e7-61ce-4c22-a041-9c8605d590a5" />
+          </include>
+          <include Id="f6a91c45-eb2b-4494-b420-bdcf5699e16b">
+            <useCaseMoniker Id="42d7895f-c9a1-4ad2-939b-3b0f98978b47" LastKnownName="Указать название" />
+            <elementDefinition Id="a4d7c24a-ae2c-421f-81b3-1549a69dcf3f" />
+          </include>
+          <include Id="b3849221-7786-4ebb-aec8-94b785417cb8">
+            <useCaseMoniker Id="5f592892-6820-457c-9774-bb1d880a482e" LastKnownName="Указать дату" />
+            <elementDefinition Id="f3121a14-478d-42e3-87b6-0b9e765dfb5c" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" name="Добавить научного сотрудника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="27aeb804-d36d-45d8-a0ba-78d449dc2c4b" />
+        <additions>
+          <include Id="2caa1f8a-420e-447a-9140-6195d63e9148">
+            <useCaseMoniker Id="30e25cee-9f28-4703-a923-3092c9e78949" LastKnownName="Указать имя" />
+            <elementDefinition Id="360c578a-4c52-421c-bca0-cb4a610da791" />
+          </include>
+          <include Id="84a751f7-f053-469c-9b2d-21e43efe4f9f">
+            <useCaseMoniker Id="2e5e5414-d983-4a19-a6c2-8064253c83b1" LastKnownName="Указать фамилию" />
+            <elementDefinition Id="792a9f76-35e2-4240-9e29-8e54e79bcca6" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fa151650-fdc3-47e8-8933-b33e2ae03df7" name="Добавить связь " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a2e72712-d53d-4a27-b72d-658ebe72a1b0" />
+        <additions>
+          <include Id="583ddb79-fbd6-4102-8e7a-3f5c493175f7">
+            <useCaseMoniker Id="69c0b441-8a26-4808-a0a6-7a8e4ec3e499" LastKnownName="Выбрать научного сотрудника" />
+            <elementDefinition Id="45cb27ed-0ae4-4e0f-bc63-c0572e4e0529" />
+          </include>
+          <include Id="7c529ac5-e01d-4133-a80f-2cc8c51c7167">
+            <useCaseMoniker Id="bb3fa0dc-21c3-4e0b-b073-1de624ff7b25" LastKnownName="Выбрать научную работу" />
+            <elementDefinition Id="5c34deb9-137b-4cff-91fb-230b5f958605" />
+          </include>
+          <include Id="9ffc441a-77d7-468d-a0c3-d5a3b74de932">
+            <useCaseMoniker Id="84d908ed-3961-4069-a3ff-763d584b2fd6" LastKnownName="Указать роль научного работника" />
+            <elementDefinition Id="c17bc219-29f8-496f-adb7-80b650946daf" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9cfe700e-d24d-415c-b14d-eb38ef9efb10" name="Удалить связь" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e6d3e84b-e06d-4242-ba39-22ae8849eb3d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5ac33dac-8bdb-432b-af72-a78da7dbcc3a" name="Удалить научного сотрудника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="88b7ed32-f00e-48fd-9943-6f719fe2d7b1" />
+        <additions>
+          <include Id="7f5eb2b8-8cf2-4576-ac31-e7d3c9ca3b46">
+            <useCaseMoniker Id="02176fc2-8819-48af-87ae-7579fa3f78f5" LastKnownName="Удалить все связи с научным сотрудником" />
+            <elementDefinition Id="0f50d9a0-37c9-4245-a75a-37c1bda5a0e9" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2f5f3fdd-27a1-4573-a112-73f8c09e9e15" name="Удалить научную работу" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f91a1dca-7dbc-4813-9b19-95322ca7bdca" />
+        <additions>
+          <include Id="b59409b8-af69-4632-8270-a2543093c67c">
+            <useCaseMoniker Id="5dc3cb30-faa8-4831-9224-932e5a97bac2" LastKnownName="Удалить все связи с заданной научной работой" />
+            <elementDefinition Id="f23f77b9-c369-47a6-9105-b60105f04a40" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="76a24cd6-1980-4578-9d23-16711eb2737f" name="Изменить организацию сотрудника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e4fd4fd0-aa2b-4ff1-8b1d-ca621ee580c5" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7a6d6ce2-da7e-4368-a382-9b74481b5f12" name="Изменить почту сотрудника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="342b91a5-a2f3-4857-8604-59554fda605b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="988c34f3-8fb2-4ee9-abe3-e9d00f29955b" name="Изменить индекс цитируемости" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ceae0f29-a7ae-47a2-80bb-4187bfb84e9e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c38511c2-8987-4772-b339-1c2100eb2a35" name="Вывести авторов по убыванию индекса цитируемости" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="75d07b29-ad6f-4b08-ada2-8c9d90370e38" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3dc760db-51b6-4303-88cc-8e01ce059f57" name="Вывести все работы по заданной теме" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1a0c1c13-95c2-4c0f-b118-5c5019d76146" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2e9bcd38-1b0a-4176-a390-291ff4fd529f" name="Вывести все работы заданного автора" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c32ddf7f-4e08-4b8f-8325-1b80cea5cdb1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="712dd9b8-dbec-4a22-8ed9-8a374f70fea5" name="Вывести все работы, опубликованные в заданном журнале" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7b7d0f92-19fb-4cfb-95ca-e91a8e910051" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2c2d515d-cf8e-411b-a584-0b9fab9f9ead" name="Вывести всех научных сотрудников из заданной организации" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b010e90b-4068-4096-9986-dcc4b4a29621" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="30077b14-84a5-44bb-b44d-3e4587d311cc" name="Вывести всех рецензентов заданной статьи" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="34b9b810-7858-448b-a8d4-87186cdb6bed" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="30e25cee-9f28-4703-a923-3092c9e78949" name="Указать имя" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f9d22b6a-5f2e-4e23-aeb4-1cd454836e98" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2e5e5414-d983-4a19-a6c2-8064253c83b1" name="Указать фамилию" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a40cf74d-8dda-4ed3-8989-c1326fcfd18b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="087e36a3-2ebf-4c30-a9cd-0d3e2e4df312" name="Выбрать организацию из списка существующих" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7630a087-5964-47e3-8f63-1d9c2c8e8f35" />
+        <extendedCases>
+          <extend Id="43315e39-e81d-4da2-a177-3041e345dabb">
+            <useCaseMoniker Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" LastKnownName="Добавить научного сотрудника" />
+            <elementDefinition Id="a40b219f-25bb-457d-b85e-dc3194afd3af" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9d5a12ce-4442-4aec-993c-47e08731e024" name="Указать почту" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="65371652-f829-4449-ad02-72adf6741c72" />
+        <extendedCases>
+          <extend Id="b0f48e8e-75dc-448b-9f5d-38ced7701fb3">
+            <useCaseMoniker Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" LastKnownName="Добавить научного сотрудника" />
+            <elementDefinition Id="76138be9-3f02-41db-a9b0-2752d0a02c16" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8df4d5bb-d531-4bf1-a020-8c375d9ca529" name="Указать индекс цитируемости" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7a458acf-9c74-448a-980d-b73d43a1ce3b" />
+        <extendedCases>
+          <extend Id="65c99a0d-bfee-4128-b054-2bb0f4fccc23">
+            <useCaseMoniker Id="74e8f2ec-7d0b-48f1-99eb-386c6560aa39" LastKnownName="Добавить научного сотрудника" />
+            <elementDefinition Id="30b1f696-0027-4997-b9cf-b9f8a2aa755a" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d4f4a3c6-67c1-45c0-8a67-b9bc291e4c12" name="Выбрать язык из списка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="63abd7ce-5511-470e-9047-226f73c52ac5" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="33d8d91c-26b5-4999-9d1a-59cfa9766d9e" name="Выбрать журнал из списка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dd02a7eb-7458-405d-b4fb-d9097dce7f7a" />
+        <extendedCases>
+          <extend Id="e8407cd7-3626-4e49-80d9-d318517dab79">
+            <useCaseMoniker Id="5537343d-d0ca-48ed-9ccc-882d3d9538a2" LastKnownName="Добавить научную работу" />
+            <elementDefinition Id="7cd3ef98-0f99-481d-9b54-cdf4ec074ef1" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="64c0f6f4-f954-431f-86f0-4ebd691bc506" name="Указать UDC" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7e0af69-555a-40a8-928f-333ea8004c60" />
+        <extendedCases>
+          <extend Id="8ba1aae1-9fc3-44f3-a7c1-ef5cd06658b3">
+            <useCaseMoniker Id="5537343d-d0ca-48ed-9ccc-882d3d9538a2" LastKnownName="Добавить научную работу" />
+            <elementDefinition Id="2cf06c70-8e2e-4604-b0e6-3370c9cdbfd2" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c6bba75a-da0e-4ffa-a7dd-810d6bc4ea4c" name="Выбрать тему из списка" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a79a220e-8651-4f52-a850-898d1517800f" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="42d7895f-c9a1-4ad2-939b-3b0f98978b47" name="Указать название" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="13aa3dbd-6652-49b5-b803-c6eaa593339a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5f592892-6820-457c-9774-bb1d880a482e" name="Указать дату" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3cfef0df-2e18-4a88-a6b3-151d3613e5aa" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="db481abd-97b4-4d72-a3a4-d40f1102d85e" name="Изменить аннотацию" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="04a70a11-b2a9-4ac0-83a6-63d268a71001" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="69c0b441-8a26-4808-a0a6-7a8e4ec3e499" name="Выбрать научного сотрудника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cec0bea6-8439-4887-9deb-1bd49c1a37f1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bb3fa0dc-21c3-4e0b-b073-1de624ff7b25" name="Выбрать научную работу" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5f18f4c6-b6ac-4034-9c03-2148bf0c3b04" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="84d908ed-3961-4069-a3ff-763d584b2fd6" name="Указать роль научного работника" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ccbcdc8d-a3f6-406f-a901-5c7e7bc599eb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1f592ade-b21e-41bb-a7fc-e14138a7fb13" name="Указать комментарий" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c1fbfe6c-116f-4edf-a555-f30695e47d43" />
+        <extendedCases>
+          <extend Id="54cf06a7-dc08-4621-9dc1-e7383978b04e">
+            <useCaseMoniker Id="fa151650-fdc3-47e8-8933-b33e2ae03df7" LastKnownName="Добавить связь " />
+            <elementDefinition Id="9ce0ff49-7149-4c48-ac87-64ff2bb01e83" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a4b0b61a-61e5-4dd3-b86e-b27c4ba7c5d1" name="Изменить комментарий" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ec279b66-c971-4ed7-bd54-0b43c45c84c6" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5dc3cb30-faa8-4831-9224-932e5a97bac2" name="Удалить все связи с заданной научной работой" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6e63a9b1-0b92-4f2e-b953-95d53314eb5c" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="02176fc2-8819-48af-87ae-7579fa3f78f5" name="Удалить все связи с научным сотрудником" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f9ba495a-b122-4a58-a16e-a00ba6e4989a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="27f70a6a-4469-4def-8fcd-489930dc4ef6" name="ModelingProject1">
+    <elementDefinition Id="1d0ee9fc-7a16-4907-a2df-bdb1e8b10302" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4c336e83-b574-4083-9652-504904ee5740">
+        <profileInstance Id="1c634f98-bd24-480f-be18-c07b6b1b4790" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="33c4783f-d6c1-4dcb-a37c-4fe57fadc262">
+        <profileInstance Id="a51995ed-87d7-4915-8bbb-3f758a36b86e" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>
