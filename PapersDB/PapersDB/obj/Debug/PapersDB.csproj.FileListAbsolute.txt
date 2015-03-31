@@ -1,0 +1,7 @@
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\bin\Debug\PapersDB.exe.config
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\bin\Debug\PapersDB.exe
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\bin\Debug\PapersDB.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.Properties.Resources.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.csproj.GenerateResource.Cache
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.exe
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.pdb

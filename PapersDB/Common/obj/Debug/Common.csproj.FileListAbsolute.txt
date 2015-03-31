@@ -1,0 +1,6 @@
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\Common.dll.config
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\Common.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\Common.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

@@ -1,0 +1,9 @@
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\obj\Debug\AccessToPapers.csprojResolveAssemblyReference.cache
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\AccessToPapers.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\AccessToPapers.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Common.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Provider.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Common.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Provider.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\obj\Debug\AccessToPapers.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\obj\Debug\AccessToPapers.pdb
