@@ -12,6 +12,7 @@ namespace AccessToPapers
     {
         public List<Country> GetAllCountries()
         {
+            PapersDataSet = provider.GetAllData(TargetData, DataType);
             DataRowCollection searchedRow = PapersDataSet.Countries.Rows;
             List<Country> countries = new List<Country>();
 
@@ -27,7 +28,7 @@ namespace AccessToPapers
         }
         public bool addCountry(Country country)
         {
-            if (!isInDB(country.ID))
+            if (!isCountryInDB(country.Name))
             {
                 PapersDataSet.Countries.AddCountriesRow(country.Name);
                 provider.UpdateAllData();
@@ -37,7 +38,7 @@ namespace AccessToPapers
         }
         public bool deleteCountry(int ID)
         {
-            if (isInDB(ID)) 
+            if (isCountryInDB(ID)) 
             {
                 DataRow[] countryRow = PapersDataSet.Countries.Select("[country_id] = '" + ID.ToString() + "'");
                 countryRow[0].Delete();
@@ -46,14 +47,27 @@ namespace AccessToPapers
             };
             return false;
         }
-        bool isInDB(int ID)
+        public bool modifyCountry(Country country)
+        {
+            if (isCountryInDB(country.ID))
+            {
+                BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
+                    PapersDataSet.Countries.Select("[country_id] = '" + country.ID.ToString() + "'");
+                countryRow[0].country_name = country.Name;
+                provider.UpdateAllData();
+                return true;
+            };
+            return false;
+        }
+        bool isCountryInDB(string name)
+        {
+            DataRow[] countryRow = PapersDataSet.Countries.Select("[country_name] = '" + name.ToString() + "'");
+            return countryRow != null && countryRow.Length > 0;
+        }
+        bool isCountryInDB(int ID)
         {
             DataRow[] countryRow = PapersDataSet.Countries.Select("[country_id] = '" + ID.ToString() + "'");
             return countryRow != null && countryRow.Length > 0;
-        }
-        public void updateCountry(int ID, string name)
-        {
-
         }
     }
 }
