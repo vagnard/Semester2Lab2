@@ -28,8 +28,6 @@ namespace Common {
         
         private CountriesDataTable tableCountries;
         
-        private JournalsDataTable tableJournals;
-        
         private LanguagesDataTable tableLanguages;
         
         private OrganisationsDataTable tableOrganisations;
@@ -46,15 +44,9 @@ namespace Common {
         
         private global::System.Data.DataRelation _relationFK_Auths_papers_Scientists;
         
-        private global::System.Data.DataRelation relationFK_Journals_Subjects;
-        
         private global::System.Data.DataRelation relationFK_Organisations_Countries;
         
-        private global::System.Data.DataRelation relationFK_Papers_Journals;
-        
         private global::System.Data.DataRelation relationFK_Papers_Languages;
-        
-        private global::System.Data.DataRelation relationFK_Papers_Subjects;
         
         private global::System.Data.DataRelation _relationFK_Reviewers_papers_Papers;
         
@@ -95,9 +87,6 @@ namespace Common {
                 }
                 if ((ds.Tables["Countries"] != null)) {
                     base.Tables.Add(new CountriesDataTable(ds.Tables["Countries"]));
-                }
-                if ((ds.Tables["Journals"] != null)) {
-                    base.Tables.Add(new JournalsDataTable(ds.Tables["Journals"]));
                 }
                 if ((ds.Tables["Languages"] != null)) {
                     base.Tables.Add(new LanguagesDataTable(ds.Tables["Languages"]));
@@ -152,16 +141,6 @@ namespace Common {
         public CountriesDataTable Countries {
             get {
                 return this.tableCountries;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public JournalsDataTable Journals {
-            get {
-                return this.tableJournals;
             }
         }
         
@@ -298,9 +277,6 @@ namespace Common {
                 if ((ds.Tables["Countries"] != null)) {
                     base.Tables.Add(new CountriesDataTable(ds.Tables["Countries"]));
                 }
-                if ((ds.Tables["Journals"] != null)) {
-                    base.Tables.Add(new JournalsDataTable(ds.Tables["Journals"]));
-                }
                 if ((ds.Tables["Languages"] != null)) {
                     base.Tables.Add(new LanguagesDataTable(ds.Tables["Languages"]));
                 }
@@ -364,12 +340,6 @@ namespace Common {
                     this.tableCountries.InitVars();
                 }
             }
-            this.tableJournals = ((JournalsDataTable)(base.Tables["Journals"]));
-            if ((initTable == true)) {
-                if ((this.tableJournals != null)) {
-                    this.tableJournals.InitVars();
-                }
-            }
             this.tableLanguages = ((LanguagesDataTable)(base.Tables["Languages"]));
             if ((initTable == true)) {
                 if ((this.tableLanguages != null)) {
@@ -408,11 +378,8 @@ namespace Common {
             }
             this._relationFK_Auths_papers_Papers = this.Relations["FK_Auths-papers_Papers"];
             this._relationFK_Auths_papers_Scientists = this.Relations["FK_Auths-papers_Scientists"];
-            this.relationFK_Journals_Subjects = this.Relations["FK_Journals_Subjects"];
             this.relationFK_Organisations_Countries = this.Relations["FK_Organisations_Countries"];
-            this.relationFK_Papers_Journals = this.Relations["FK_Papers_Journals"];
             this.relationFK_Papers_Languages = this.Relations["FK_Papers_Languages"];
-            this.relationFK_Papers_Subjects = this.Relations["FK_Papers_Subjects"];
             this._relationFK_Reviewers_papers_Papers = this.Relations["FK_Reviewers-papers_Papers"];
             this._relationFK_Reviewers_papers_Scientists = this.Relations["FK_Reviewers-papers_Scientists"];
             this.relationFK_Scientists_Organisations = this.Relations["FK_Scientists_Organisations"];
@@ -430,8 +397,6 @@ namespace Common {
             base.Tables.Add(this.tableAuths_papers);
             this.tableCountries = new CountriesDataTable();
             base.Tables.Add(this.tableCountries);
-            this.tableJournals = new JournalsDataTable();
-            base.Tables.Add(this.tableJournals);
             this.tableLanguages = new LanguagesDataTable();
             base.Tables.Add(this.tableLanguages);
             this.tableOrganisations = new OrganisationsDataTable();
@@ -452,26 +417,14 @@ namespace Common {
                         this.tableScientists.s_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableAuths_papers.s_idColumn}, false);
             this.Relations.Add(this._relationFK_Auths_papers_Scientists);
-            this.relationFK_Journals_Subjects = new global::System.Data.DataRelation("FK_Journals_Subjects", new global::System.Data.DataColumn[] {
-                        this.tableSubjects.subj_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableJournals.subj_idColumn}, false);
-            this.Relations.Add(this.relationFK_Journals_Subjects);
             this.relationFK_Organisations_Countries = new global::System.Data.DataRelation("FK_Organisations_Countries", new global::System.Data.DataColumn[] {
                         this.tableCountries.country_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableOrganisations.org_countryColumn}, false);
             this.Relations.Add(this.relationFK_Organisations_Countries);
-            this.relationFK_Papers_Journals = new global::System.Data.DataRelation("FK_Papers_Journals", new global::System.Data.DataColumn[] {
-                        this.tableJournals.journal_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePapers.journal_idColumn}, false);
-            this.Relations.Add(this.relationFK_Papers_Journals);
             this.relationFK_Papers_Languages = new global::System.Data.DataRelation("FK_Papers_Languages", new global::System.Data.DataColumn[] {
                         this.tableLanguages.language_idColumn}, new global::System.Data.DataColumn[] {
                         this.tablePapers.language_idColumn}, false);
             this.Relations.Add(this.relationFK_Papers_Languages);
-            this.relationFK_Papers_Subjects = new global::System.Data.DataRelation("FK_Papers_Subjects", new global::System.Data.DataColumn[] {
-                        this.tableSubjects.subj_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablePapers.subj_idColumn}, false);
-            this.Relations.Add(this.relationFK_Papers_Subjects);
             this._relationFK_Reviewers_papers_Papers = new global::System.Data.DataRelation("FK_Reviewers-papers_Papers", new global::System.Data.DataColumn[] {
                         this.tablePapers.p_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableReviewers_papers.p_idColumn}, false);
@@ -495,12 +448,6 @@ namespace Common {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCountries() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeJournals() {
             return false;
         }
         
@@ -600,9 +547,6 @@ namespace Common {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void CountriesRowChangeEventHandler(object sender, CountriesRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void JournalsRowChangeEventHandler(object sender, JournalsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void LanguagesRowChangeEventHandler(object sender, LanguagesRowChangeEvent e);
@@ -1158,331 +1102,6 @@ namespace Common {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "CountriesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class JournalsDataTable : global::System.Data.TypedTableBase<JournalsRow> {
-            
-            private global::System.Data.DataColumn columnjournal_id;
-            
-            private global::System.Data.DataColumn columnjournal_impact_factor;
-            
-            private global::System.Data.DataColumn columnjournal_name;
-            
-            private global::System.Data.DataColumn columnjournal_publisher;
-            
-            private global::System.Data.DataColumn columnsubj_id;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsDataTable() {
-                this.TableName = "Journals";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal JournalsDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected JournalsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn journal_idColumn {
-                get {
-                    return this.columnjournal_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn journal_impact_factorColumn {
-                get {
-                    return this.columnjournal_impact_factor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn journal_nameColumn {
-                get {
-                    return this.columnjournal_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn journal_publisherColumn {
-                get {
-                    return this.columnjournal_publisher;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn subj_idColumn {
-                get {
-                    return this.columnsubj_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow this[int index] {
-                get {
-                    return ((JournalsRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event JournalsRowChangeEventHandler JournalsRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event JournalsRowChangeEventHandler JournalsRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event JournalsRowChangeEventHandler JournalsRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event JournalsRowChangeEventHandler JournalsRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddJournalsRow(JournalsRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow AddJournalsRow(double journal_impact_factor, string journal_name, string journal_publisher, SubjectsRow parentSubjectsRowByFK_Journals_Subjects) {
-                JournalsRow rowJournalsRow = ((JournalsRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        journal_impact_factor,
-                        journal_name,
-                        journal_publisher,
-                        null};
-                if ((parentSubjectsRowByFK_Journals_Subjects != null)) {
-                    columnValuesArray[4] = parentSubjectsRowByFK_Journals_Subjects[0];
-                }
-                rowJournalsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowJournalsRow);
-                return rowJournalsRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow FindByjournal_id(int journal_id) {
-                return ((JournalsRow)(this.Rows.Find(new object[] {
-                            journal_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                JournalsDataTable cln = ((JournalsDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new JournalsDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnjournal_id = base.Columns["journal_id"];
-                this.columnjournal_impact_factor = base.Columns["journal_impact_factor"];
-                this.columnjournal_name = base.Columns["journal_name"];
-                this.columnjournal_publisher = base.Columns["journal_publisher"];
-                this.columnsubj_id = base.Columns["subj_id"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnjournal_id = new global::System.Data.DataColumn("journal_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnjournal_id);
-                this.columnjournal_impact_factor = new global::System.Data.DataColumn("journal_impact_factor", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnjournal_impact_factor);
-                this.columnjournal_name = new global::System.Data.DataColumn("journal_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnjournal_name);
-                this.columnjournal_publisher = new global::System.Data.DataColumn("journal_publisher", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnjournal_publisher);
-                this.columnsubj_id = new global::System.Data.DataColumn("subj_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsubj_id);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnjournal_id}, true));
-                this.columnjournal_id.AutoIncrement = true;
-                this.columnjournal_id.AutoIncrementSeed = -1;
-                this.columnjournal_id.AutoIncrementStep = -1;
-                this.columnjournal_id.AllowDBNull = false;
-                this.columnjournal_id.ReadOnly = true;
-                this.columnjournal_id.Unique = true;
-                this.columnjournal_name.AllowDBNull = false;
-                this.columnjournal_name.MaxLength = 50;
-                this.columnjournal_publisher.MaxLength = 50;
-                this.columnsubj_id.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow NewJournalsRow() {
-                return ((JournalsRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new JournalsRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(JournalsRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.JournalsRowChanged != null)) {
-                    this.JournalsRowChanged(this, new JournalsRowChangeEvent(((JournalsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.JournalsRowChanging != null)) {
-                    this.JournalsRowChanging(this, new JournalsRowChangeEvent(((JournalsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.JournalsRowDeleted != null)) {
-                    this.JournalsRowDeleted(this, new JournalsRowChangeEvent(((JournalsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.JournalsRowDeleting != null)) {
-                    this.JournalsRowDeleting(this, new JournalsRowChangeEvent(((JournalsRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveJournalsRow(JournalsRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BasePapersDataSet ds = new BasePapersDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "JournalsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2129,10 +1748,6 @@ namespace Common {
             
             private global::System.Data.DataColumn columnlanguage_id;
             
-            private global::System.Data.DataColumn columnjournal_id;
-            
-            private global::System.Data.DataColumn columnp_udc;
-            
             private global::System.Data.DataColumn columnsubj_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2210,22 +1825,6 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn journal_idColumn {
-                get {
-                    return this.columnjournal_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn p_udcColumn {
-                get {
-                    return this.columnp_udc;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn subj_idColumn {
                 get {
                     return this.columnsubj_id;
@@ -2269,7 +1868,7 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PapersRow AddPapersRow(string p_title, string p_abstract, System.DateTime p_date, LanguagesRow parentLanguagesRowByFK_Papers_Languages, JournalsRow parentJournalsRowByFK_Papers_Journals, string p_udc, SubjectsRow parentSubjectsRowByFK_Papers_Subjects) {
+            public PapersRow AddPapersRow(string p_title, string p_abstract, System.DateTime p_date, LanguagesRow parentLanguagesRowByFK_Papers_Languages, int subj_id) {
                 PapersRow rowPapersRow = ((PapersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2277,17 +1876,9 @@ namespace Common {
                         p_abstract,
                         p_date,
                         null,
-                        null,
-                        p_udc,
-                        null};
+                        subj_id};
                 if ((parentLanguagesRowByFK_Papers_Languages != null)) {
                     columnValuesArray[4] = parentLanguagesRowByFK_Papers_Languages[0];
-                }
-                if ((parentJournalsRowByFK_Papers_Journals != null)) {
-                    columnValuesArray[5] = parentJournalsRowByFK_Papers_Journals[0];
-                }
-                if ((parentSubjectsRowByFK_Papers_Subjects != null)) {
-                    columnValuesArray[7] = parentSubjectsRowByFK_Papers_Subjects[0];
                 }
                 rowPapersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPapersRow);
@@ -2323,8 +1914,6 @@ namespace Common {
                 this.columnp_abstract = base.Columns["p_abstract"];
                 this.columnp_date = base.Columns["p_date"];
                 this.columnlanguage_id = base.Columns["language_id"];
-                this.columnjournal_id = base.Columns["journal_id"];
-                this.columnp_udc = base.Columns["p_udc"];
                 this.columnsubj_id = base.Columns["subj_id"];
             }
             
@@ -2341,10 +1930,6 @@ namespace Common {
                 base.Columns.Add(this.columnp_date);
                 this.columnlanguage_id = new global::System.Data.DataColumn("language_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlanguage_id);
-                this.columnjournal_id = new global::System.Data.DataColumn("journal_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnjournal_id);
-                this.columnp_udc = new global::System.Data.DataColumn("p_udc", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnp_udc);
                 this.columnsubj_id = new global::System.Data.DataColumn("subj_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubj_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2360,8 +1945,6 @@ namespace Common {
                 this.columnp_abstract.MaxLength = 1073741823;
                 this.columnp_date.AllowDBNull = false;
                 this.columnlanguage_id.AllowDBNull = false;
-                this.columnp_udc.AllowDBNull = false;
-                this.columnp_udc.MaxLength = 50;
                 this.columnsubj_id.AllowDBNull = false;
             }
             
@@ -2815,9 +2398,7 @@ namespace Common {
             
             private global::System.Data.DataColumn columnorg_id;
             
-            private global::System.Data.DataColumn columns_first_name;
-            
-            private global::System.Data.DataColumn columns_last_name;
+            private global::System.Data.DataColumn columns_name;
             
             private global::System.Data.DataColumn columns_email;
             
@@ -2880,17 +2461,9 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn s_first_nameColumn {
+            public global::System.Data.DataColumn s_nameColumn {
                 get {
-                    return this.columns_first_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn s_last_nameColumn {
-                get {
-                    return this.columns_last_name;
+                    return this.columns_name;
                 }
             }
             
@@ -2939,14 +2512,13 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ScientistsRow AddScientistsRow(double s_hindex, OrganisationsRow parentOrganisationsRowByFK_Scientists_Organisations, string s_first_name, string s_last_name, string s_email) {
+            public ScientistsRow AddScientistsRow(double s_hindex, OrganisationsRow parentOrganisationsRowByFK_Scientists_Organisations, string s_name, string s_email) {
                 ScientistsRow rowScientistsRow = ((ScientistsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         s_hindex,
                         null,
-                        s_first_name,
-                        s_last_name,
+                        s_name,
                         s_email};
                 if ((parentOrganisationsRowByFK_Scientists_Organisations != null)) {
                     columnValuesArray[2] = parentOrganisationsRowByFK_Scientists_Organisations[0];
@@ -2983,8 +2555,7 @@ namespace Common {
                 this.columns_id = base.Columns["s_id"];
                 this.columns_hindex = base.Columns["s_hindex"];
                 this.columnorg_id = base.Columns["org_id"];
-                this.columns_first_name = base.Columns["s_first_name"];
-                this.columns_last_name = base.Columns["s_last_name"];
+                this.columns_name = base.Columns["s_name"];
                 this.columns_email = base.Columns["s_email"];
             }
             
@@ -2997,10 +2568,8 @@ namespace Common {
                 base.Columns.Add(this.columns_hindex);
                 this.columnorg_id = new global::System.Data.DataColumn("org_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorg_id);
-                this.columns_first_name = new global::System.Data.DataColumn("s_first_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columns_first_name);
-                this.columns_last_name = new global::System.Data.DataColumn("s_last_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columns_last_name);
+                this.columns_name = new global::System.Data.DataColumn("s_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columns_name);
                 this.columns_email = new global::System.Data.DataColumn("s_email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columns_email);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -3011,10 +2580,8 @@ namespace Common {
                 this.columns_id.AllowDBNull = false;
                 this.columns_id.ReadOnly = true;
                 this.columns_id.Unique = true;
-                this.columns_first_name.AllowDBNull = false;
-                this.columns_first_name.MaxLength = 50;
-                this.columns_last_name.AllowDBNull = false;
-                this.columns_last_name.MaxLength = 50;
+                this.columns_name.AllowDBNull = false;
+                this.columns_name.MaxLength = 50;
                 this.columns_email.MaxLength = 50;
             }
             
@@ -3541,132 +3108,6 @@ namespace Common {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class JournalsRow : global::System.Data.DataRow {
-            
-            private JournalsDataTable tableJournals;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal JournalsRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableJournals = ((JournalsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int journal_id {
-                get {
-                    return ((int)(this[this.tableJournals.journal_idColumn]));
-                }
-                set {
-                    this[this.tableJournals.journal_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double journal_impact_factor {
-                get {
-                    try {
-                        return ((double)(this[this.tableJournals.journal_impact_factorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'journal_impact_factor\' в таблице \'Journals\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableJournals.journal_impact_factorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string journal_name {
-                get {
-                    return ((string)(this[this.tableJournals.journal_nameColumn]));
-                }
-                set {
-                    this[this.tableJournals.journal_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string journal_publisher {
-                get {
-                    try {
-                        return ((string)(this[this.tableJournals.journal_publisherColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'journal_publisher\' в таблице \'Journals\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableJournals.journal_publisherColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int subj_id {
-                get {
-                    return ((int)(this[this.tableJournals.subj_idColumn]));
-                }
-                set {
-                    this[this.tableJournals.subj_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SubjectsRow SubjectsRow {
-                get {
-                    return ((SubjectsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Journals_Subjects"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Journals_Subjects"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isjournal_impact_factorNull() {
-                return this.IsNull(this.tableJournals.journal_impact_factorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setjournal_impact_factorNull() {
-                this[this.tableJournals.journal_impact_factorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isjournal_publisherNull() {
-                return this.IsNull(this.tableJournals.journal_publisherColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setjournal_publisherNull() {
-                this[this.tableJournals.journal_publisherColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PapersRow[] GetPapersRows() {
-                if ((this.Table.ChildRelations["FK_Papers_Journals"] == null)) {
-                    return new PapersRow[0];
-                }
-                else {
-                    return ((PapersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Papers_Journals"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class LanguagesRow : global::System.Data.DataRow {
             
             private LanguagesDataTable tableLanguages;
@@ -3886,50 +3327,12 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int journal_id {
-                get {
-                    try {
-                        return ((int)(this[this.tablePapers.journal_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'journal_id\' в таблице \'Papers\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablePapers.journal_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string p_udc {
-                get {
-                    return ((string)(this[this.tablePapers.p_udcColumn]));
-                }
-                set {
-                    this[this.tablePapers.p_udcColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int subj_id {
                 get {
                     return ((int)(this[this.tablePapers.subj_idColumn]));
                 }
                 set {
                     this[this.tablePapers.subj_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow JournalsRow {
-                get {
-                    return ((JournalsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Papers_Journals"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Papers_Journals"]);
                 }
             }
             
@@ -3946,17 +3349,6 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public SubjectsRow SubjectsRow {
-                get {
-                    return ((SubjectsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Papers_Subjects"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Papers_Subjects"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isp_abstractNull() {
                 return this.IsNull(this.tablePapers.p_abstractColumn);
             }
@@ -3965,18 +3357,6 @@ namespace Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setp_abstractNull() {
                 this[this.tablePapers.p_abstractColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isjournal_idNull() {
-                return this.IsNull(this.tablePapers.journal_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setjournal_idNull() {
-                this[this.tablePapers.journal_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4160,23 +3540,12 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string s_first_name {
+            public string s_name {
                 get {
-                    return ((string)(this[this.tableScientists.s_first_nameColumn]));
+                    return ((string)(this[this.tableScientists.s_nameColumn]));
                 }
                 set {
-                    this[this.tableScientists.s_first_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string s_last_name {
-                get {
-                    return ((string)(this[this.tableScientists.s_last_nameColumn]));
-                }
-                set {
-                    this[this.tableScientists.s_last_nameColumn] = value;
+                    this[this.tableScientists.s_nameColumn] = value;
                 }
             }
             
@@ -4301,28 +3670,6 @@ namespace Common {
                     this[this.tableSubjects.subj_nameColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow[] GetJournalsRows() {
-                if ((this.Table.ChildRelations["FK_Journals_Subjects"] == null)) {
-                    return new JournalsRow[0];
-                }
-                else {
-                    return ((JournalsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Journals_Subjects"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PapersRow[] GetPapersRows() {
-                if ((this.Table.ChildRelations["FK_Papers_Subjects"] == null)) {
-                    return new PapersRow[0];
-                }
-                else {
-                    return ((PapersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Papers_Subjects"])));
-                }
-            }
         }
         
         /// <summary>
@@ -4379,40 +3726,6 @@ namespace Common {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CountriesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class JournalsRowChangeEvent : global::System.EventArgs {
-            
-            private JournalsRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRowChangeEvent(JournalsRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public JournalsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5269,402 +4582,6 @@ SELECT author_paper_id, p_id, s_id FROM Auths_papers WHERE (author_paper_id = @a
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class JournalsTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public JournalsTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Journals";
-            tableMapping.ColumnMappings.Add("journal_id", "journal_id");
-            tableMapping.ColumnMappings.Add("journal_impact_factor", "journal_impact_factor");
-            tableMapping.ColumnMappings.Add("journal_name", "journal_name");
-            tableMapping.ColumnMappings.Add("journal_publisher", "journal_publisher");
-            tableMapping.ColumnMappings.Add("subj_id", "subj_id");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Journals] WHERE (([journal_id] = @Original_journal_id) AND ((@IsNull_journal_impact_factor = 1 AND [journal_impact_factor] IS NULL) OR ([journal_impact_factor] = @Original_journal_impact_factor)) AND ([journal_name] = @Original_journal_name) AND ((@IsNull_journal_publisher = 1 AND [journal_publisher] IS NULL) OR ([journal_publisher] = @Original_journal_publisher)) AND ([subj_id] = @Original_subj_id))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_impact_factor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_impact_factor", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_publisher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Journals] ([journal_impact_factor], [journal_name], [journal_publisher], [subj_id]) VALUES (@journal_impact_factor, @journal_name, @journal_publisher, @subj_id);
-SELECT journal_id, journal_impact_factor, journal_name, journal_publisher, subj_id FROM Journals WHERE (journal_id = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_impact_factor", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_publisher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Journals] SET [journal_impact_factor] = @journal_impact_factor, [journal_name] = @journal_name, [journal_publisher] = @journal_publisher, [subj_id] = @subj_id WHERE (([journal_id] = @Original_journal_id) AND ((@IsNull_journal_impact_factor = 1 AND [journal_impact_factor] IS NULL) OR ([journal_impact_factor] = @Original_journal_impact_factor)) AND ([journal_name] = @Original_journal_name) AND ((@IsNull_journal_publisher = 1 AND [journal_publisher] IS NULL) OR ([journal_publisher] = @Original_journal_publisher)) AND ([subj_id] = @Original_subj_id));
-SELECT journal_id, journal_impact_factor, journal_name, journal_publisher, subj_id FROM Journals WHERE (journal_id = @journal_id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_impact_factor", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_publisher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_impact_factor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_impact_factor", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_impact_factor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_publisher", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_publisher", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_publisher", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Common.Properties.Settings.Default.BasePapersConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT journal_id, journal_impact_factor, journal_name, journal_publisher, subj_i" +
-                "d FROM dbo.Journals";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BasePapersDataSet.JournalsDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BasePapersDataSet.JournalsDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            BasePapersDataSet.JournalsDataTable dataTable = new BasePapersDataSet.JournalsDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BasePapersDataSet.JournalsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BasePapersDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Journals");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_journal_id, global::System.Nullable<double> Original_journal_impact_factor, string Original_journal_name, string Original_journal_publisher, int Original_subj_id) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_journal_id));
-            if ((Original_journal_impact_factor.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((double)(Original_journal_impact_factor.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_journal_name == null)) {
-                throw new global::System.ArgumentNullException("Original_journal_name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_journal_name));
-            }
-            if ((Original_journal_publisher == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_journal_publisher));
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_subj_id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<double> journal_impact_factor, string journal_name, string journal_publisher, int subj_id) {
-            if ((journal_impact_factor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((double)(journal_impact_factor.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((journal_name == null)) {
-                throw new global::System.ArgumentNullException("journal_name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(journal_name));
-            }
-            if ((journal_publisher == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(journal_publisher));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(subj_id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<double> journal_impact_factor, string journal_name, string journal_publisher, int subj_id, int Original_journal_id, global::System.Nullable<double> Original_journal_impact_factor, string Original_journal_name, string Original_journal_publisher, int Original_subj_id, int journal_id) {
-            if ((journal_impact_factor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((double)(journal_impact_factor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((journal_name == null)) {
-                throw new global::System.ArgumentNullException("journal_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(journal_name));
-            }
-            if ((journal_publisher == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(journal_publisher));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(subj_id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_journal_id));
-            if ((Original_journal_impact_factor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_journal_impact_factor.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_journal_name == null)) {
-                throw new global::System.ArgumentNullException("Original_journal_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_journal_name));
-            }
-            if ((Original_journal_publisher == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_journal_publisher));
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_subj_id));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(journal_id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<double> journal_impact_factor, string journal_name, string journal_publisher, int subj_id, int Original_journal_id, global::System.Nullable<double> Original_journal_impact_factor, string Original_journal_name, string Original_journal_publisher, int Original_subj_id) {
-            return this.Update(journal_impact_factor, journal_name, journal_publisher, subj_id, Original_journal_id, Original_journal_impact_factor, Original_journal_name, Original_journal_publisher, Original_subj_id, Original_journal_id);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class LanguagesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -6466,53 +5383,43 @@ SELECT org_id, org_name, org_country, org_website FROM Organisations WHERE (org_
             tableMapping.ColumnMappings.Add("p_abstract", "p_abstract");
             tableMapping.ColumnMappings.Add("p_date", "p_date");
             tableMapping.ColumnMappings.Add("language_id", "language_id");
-            tableMapping.ColumnMappings.Add("journal_id", "journal_id");
-            tableMapping.ColumnMappings.Add("p_udc", "p_udc");
             tableMapping.ColumnMappings.Add("subj_id", "subj_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Papers] WHERE (([p_id] = @Original_p_id) AND ([p_title] = @Original_p_title) AND ([p_date] = @Original_p_date) AND ([language_id] = @Original_language_id) AND ((@IsNull_journal_id = 1 AND [journal_id] IS NULL) OR ([journal_id] = @Original_journal_id)) AND ([p_udc] = @Original_p_udc) AND ([subj_id] = @Original_subj_id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Papers] WHERE (([p_id] = @Original_p_id) AND ([p_title] = @Ori" +
+                "ginal_p_title) AND ([p_date] = @Original_p_date) AND ([language_id] = @Original_" +
+                "language_id) AND ([subj_id] = @Original_subj_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_language_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "language_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_udc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_udc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Papers] ([p_title], [p_abstract], [p_date], [language_id], [journal_id], [p_udc], [subj_id]) VALUES (@p_title, @p_abstract, @p_date, @language_id, @journal_id, @p_udc, @subj_id);
-SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_id FROM Papers WHERE (p_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Papers] ([p_title], [p_abstract], [p_date], [language_id], [subj_id]) VALUES (@p_title, @p_abstract, @p_date, @language_id, @subj_id);
+SELECT p_id, p_title, p_abstract, p_date, language_id, subj_id FROM Papers WHERE (p_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_abstract", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_abstract", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@language_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "language_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_udc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_udc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Papers] SET [p_title] = @p_title, [p_abstract] = @p_abstract, [p_date] = @p_date, [language_id] = @language_id, [journal_id] = @journal_id, [p_udc] = @p_udc, [subj_id] = @subj_id WHERE (([p_id] = @Original_p_id) AND ([p_title] = @Original_p_title) AND ([p_date] = @Original_p_date) AND ([language_id] = @Original_language_id) AND ((@IsNull_journal_id = 1 AND [journal_id] IS NULL) OR ([journal_id] = @Original_journal_id)) AND ([p_udc] = @Original_p_udc) AND ([subj_id] = @Original_subj_id));
-SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_id FROM Papers WHERE (p_id = @p_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Papers] SET [p_title] = @p_title, [p_abstract] = @p_abstract, [p_date] = @p_date, [language_id] = @language_id, [subj_id] = @subj_id WHERE (([p_id] = @Original_p_id) AND ([p_title] = @Original_p_title) AND ([p_date] = @Original_p_date) AND ([language_id] = @Original_language_id) AND ([subj_id] = @Original_subj_id));
+SELECT p_id, p_title, p_abstract, p_date, language_id, subj_id FROM Papers WHERE (p_id = @p_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_abstract", global::System.Data.SqlDbType.NText, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_abstract", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@language_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "language_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_udc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_udc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_title", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_language_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "language_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_journal_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "journal_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_p_udc", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "p_udc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_subj_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subj_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@p_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "p_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -6530,8 +5437,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_id" +
-                " FROM dbo.Papers";
+            this._commandCollection[0].CommandText = "SELECT p_id, p_title, p_abstract, p_date, language_id, subj_id FROM dbo.Papers";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6592,7 +5498,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, global::System.Nullable<int> Original_journal_id, string Original_p_udc, int Original_subj_id) {
+        public virtual int Delete(int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, int Original_subj_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_p_id));
             if ((Original_p_title == null)) {
                 throw new global::System.ArgumentNullException("Original_p_title");
@@ -6602,21 +5508,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
             }
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_p_date));
             this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_language_id));
-            if ((Original_journal_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_journal_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((Original_p_udc == null)) {
-                throw new global::System.ArgumentNullException("Original_p_udc");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_p_udc));
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_subj_id));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_subj_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6637,7 +5529,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p_title, string p_abstract, System.DateTime p_date, int language_id, global::System.Nullable<int> journal_id, string p_udc, int subj_id) {
+        public virtual int Insert(string p_title, string p_abstract, System.DateTime p_date, int language_id, int subj_id) {
             if ((p_title == null)) {
                 throw new global::System.ArgumentNullException("p_title");
             }
@@ -6652,19 +5544,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(p_date));
             this.Adapter.InsertCommand.Parameters[3].Value = ((int)(language_id));
-            if ((journal_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(journal_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((p_udc == null)) {
-                throw new global::System.ArgumentNullException("p_udc");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p_udc));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(subj_id));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(subj_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6685,7 +5565,7 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p_title, string p_abstract, System.DateTime p_date, int language_id, global::System.Nullable<int> journal_id, string p_udc, int subj_id, int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, global::System.Nullable<int> Original_journal_id, string Original_p_udc, int Original_subj_id, int p_id) {
+        public virtual int Update(string p_title, string p_abstract, System.DateTime p_date, int language_id, int subj_id, int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, int Original_subj_id, int p_id) {
             if ((p_title == null)) {
                 throw new global::System.ArgumentNullException("p_title");
             }
@@ -6700,44 +5580,18 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(p_date));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(language_id));
-            if ((journal_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(journal_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((p_udc == null)) {
-                throw new global::System.ArgumentNullException("p_udc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p_udc));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(subj_id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_p_id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(subj_id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_p_id));
             if ((Original_p_title == null)) {
                 throw new global::System.ArgumentNullException("Original_p_title");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_p_title));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_p_title));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_p_date));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_language_id));
-            if ((Original_journal_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_journal_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((Original_p_udc == null)) {
-                throw new global::System.ArgumentNullException("Original_p_udc");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_p_udc));
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_subj_id));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(p_id));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_p_date));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_language_id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_subj_id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(p_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6758,8 +5612,8 @@ SELECT p_id, p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p_title, string p_abstract, System.DateTime p_date, int language_id, global::System.Nullable<int> journal_id, string p_udc, int subj_id, int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, global::System.Nullable<int> Original_journal_id, string Original_p_udc, int Original_subj_id) {
-            return this.Update(p_title, p_abstract, p_date, language_id, journal_id, p_udc, subj_id, Original_p_id, Original_p_title, Original_p_date, Original_language_id, Original_journal_id, Original_p_udc, Original_subj_id, Original_p_id);
+        public virtual int Update(string p_title, string p_abstract, System.DateTime p_date, int language_id, int subj_id, int Original_p_id, string Original_p_title, System.DateTime Original_p_date, int Original_language_id, int Original_subj_id) {
+            return this.Update(p_title, p_abstract, p_date, language_id, subj_id, Original_p_id, Original_p_title, Original_p_date, Original_language_id, Original_subj_id, Original_p_id);
         }
     }
     
@@ -7209,50 +6063,46 @@ SELECT paper_reviewer_id, p_id, s_id, reviewer_comment FROM Reviewers_papers WHE
             tableMapping.ColumnMappings.Add("s_id", "s_id");
             tableMapping.ColumnMappings.Add("s_hindex", "s_hindex");
             tableMapping.ColumnMappings.Add("org_id", "org_id");
-            tableMapping.ColumnMappings.Add("s_first_name", "s_first_name");
-            tableMapping.ColumnMappings.Add("s_last_name", "s_last_name");
+            tableMapping.ColumnMappings.Add("s_name", "s_name");
             tableMapping.ColumnMappings.Add("s_email", "s_email");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Scientists] WHERE (([s_id] = @Original_s_id) AND ((@IsNull_s_hindex = 1 AND [s_hindex] IS NULL) OR ([s_hindex] = @Original_s_hindex)) AND ((@IsNull_org_id = 1 AND [org_id] IS NULL) OR ([org_id] = @Original_org_id)) AND ([s_first_name] = @Original_s_first_name) AND ([s_last_name] = @Original_s_last_name) AND ((@IsNull_s_email = 1 AND [s_email] IS NULL) OR ([s_email] = @Original_s_email)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Scientists] WHERE (([s_id] = @Original_s_id) AND ((@IsNull_s_hindex = 1 AND [s_hindex] IS NULL) OR ([s_hindex] = @Original_s_hindex)) AND ((@IsNull_org_id = 1 AND [org_id] IS NULL) OR ([org_id] = @Original_org_id)) AND ([s_name] = @Original_s_name) AND ((@IsNull_s_email = 1 AND [s_email] IS NULL) OR ([s_email] = @Original_s_email)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_s_hindex", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_hindex", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_first_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_last_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_s_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Scientists] ([s_hindex], [org_id], [s_first_name], [s_last_name], [s_email]) VALUES (@s_hindex, @org_id, @s_first_name, @s_last_name, @s_email);
-SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientists WHERE (s_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Scientists] ([s_hindex], [org_id], [s_name], [s_email]) VALUES" +
+                " (@s_hindex, @org_id, @s_name, @s_email);\r\nSELECT s_id, s_hindex, org_id, s_name" +
+                ", s_email FROM Scientists WHERE (s_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_hindex", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Scientists] SET [s_hindex] = @s_hindex, [org_id] = @org_id, [s_first_name] = @s_first_name, [s_last_name] = @s_last_name, [s_email] = @s_email WHERE (([s_id] = @Original_s_id) AND ((@IsNull_s_hindex = 1 AND [s_hindex] IS NULL) OR ([s_hindex] = @Original_s_hindex)) AND ((@IsNull_org_id = 1 AND [org_id] IS NULL) OR ([org_id] = @Original_org_id)) AND ([s_first_name] = @Original_s_first_name) AND ([s_last_name] = @Original_s_last_name) AND ((@IsNull_s_email = 1 AND [s_email] IS NULL) OR ([s_email] = @Original_s_email)));
-SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientists WHERE (s_id = @s_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Scientists] SET [s_hindex] = @s_hindex, [org_id] = @org_id, [s_name] = @s_name, [s_email] = @s_email WHERE (([s_id] = @Original_s_id) AND ((@IsNull_s_hindex = 1 AND [s_hindex] IS NULL) OR ([s_hindex] = @Original_s_hindex)) AND ((@IsNull_org_id = 1 AND [org_id] IS NULL) OR ([org_id] = @Original_org_id)) AND ([s_name] = @Original_s_name) AND ((@IsNull_s_email = 1 AND [s_email] IS NULL) OR ([s_email] = @Original_s_email)));
+SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_hindex", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_first_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_last_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_s_hindex", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_hindex", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_hindex", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_org_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "org_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_first_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_first_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_last_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_last_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_s_email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_s_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "s_email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@s_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "s_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7271,8 +6121,7 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM dbo.Scient" +
-                "ists";
+            this._commandCollection[0].CommandText = "SELECT s_id, s_hindex, org_id, s_name, s_email FROM dbo.Scientists";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7333,7 +6182,7 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_first_name, string Original_s_last_name, string Original_s_email) {
+        public virtual int Delete(int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_name, string Original_s_email) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_s_id));
             if ((Original_s_hindex.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -7351,25 +6200,19 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_s_first_name == null)) {
-                throw new global::System.ArgumentNullException("Original_s_first_name");
+            if ((Original_s_name == null)) {
+                throw new global::System.ArgumentNullException("Original_s_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_s_first_name));
-            }
-            if ((Original_s_last_name == null)) {
-                throw new global::System.ArgumentNullException("Original_s_last_name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_s_last_name));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_s_name));
             }
             if ((Original_s_email == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_s_email));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_s_email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7391,7 +6234,7 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_first_name, string s_last_name, string s_email) {
+        public virtual int Insert(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_name, string s_email) {
             if ((s_hindex.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((double)(s_hindex.Value));
             }
@@ -7404,23 +6247,17 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((s_first_name == null)) {
-                throw new global::System.ArgumentNullException("s_first_name");
+            if ((s_name == null)) {
+                throw new global::System.ArgumentNullException("s_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(s_first_name));
-            }
-            if ((s_last_name == null)) {
-                throw new global::System.ArgumentNullException("s_last_name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(s_last_name));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(s_name));
             }
             if ((s_email == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(s_email));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(s_email));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7442,7 +6279,7 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_first_name, string s_last_name, string s_email, int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_first_name, string Original_s_last_name, string Original_s_email, int s_id) {
+        public virtual int Update(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_name, string s_email, int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_name, string Original_s_email, int s_id) {
             if ((s_hindex.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((double)(s_hindex.Value));
             }
@@ -7455,62 +6292,50 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((s_first_name == null)) {
-                throw new global::System.ArgumentNullException("s_first_name");
+            if ((s_name == null)) {
+                throw new global::System.ArgumentNullException("s_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(s_first_name));
-            }
-            if ((s_last_name == null)) {
-                throw new global::System.ArgumentNullException("s_last_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(s_last_name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(s_name));
             }
             if ((s_email == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(s_email));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(s_email));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_s_id));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_s_id));
             if ((Original_s_hindex.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((double)(Original_s_hindex.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((double)(Original_s_hindex.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_org_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_org_id.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_org_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_s_first_name == null)) {
-                throw new global::System.ArgumentNullException("Original_s_first_name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_s_first_name));
-            }
-            if ((Original_s_last_name == null)) {
-                throw new global::System.ArgumentNullException("Original_s_last_name");
+            if ((Original_s_name == null)) {
+                throw new global::System.ArgumentNullException("Original_s_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_s_last_name));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_s_name));
             }
             if ((Original_s_email == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_s_email));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_s_email));
             }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(s_id));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(s_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7531,8 +6356,8 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_first_name, string s_last_name, string s_email, int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_first_name, string Original_s_last_name, string Original_s_email) {
-            return this.Update(s_hindex, org_id, s_first_name, s_last_name, s_email, Original_s_id, Original_s_hindex, Original_org_id, Original_s_first_name, Original_s_last_name, Original_s_email, Original_s_id);
+        public virtual int Update(global::System.Nullable<double> s_hindex, global::System.Nullable<int> org_id, string s_name, string s_email, int Original_s_id, global::System.Nullable<double> Original_s_hindex, global::System.Nullable<int> Original_org_id, string Original_s_name, string Original_s_email) {
+            return this.Update(s_hindex, org_id, s_name, s_email, Original_s_id, Original_s_hindex, Original_org_id, Original_s_name, Original_s_email, Original_s_id);
         }
     }
     
@@ -7870,8 +6695,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         
         private CountriesTableAdapter _countriesTableAdapter;
         
-        private JournalsTableAdapter _journalsTableAdapter;
-        
         private LanguagesTableAdapter _languagesTableAdapter;
         
         private OrganisationsTableAdapter _organisationsTableAdapter;
@@ -7924,20 +6747,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
             }
             set {
                 this._countriesTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public JournalsTableAdapter JournalsTableAdapter {
-            get {
-                return this._journalsTableAdapter;
-            }
-            set {
-                this._journalsTableAdapter = value;
             }
         }
         
@@ -8052,10 +6861,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                             && (this._countriesTableAdapter.Connection != null))) {
                     return this._countriesTableAdapter.Connection;
                 }
-                if (((this._journalsTableAdapter != null) 
-                            && (this._journalsTableAdapter.Connection != null))) {
-                    return this._journalsTableAdapter.Connection;
-                }
                 if (((this._languagesTableAdapter != null) 
                             && (this._languagesTableAdapter.Connection != null))) {
                     return this._languagesTableAdapter.Connection;
@@ -8099,9 +6904,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 if ((this._countriesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._journalsTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._languagesTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -8137,24 +6939,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._countriesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._journalsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Journals.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._journalsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8212,6 +6996,15 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -8227,22 +7020,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._countriesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._journalsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Journals.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._journalsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8294,6 +7071,14 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -8304,6 +7089,14 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(BasePapersDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._reviewers_papersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Reviewers_papers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8349,22 +7142,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._languagesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._journalsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Journals.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._journalsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -8422,11 +7199,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
             }
             if (((this._countriesTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._countriesTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
-            if (((this._journalsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._journalsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -8508,15 +7280,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                     if (this._countriesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._countriesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._countriesTableAdapter.Adapter);
-                    }
-                }
-                if ((this._journalsTableAdapter != null)) {
-                    revertConnections.Add(this._journalsTableAdapter, this._journalsTableAdapter.Connection);
-                    this._journalsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._journalsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._journalsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._journalsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._journalsTableAdapter.Adapter);
                     }
                 }
                 if ((this._languagesTableAdapter != null)) {
@@ -8638,10 +7401,6 @@ SELECT s_id, s_hindex, org_id, s_first_name, s_last_name, s_email FROM Scientist
                 if ((this._countriesTableAdapter != null)) {
                     this._countriesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._countriesTableAdapter]));
                     this._countriesTableAdapter.Transaction = null;
-                }
-                if ((this._journalsTableAdapter != null)) {
-                    this._journalsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._journalsTableAdapter]));
-                    this._journalsTableAdapter.Transaction = null;
                 }
                 if ((this._languagesTableAdapter != null)) {
                     this._languagesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._languagesTableAdapter]));

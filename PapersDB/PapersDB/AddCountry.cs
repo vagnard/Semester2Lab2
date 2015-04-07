@@ -22,7 +22,7 @@ namespace PapersDB
 
         private void addCountry_btn_Click(object sender, EventArgs e)
         {
-            if (countryName_txbx.Text.Trim() == null)
+            if (countryName_txbx.Text.Trim() == "")
                 MessageBox.Show("Name is empty");
             else
             {

@@ -13,20 +13,27 @@ namespace PapersDB
 {
     public partial class DeleteCountry : Form
     {
-        public Country NewCountry;
+        public int ID;
         public DeleteCountry()
         {
-            NewCountry = new Country();
+            ID = -1;
             InitializeComponent();
         }
 
         private void delCountry_btn_Click(object sender, EventArgs e)
         {
-            if (countryName_txbx.Text.Trim() == null)
-                MessageBox.Show("Name is empty");
+            if (countryID_txbx.Text.Trim() == "")
+                MessageBox.Show("ID is empty");
             else
             {
-                NewCountry.Name = countryName_txbx.Text.Trim();
+                try
+                {
+                    ID = Convert.ToInt32(countryID_txbx.Text.Trim());
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Input string is not a sequence of digits.");
+                }
                 DialogResult = DialogResult.OK;
             }
         }

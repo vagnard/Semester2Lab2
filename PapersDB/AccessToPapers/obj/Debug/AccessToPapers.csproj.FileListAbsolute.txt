@@ -7,3 +7,4 @@ C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Common.pdb
 C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\Provider.pdb
 C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\obj\Debug\AccessToPapers.dll
 C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\obj\Debug\AccessToPapers.pdb
+C:\Users\vagnard\Desktop\Lab1\PapersDB\AccessToPapers\bin\Debug\AccessToPapers.dll.config

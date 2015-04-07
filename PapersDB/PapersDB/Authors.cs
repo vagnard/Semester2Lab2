@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Common;
 
 namespace PapersDB
 {
-    public partial class NewOrg : Form
+    public partial class Authors : Form
     {
-        public NewOrg()
+        public Authors()
         {
             InitializeComponent();
-        }
-
-        private void addOrg_btn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

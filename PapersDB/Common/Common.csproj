@@ -47,7 +47,7 @@
       <DependentUpon>BasePapersDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Country.cs" />
-    <Compile Include="Journal.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Organisation.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="Scientist.cs" />
     <Compile Include="SourceType.cs" />
+    <Compile Include="Subject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -27,7 +27,7 @@ namespace Provider
         {
             this.DataType = DataType;
             this.TargetFile = TargetFile;
-
+            PapersDataSet.Clear();
             if (DataType == SourceType.XML)
             {
                 PapersDataSet.ReadXml(TargetFile);
@@ -38,7 +38,6 @@ namespace Provider
                 PapersTables = new DataTable[]
                 {
                     PapersDataSet.Countries,
-                    PapersDataSet.Journals,
                     PapersDataSet.Languages,
                     PapersDataSet.Organisations,
                     PapersDataSet.Papers,
@@ -49,7 +48,7 @@ namespace Provider
                 };
 
                 TablesName = new string[]{
-                    "Countries", "Journals", "Languages",
+                    "Countries", "Languages",
                     "Organisations", "Papers", "Scientists",
                     "Subjects", "Auths_papers", "Reviewers_papers"
                 };
