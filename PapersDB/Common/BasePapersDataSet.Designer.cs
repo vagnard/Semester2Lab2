@@ -48,6 +48,8 @@ namespace Common {
         
         private global::System.Data.DataRelation relationFK_Papers_Languages;
         
+        private global::System.Data.DataRelation relationFK_Papers_Subjects1;
+        
         private global::System.Data.DataRelation _relationFK_Reviewers_papers_Papers;
         
         private global::System.Data.DataRelation _relationFK_Reviewers_papers_Scientists;
@@ -380,6 +382,7 @@ namespace Common {
             this._relationFK_Auths_papers_Scientists = this.Relations["FK_Auths-papers_Scientists"];
             this.relationFK_Organisations_Countries = this.Relations["FK_Organisations_Countries"];
             this.relationFK_Papers_Languages = this.Relations["FK_Papers_Languages"];
+            this.relationFK_Papers_Subjects1 = this.Relations["FK_Papers_Subjects1"];
             this._relationFK_Reviewers_papers_Papers = this.Relations["FK_Reviewers-papers_Papers"];
             this._relationFK_Reviewers_papers_Scientists = this.Relations["FK_Reviewers-papers_Scientists"];
             this.relationFK_Scientists_Organisations = this.Relations["FK_Scientists_Organisations"];
@@ -425,6 +428,10 @@ namespace Common {
                         this.tableLanguages.language_idColumn}, new global::System.Data.DataColumn[] {
                         this.tablePapers.language_idColumn}, false);
             this.Relations.Add(this.relationFK_Papers_Languages);
+            this.relationFK_Papers_Subjects1 = new global::System.Data.DataRelation("FK_Papers_Subjects1", new global::System.Data.DataColumn[] {
+                        this.tableSubjects.subj_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePapers.subj_idColumn}, false);
+            this.Relations.Add(this.relationFK_Papers_Subjects1);
             this._relationFK_Reviewers_papers_Papers = new global::System.Data.DataRelation("FK_Reviewers-papers_Papers", new global::System.Data.DataColumn[] {
                         this.tablePapers.p_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableReviewers_papers.p_idColumn}, false);
@@ -1868,7 +1875,7 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PapersRow AddPapersRow(string p_title, string p_abstract, System.DateTime p_date, LanguagesRow parentLanguagesRowByFK_Papers_Languages, int subj_id) {
+            public PapersRow AddPapersRow(string p_title, string p_abstract, System.DateTime p_date, LanguagesRow parentLanguagesRowByFK_Papers_Languages, SubjectsRow parentSubjectsRowByFK_Papers_Subjects1) {
                 PapersRow rowPapersRow = ((PapersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1876,9 +1883,12 @@ namespace Common {
                         p_abstract,
                         p_date,
                         null,
-                        subj_id};
+                        null};
                 if ((parentLanguagesRowByFK_Papers_Languages != null)) {
                     columnValuesArray[4] = parentLanguagesRowByFK_Papers_Languages[0];
+                }
+                if ((parentSubjectsRowByFK_Papers_Subjects1 != null)) {
+                    columnValuesArray[5] = parentSubjectsRowByFK_Papers_Subjects1[0];
                 }
                 rowPapersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPapersRow);
@@ -3349,6 +3359,17 @@ namespace Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SubjectsRow SubjectsRow {
+                get {
+                    return ((SubjectsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Papers_Subjects1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Papers_Subjects1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isp_abstractNull() {
                 return this.IsNull(this.tablePapers.p_abstractColumn);
             }
@@ -3668,6 +3689,17 @@ namespace Common {
                 }
                 set {
                     this[this.tableSubjects.subj_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PapersRow[] GetPapersRows() {
+                if ((this.Table.ChildRelations["FK_Papers_Subjects1"] == null)) {
+                    return new PapersRow[0];
+                }
+                else {
+                    return ((PapersRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Papers_Subjects1"])));
                 }
             }
         }
@@ -6960,6 +6992,15 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._papersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Papers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -6993,15 +7034,6 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._reviewers_papersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7039,6 +7071,14 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._papersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Papers.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7071,14 +7111,6 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -7089,14 +7121,6 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(BasePapersDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._subjectsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._subjectsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._reviewers_papersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Reviewers_papers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7126,6 +7150,14 @@ SELECT s_id, s_hindex, org_id, s_name, s_email FROM Scientists WHERE (s_id = @s_
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._papersTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._subjectsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Subjects.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._subjectsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

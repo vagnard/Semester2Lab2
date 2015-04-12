@@ -19,7 +19,7 @@ namespace PapersDB
         List<string> LanguageNames;
         List<string> SubjectNames;
         List<string> OrgNames;
-
+        List<string> ScientistNames;
         public ClientLol()
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace PapersDB
             LanguageNames = new List<string>();
             SubjectNames = new List<string>();
             OrgNames = new List<string>();
+            ScientistNames = new List<string>();
 
             LogIn logIn = new LogIn();
             if (logIn.ShowDialog() == DialogResult.OK)
@@ -38,6 +39,7 @@ namespace PapersDB
                 languageRefresh_btn_Click(null, null);
                 subjectRefresh_btn_Click(null, null);
                 Scientist_Refresh_Click(null, null);
+                PapersRefresh_Click(null, null);
             }
             
         }
@@ -287,7 +289,9 @@ namespace PapersDB
             sci_dgv.Columns["Email"].ReadOnly = true;
             sci_dgv.Columns["hindex"].ReadOnly = true;
 
-            
+            ScientistNames.Clear();
+            foreach (Scientist sci in allScientists)
+                ScientistNames.Add(sci.Name);
         }
 
         private void addScientistToolStripMenuItem_Click(object sender, EventArgs e)
@@ -346,9 +350,14 @@ namespace PapersDB
             subj_cmbx.DataSource = SubjectNames;
             lang_cmbx.DataSource = LanguageNames;
             papers_dgv.DataSource = allPaper;
-            //sci_dgv.Columns["OrganisationID"].Visible = false;
-            //sci_dgv.Columns["ID"].ReadOnly = true;
-            
+            papers_dgv.Columns["Abstract"].Visible = false;
+            papers_dgv.Columns["PublishedDate"].Visible = false;
+            papers_dgv.Columns["LanguageID"].Visible = false;
+            papers_dgv.Columns["SubjectID"].Visible = false;
+            papers_dgv.Columns["ID"].ReadOnly = true;
+            papers_dgv.Columns["Title"].ReadOnly = true;
+            papers_dgv.Columns["Subject"].ReadOnly = true;
+            papers_dgv.Columns["Language"].ReadOnly = true;
         }
 
         private void addPaperToolStripMenuItem_Click(object sender, EventArgs e)
@@ -365,17 +374,31 @@ namespace PapersDB
 
         private void deletePaperToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DeletePaper deletePaper = new DeletePaper();
+            if (deletePaper.ShowDialog() == DialogResult.OK)
+            {
 
+                if (!accessToPapers.deletePaper(deletePaper.ID))
+                    MessageBox.Show("Such paper does not exist");
+                PapersRefresh_Click(null, null);
+            }
         }
 
         private void modifyPaperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ModifyPaper modifyPaper = new ModifyPaper(SubjectNames, LanguageNames);
+            if (modifyPaper.ShowDialog() == DialogResult.OK)
+            {
+                if (!accessToPapers.modifyPaper(modifyPaper.modifyPaper))
+                    MessageBox.Show("Such paper does not exist");
+                PapersRefresh_Click(null, null);
+            }
         }
 
         private void authorCall_btn_Click(object sender, EventArgs e)
         {
-
+            Authors author = new Authors(accessToPapers, (int)papers_dgv.CurrentRow.Cells["ID"].Value, ScientistNames);
+            author.ShowDialog();
         }
 
         private void reviewerCall_btn_Click(object sender, EventArgs e)

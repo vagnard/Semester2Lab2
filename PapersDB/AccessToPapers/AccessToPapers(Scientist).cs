@@ -12,6 +12,7 @@ namespace AccessToPapers
     {
         public List<Scientist> GetAllScientists(string name, string organisation)
         {
+            PapersDataSet = provider.GetAllData(TargetData, DataType);
             BasePapersDataSet.ScientistsRow[] searchedRow = null;
                 
                 if (name != "" && organisation != "")

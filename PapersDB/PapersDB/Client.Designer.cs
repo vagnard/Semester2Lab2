@@ -53,7 +53,6 @@
             this.addCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyCountryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.basePapersDataSet = new PapersDB.BasePapersDataSet();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.CountriesRefresh_btn = new System.Windows.Forms.Button();
             this.countries_dgv = new System.Windows.Forms.DataGridView();
@@ -73,7 +72,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.lang_cmbx = new System.Windows.Forms.ComboBox();
-            this.reviewerCall_btn = new System.Windows.Forms.Button();
             this.authorCall_btn = new System.Windows.Forms.Button();
             this.title_txbx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,7 +88,6 @@
             this.org_dgv = new System.Windows.Forms.DataGridView();
             this.abc = new System.Windows.Forms.TabControl();
             this.mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.basePapersDataSet)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countries_dgv)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -134,21 +131,21 @@
             // addOrganisationToolStripMenuItem
             // 
             this.addOrganisationToolStripMenuItem.Name = "addOrganisationToolStripMenuItem";
-            this.addOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.addOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addOrganisationToolStripMenuItem.Text = "Add";
             this.addOrganisationToolStripMenuItem.Click += new System.EventHandler(this.addOrganisationToolStripMenuItem_Click);
             // 
             // deleteOrganisationToolStripMenuItem
             // 
             this.deleteOrganisationToolStripMenuItem.Name = "deleteOrganisationToolStripMenuItem";
-            this.deleteOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.deleteOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteOrganisationToolStripMenuItem.Text = "Delete";
             this.deleteOrganisationToolStripMenuItem.Click += new System.EventHandler(this.deleteOrganisationToolStripMenuItem_Click);
             // 
             // modifyOrganisationToolStripMenuItem
             // 
             this.modifyOrganisationToolStripMenuItem.Name = "modifyOrganisationToolStripMenuItem";
-            this.modifyOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.modifyOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modifyOrganisationToolStripMenuItem.Text = "Modify";
             this.modifyOrganisationToolStripMenuItem.Click += new System.EventHandler(this.modifyOrganisationToolStripMenuItem_Click);
             // 
@@ -165,21 +162,21 @@
             // addPaperToolStripMenuItem
             // 
             this.addPaperToolStripMenuItem.Name = "addPaperToolStripMenuItem";
-            this.addPaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addPaperToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.addPaperToolStripMenuItem.Text = "Add";
             this.addPaperToolStripMenuItem.Click += new System.EventHandler(this.addPaperToolStripMenuItem_Click);
             // 
             // deletePaperToolStripMenuItem
             // 
             this.deletePaperToolStripMenuItem.Name = "deletePaperToolStripMenuItem";
-            this.deletePaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deletePaperToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.deletePaperToolStripMenuItem.Text = "Delete";
             this.deletePaperToolStripMenuItem.Click += new System.EventHandler(this.deletePaperToolStripMenuItem_Click);
             // 
             // modifyPaperToolStripMenuItem
             // 
             this.modifyPaperToolStripMenuItem.Name = "modifyPaperToolStripMenuItem";
-            this.modifyPaperToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modifyPaperToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.modifyPaperToolStripMenuItem.Text = "Modify";
             this.modifyPaperToolStripMenuItem.Click += new System.EventHandler(this.modifyPaperToolStripMenuItem_Click);
             // 
@@ -306,11 +303,6 @@
             this.modifyCountryToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.modifyCountryToolStripMenuItem.Text = "Modify";
             this.modifyCountryToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
-            // 
-            // basePapersDataSet
-            // 
-            this.basePapersDataSet.DataSetName = "BasePapersDataSet";
-            this.basePapersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage5
             // 
@@ -471,7 +463,6 @@
             // 
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.lang_cmbx);
-            this.tabPage2.Controls.Add(this.reviewerCall_btn);
             this.tabPage2.Controls.Add(this.authorCall_btn);
             this.tabPage2.Controls.Add(this.title_txbx);
             this.tabPage2.Controls.Add(this.label3);
@@ -505,16 +496,6 @@
             this.lang_cmbx.Size = new System.Drawing.Size(183, 21);
             this.lang_cmbx.TabIndex = 15;
             this.lang_cmbx.TextChanged += new System.EventHandler(this.lang_cmbx_TextChanged);
-            // 
-            // reviewerCall_btn
-            // 
-            this.reviewerCall_btn.Location = new System.Drawing.Point(170, 362);
-            this.reviewerCall_btn.Name = "reviewerCall_btn";
-            this.reviewerCall_btn.Size = new System.Drawing.Size(75, 23);
-            this.reviewerCall_btn.TabIndex = 14;
-            this.reviewerCall_btn.Text = "Reviewers";
-            this.reviewerCall_btn.UseVisualStyleBackColor = true;
-            this.reviewerCall_btn.Click += new System.EventHandler(this.reviewerCall_btn_Click);
             // 
             // authorCall_btn
             // 
@@ -676,7 +657,6 @@
             this.Text = "Client";
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.basePapersDataSet)).EndInit();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.countries_dgv)).EndInit();
             this.tabPage4.ResumeLayout(false);
@@ -710,7 +690,6 @@
         private System.Windows.Forms.ToolStripMenuItem countryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCountryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteCountryToolStripMenuItem;
-        private BasePapersDataSet basePapersDataSet;
         private System.Windows.Forms.ToolStripMenuItem deleteOrganisationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyCountryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyOrganisationToolStripMenuItem;
@@ -751,7 +730,6 @@
         private System.Windows.Forms.ToolStripMenuItem addPaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePaperToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyPaperToolStripMenuItem;
-        private System.Windows.Forms.Button reviewerCall_btn;
         private System.Windows.Forms.Button authorCall_btn;
         private System.Windows.Forms.TextBox title_txbx;
         private System.Windows.Forms.Label label3;

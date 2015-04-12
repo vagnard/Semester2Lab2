@@ -30,3 +30,8 @@ C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.AddScientist.
 C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.DeleteScientist.resources
 C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.ModifyScientist.resources
 C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.AddPaper.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.DeletePaper.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.ModifyPaper.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.AddAuthor.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.Authors.resources
+C:\Users\vagnard\Desktop\Lab1\PapersDB\PapersDB\obj\Debug\PapersDB.DeleteAuthor.resources
