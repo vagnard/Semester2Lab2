@@ -16,14 +16,14 @@ namespace PapersDB
     {
         AccessToPapers.AccessToPapers accessToPapers;
         int mPaperID;
-        List<string> authorNames;
+        BindingList<string> authorNames;
 
         public Authors()
         {
             InitializeComponent();
             AuthorRefresh_Click(null, null);
         }
-        public Authors(AccessToPapers.AccessToPapers accessToPapers, int paperID, List<string> authorNames)
+        public Authors(AccessToPapers.AccessToPapers accessToPapers, int paperID, BindingList<string> authorNames)
         {
             this.accessToPapers = accessToPapers;
             this.authorNames = authorNames;
@@ -33,25 +33,19 @@ namespace PapersDB
         }
         private void AuthorRefresh_Click(object sender, EventArgs e)
         {
-            List<Scientist> allAuthors = new List<Scientist>();
-            allAuthors = accessToPapers.getAllAuthors(mPaperID, authorNameFilter_txbx.Text.Trim());
-            Author_dgv.DataSource = allAuthors;
-            Author_dgv.Columns["organisationName"].Visible = false;
-            Author_dgv.Columns["Email"].Visible = false;
-            Author_dgv.Columns["hindex"].Visible = false;
-            Author_dgv.Columns["OrganisationID"].Visible = false;
-            Author_dgv.Columns["ID"].ReadOnly = true;
-            Author_dgv.Columns["Name"].ReadOnly = true;
-            
-        }
+            var allAuthors = accessToPapers.getAllAuthors(mPaperID, authorNameFilter_txbx.Text.Trim());
 
+            authspapersBindingSource.DataSource = null;
+            authspapersBindingSource.DataSource = allAuthors;
+
+        }
         private void addAuthor_Click(object sender, EventArgs e)
         {
             AddAuthor newAuthor = new AddAuthor(authorNames);
             if (newAuthor.ShowDialog() == DialogResult.OK)
             {
-
-                if (!accessToPapers.addAuthor(mPaperID, newAuthor.NewScientist))
+                newAuthor.NewAuthor.p_id = mPaperID;
+                if (!accessToPapers.addAuthor(newAuthor.NewAuthor))
                     MessageBox.Show("Such author already exists");
                 AuthorRefresh_Click(null, null);
             }
@@ -59,16 +53,15 @@ namespace PapersDB
 
         private void deleteAuthor_Click(object sender, EventArgs e)
         {
-            DeleteAuthor deleteAuthor = new DeleteAuthor();
-            if (deleteAuthor.ShowDialog() == DialogResult.OK)
-            {
+            Auths_papers delPaper = new Auths_papers();
 
-                if (!accessToPapers.deleteAuthor(deleteAuthor.ID))
-                    MessageBox.Show("Such author does not exist");
-                AuthorRefresh_Click(null, null);
-            }
+            delPaper.author_paper_id = Convert.ToInt32(Author_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+
+            accessToPapers.deleteAuthor(delPaper);
+            
+            AuthorRefresh_Click(null, null);
         }
-
+        
         private void authorNameFilter_txbx_TextChanged(object sender, EventArgs e)
         {
             AuthorRefresh_Click(null, null);

@@ -18,9 +18,11 @@ namespace PapersDB
             newPaper = new Paper();
             InitializeComponent();
         }
-        public AddPaper(List<string> subjNames, List<string> langNames)
+        public AddPaper(BindingList<string> subjNames, BindingList<string> langNames)
         {
             newPaper = new Paper();
+            newPaper.Language = new Language();
+            newPaper.Subject = new Subject();
             InitializeComponent();
             subject_cmbx.DataSource = subjNames;
             language_cmbx.DataSource = langNames;
@@ -39,9 +41,9 @@ namespace PapersDB
                         MessageBox.Show("Language is empty");
                     else
                     {
-                        newPaper.Title = orgTitle_txbx.Text.Trim();
-                        newPaper.Language = language_cmbx.Text.Trim();
-                        newPaper.Subject = subject_cmbx.Text.Trim();
+                        newPaper.p_title = orgTitle_txbx.Text.Trim();
+                        newPaper.Language.language_name = language_cmbx.Text.Trim();
+                        newPaper.Subject.subj_name = subject_cmbx.Text.Trim();
                         DialogResult = DialogResult.OK;
                     }
                 }

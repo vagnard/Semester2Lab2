@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BasePapersModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище BasePapersModelContainer">
+    <EntitySet Name="Auths_papers" EntityType="Хранилище BasePapersModel.Auths_papers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Countries" EntityType="Хранилище BasePapersModel.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Languages" EntityType="Хранилище BasePapersModel.Languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organisations" EntityType="Хранилище BasePapersModel.Organisations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Papers" EntityType="Хранилище BasePapersModel.Papers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reviewers_papers" EntityType="Хранилище BasePapersModel.Reviewers_papers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Scientists" EntityType="Хранилище BasePapersModel.Scientists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subjects" EntityType="Хранилище BasePapersModel.Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Хранилище BasePapersModel.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Auths-papers_Papers" Association="Хранилище BasePapersModel.FK_Auths-papers_Papers">
+      <End Role="Papers" EntitySet="Papers" />
+      <End Role="Auths_papers" EntitySet="Auths_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auths-papers_Scientists" Association="Хранилище BasePapersModel.FK_Auths-papers_Scientists">
+      <End Role="Scientists" EntitySet="Scientists" />
+      <End Role="Auths_papers" EntitySet="Auths_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organisations_Countries" Association="Хранилище BasePapersModel.FK_Organisations_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Organisations" EntitySet="Organisations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Papers_Languages" Association="Хранилище BasePapersModel.FK_Papers_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Papers" EntitySet="Papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Papers_Subjects1" Association="Хранилище BasePapersModel.FK_Papers_Subjects1">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Papers" EntitySet="Papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviewers-papers_Papers" Association="Хранилище BasePapersModel.FK_Reviewers-papers_Papers">
+      <End Role="Papers" EntitySet="Papers" />
+      <End Role="Reviewers_papers" EntitySet="Reviewers_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviewers-papers_Scientists" Association="Хранилище BasePapersModel.FK_Reviewers-papers_Scientists">
+      <End Role="Scientists" EntitySet="Scientists" />
+      <End Role="Reviewers_papers" EntitySet="Reviewers_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scientists_Organisations" Association="Хранилище BasePapersModel.FK_Scientists_Organisations">
+      <End Role="Organisations" EntitySet="Organisations" />
+      <End Role="Scientists" EntitySet="Scientists" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Auths_papers">
+    <Key>
+      <PropertyRef Name="author_paper_id" />
+    </Key>
+    <Property Name="author_paper_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="s_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="country_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="language_id" />
+    </Key>
+    <Property Name="language_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="language_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Organisations">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="org_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="org_country" Type="int" Nullable="false" />
+    <Property Name="org_website" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Papers">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="p_title" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="p_abstract" Type="ntext" />
+    <Property Name="p_date" Type="date" Nullable="false" />
+    <Property Name="language_id" Type="int" Nullable="false" />
+    <Property Name="subj_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reviewers_papers">
+    <Key>
+      <PropertyRef Name="paper_reviewer_id" />
+    </Key>
+    <Property Name="paper_reviewer_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="s_id" Type="int" Nullable="false" />
+    <Property Name="reviewer_comment" Type="text" />
+  </EntityType>
+  <EntityType Name="Scientists">
+    <Key>
+      <PropertyRef Name="s_id" />
+    </Key>
+    <Property Name="s_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="s_hindex" Type="float" />
+    <Property Name="org_id" Type="int" />
+    <Property Name="s_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="s_email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="subj_id" />
+    </Key>
+    <Property Name="subj_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="subj_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Auths-papers_Papers">
+    <End Role="Papers" Type="Хранилище BasePapersModel.Papers" Multiplicity="1" />
+    <End Role="Auths_papers" Type="Хранилище BasePapersModel.Auths_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Papers">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Auths_papers">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auths-papers_Scientists">
+    <End Role="Scientists" Type="Хранилище BasePapersModel.Scientists" Multiplicity="1" />
+    <End Role="Auths_papers" Type="Хранилище BasePapersModel.Auths_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scientists">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="Auths_papers">
+        <PropertyRef Name="s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organisations_Countries">
+    <End Role="Countries" Type="Хранилище BasePapersModel.Countries" Multiplicity="1" />
+    <End Role="Organisations" Type="Хранилище BasePapersModel.Organisations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="Organisations">
+        <PropertyRef Name="org_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Papers_Languages">
+    <End Role="Languages" Type="Хранилище BasePapersModel.Languages" Multiplicity="1" />
+    <End Role="Papers" Type="Хранилище BasePapersModel.Papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="language_id" />
+      </Principal>
+      <Dependent Role="Papers">
+        <PropertyRef Name="language_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Papers_Subjects1">
+    <End Role="Subjects" Type="Хранилище BasePapersModel.Subjects" Multiplicity="1" />
+    <End Role="Papers" Type="Хранилище BasePapersModel.Papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="subj_id" />
+      </Principal>
+      <Dependent Role="Papers">
+        <PropertyRef Name="subj_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviewers-papers_Papers">
+    <End Role="Papers" Type="Хранилище BasePapersModel.Papers" Multiplicity="1" />
+    <End Role="Reviewers_papers" Type="Хранилище BasePapersModel.Reviewers_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Papers">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Reviewers_papers">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviewers-papers_Scientists">
+    <End Role="Scientists" Type="Хранилище BasePapersModel.Scientists" Multiplicity="1" />
+    <End Role="Reviewers_papers" Type="Хранилище BasePapersModel.Reviewers_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scientists">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="Reviewers_papers">
+        <PropertyRef Name="s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scientists_Organisations">
+    <End Role="Organisations" Type="Хранилище BasePapersModel.Organisations" Multiplicity="0..1" />
+    <End Role="Scientists" Type="Хранилище BasePapersModel.Scientists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisations">
+        <PropertyRef Name="org_id" />
+      </Principal>
+      <Dependent Role="Scientists">
+        <PropertyRef Name="org_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

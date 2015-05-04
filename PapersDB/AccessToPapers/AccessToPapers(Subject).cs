@@ -5,69 +5,62 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Common;
-
+using System.Data.Entity;
+using System.ComponentModel;
 namespace AccessToPapers
 {
     public partial class AccessToPapers
     {
         public List<Subject> GetAllSubjects()
         {
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
-            DataRowCollection searchedRow = PapersDataSet.Subjects.Rows;
-            List<Subject> Subjects = new List<Subject>();
-
-            foreach (BasePapersDataSet.SubjectsRow SubjectRow in searchedRow)
-            {
-                Subject Subject = new Subject();
-                Subject.Name = SubjectRow.subj_name;
-                Subject.ID = SubjectRow.subj_id;
-                Subjects.Add(Subject);
-            }
-
-            return Subjects;
+            return basePapers.Subjects.Local.ToList();
         }
         public bool addSubject(Subject Subject)
         {
-            if (!isSubjectInDB(Subject.Name))
+            if (!isSubjectInDB(Subject))
             {
-                PapersDataSet.Subjects.AddSubjectsRow(Subject.Name);
-                provider.UpdateAllData();
+                basePapers.Subjects.Add(Subject);
+                basePapers.SaveChanges();
                 return true;
             };
             return false;
         }
-        public bool deleteSubject(int ID)
+        public bool deleteSubject(Subject subject)
         {
-            if (isSubjectInDB(ID))
-            {
-                DataRow[] SubjectRow = PapersDataSet.Subjects.Select("[subj_id] = '" + ID.ToString() + "'");
-                SubjectRow[0].Delete();
-                provider.UpdateAllData();
-                return true;
-            };
+            if (subjectLinked(subject)) return true;
+
+            basePapers.Subjects.Remove(basePapers.Subjects.Find(subject.subj_id));
+            basePapers.SaveChanges();
+
             return false;
         }
-        public bool modifySubject(Subject Subject)
+        public void modifySubject(Subject subject)
         {
-            if (isSubjectInDB(Subject.ID))
-            {
-                BasePapersDataSet.SubjectsRow[] SubjectRow = (BasePapersDataSet.SubjectsRow[])
-                    PapersDataSet.Subjects.Select("[subj_id] = '" + Subject.ID.ToString() + "'");
-                SubjectRow[0].subj_name = Subject.Name;
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+            
+                Subject subject_mod = basePapers.Subjects.First(i => i.subj_id == subject.subj_id);
+
+                subject_mod.subj_name = subject.subj_name;
+
+                basePapers.SaveChanges();
+                
         }
-        bool isSubjectInDB(string name)
+        bool isSubjectInDB(Subject subject)
         {
-            DataRow[] SubjectRow = PapersDataSet.Subjects.Select("[subj_name] = '" + name.ToString() + "'");
-            return SubjectRow != null && SubjectRow.Length > 0;
+            return (from subject_f in basePapers.Subjects
+                    where
+                     subject_f.subj_name == subject.subj_name ||
+                     subject_f.subj_id == subject.subj_id
+                    select
+                     subject_f.subj_id).Any();
         }
-        bool isSubjectInDB(int ID)
+        bool subjectLinked(Subject subject)
         {
-            DataRow[] SubjectRow = PapersDataSet.Subjects.Select("[subj_id] = '" + ID.ToString() + "'");
-            return SubjectRow != null && SubjectRow.Length > 0;
+            return (from paper in basePapers.Papers
+                    where
+                        paper.subj_id == subject.subj_id
+                    select
+                        paper).Any();
         }
+        
     }
 }

@@ -26,7 +26,7 @@ namespace PapersDB
                 MessageBox.Show("Name is empty");
             else
             {
-                NewLanguage.Name = languageName_txbx.Text.Trim();
+                NewLanguage.language_name = languageName_txbx.Text.Trim();
                 DialogResult = DialogResult.OK;
             }
         }

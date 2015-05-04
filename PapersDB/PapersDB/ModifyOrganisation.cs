@@ -22,33 +22,24 @@ namespace PapersDB
             InitializeComponent();
         }
 
-        public ModifyOrganisation(List<string> countryNames)
+        public ModifyOrganisation(int ID, BindingList<string> countryNames)
         {
             modifyOrg = new Organisation();
+            modifyOrg.org_id = ID;
+            modifyOrg.Country = new Country();
             InitializeComponent();
             orgCountry_cmbx.DataSource = countryNames;
         }
 
         private void modifyOrg_btn_Click(object sender, EventArgs e)
         {
-            if (orgID_txbx.Text.Trim() == "")
-                MessageBox.Show("ID is empty");
-            else
-            {
-                   try
-                   {
-                       modifyOrg.ID = Convert.ToInt32(orgID_txbx.Text.Trim());
-                   }
-                   catch (FormatException)
-                   {
-                       MessageBox.Show("Input string is not a sequence of digits.");
-                   }
-                   modifyOrg.Name = orgName_txbx.Text.Trim();
-                   modifyOrg.Website = orgWebsity_txbx.Text.Trim();
-                   modifyOrg.Country = orgCountry_cmbx.Text.Trim();
+            
+            modifyOrg.org_name = orgName_txbx.Text.Trim();
+            modifyOrg.org_website = orgWebsity_txbx.Text.Trim();
+            modifyOrg.Country.country_name = orgCountry_cmbx.Text.Trim();
 
-                   DialogResult = DialogResult.OK;
-            }
+            DialogResult = DialogResult.OK;
+            
         }
     }
 }

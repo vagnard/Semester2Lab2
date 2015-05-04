@@ -14,7 +14,7 @@ namespace PapersDB
     public partial class LogIn : Form
     {
         public string ConnectionParameters { get; private set; }
-        public SourceType DBType { get; private set; }
+        //public SourceType DBType { get; private set; }
         public LogIn()
         {
             InitializeComponent();
@@ -70,7 +70,7 @@ namespace PapersDB
             if (XML_rdbtn.Checked)
             {
                 ConnectionParameters = XMLFile_txbx.Text;
-                DBType = SourceType.XML;
+                //DBType = SourceType.XML;
             }
             else
             {
@@ -86,7 +86,7 @@ namespace PapersDB
                     return;
                 }
                 ConnectionParameters = ConnectionString_txbx.Text;
-                DBType = SourceType.SQL;
+               // DBType = SourceType.SQL;
             }
             DialogResult = DialogResult.OK;
 

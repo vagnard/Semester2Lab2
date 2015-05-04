@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище BasePapersModelContainer" CdmEntityContainer="BasePapersEntities">
+    <EntitySetMapping Name="Auths_papers">
+      <EntityTypeMapping TypeName="BasePapersModel.Auths_papers">
+        <MappingFragment StoreEntitySet="Auths_papers">
+          <ScalarProperty Name="author_paper_id" ColumnName="author_paper_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="BasePapersModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="country_name" ColumnName="country_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="BasePapersModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="language_name" ColumnName="language_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organisations">
+      <EntityTypeMapping TypeName="BasePapersModel.Organisation">
+        <MappingFragment StoreEntitySet="Organisations">
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="org_name" ColumnName="org_name" />
+          <ScalarProperty Name="org_country" ColumnName="org_country" />
+          <ScalarProperty Name="org_website" ColumnName="org_website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Papers">
+      <EntityTypeMapping TypeName="BasePapersModel.Paper">
+        <MappingFragment StoreEntitySet="Papers">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_title" ColumnName="p_title" />
+          <ScalarProperty Name="p_abstract" ColumnName="p_abstract" />
+          <ScalarProperty Name="p_date" ColumnName="p_date" />
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="subj_id" ColumnName="subj_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviewers_papers">
+      <EntityTypeMapping TypeName="BasePapersModel.Reviewers_papers">
+        <MappingFragment StoreEntitySet="Reviewers_papers">
+          <ScalarProperty Name="paper_reviewer_id" ColumnName="paper_reviewer_id" />
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="reviewer_comment" ColumnName="reviewer_comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scientists">
+      <EntityTypeMapping TypeName="BasePapersModel.Scientist">
+        <MappingFragment StoreEntitySet="Scientists">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="s_hindex" ColumnName="s_hindex" />
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="s_name" ColumnName="s_name" />
+          <ScalarProperty Name="s_email" ColumnName="s_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="BasePapersModel.Subject">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="subj_id" ColumnName="subj_id" />
+          <ScalarProperty Name="subj_name" ColumnName="subj_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BasePapersModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище BasePapersModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище BasePapersModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище BasePapersModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище BasePapersModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BasePapersModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище BasePapersModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BasePapersModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище BasePapersModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище BasePapersModel.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

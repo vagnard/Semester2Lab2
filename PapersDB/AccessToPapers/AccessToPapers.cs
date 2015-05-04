@@ -4,23 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
-using Provider;
-
+using System.Data.Entity;
 
 namespace AccessToPapers
 {
     public partial class AccessToPapers
     {
-        BasePapersDataSet PapersDataSet;
-        Provider.Provider provider = new Provider.Provider();
-        SourceType DataType;
-        string TargetData;
+        BasePapersEntities basePapers;
 
-        public AccessToPapers(SourceType DataType, string TargetData)
+        public AccessToPapers()
         {
-            this.DataType = DataType;
-            this.TargetData = TargetData;
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
+            basePapers = new BasePapersEntities();
+            basePapers.Auths_papers.Load();
+            basePapers.Languages.Load();
+            basePapers.Subjects.Load();
+            basePapers.Countries.Load();
+            basePapers.Organisations.Load();
+            basePapers.Papers.Load();
+            basePapers.Scientists.Load(); 
+            
         }
     }
 }

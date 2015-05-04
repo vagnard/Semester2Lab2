@@ -13,10 +13,10 @@ namespace PapersDB
 {
     public partial class AddCountry : Form
     {
-        public Country NewCountry;
+        public Country country;
         public AddCountry()
         {
-            NewCountry = new Country();
+            country = new Country();
             InitializeComponent();
         }
 
@@ -26,7 +26,7 @@ namespace PapersDB
                 MessageBox.Show("Name is empty");
             else
             {
-                NewCountry.Name = countryName_txbx.Text.Trim();
+                country.country_name = countryName_txbx.Text.Trim();
                 DialogResult = DialogResult.OK;
             }
         }

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cfdb571f460b4a4093a1df5679dae9ec" Name="Диаграмма1">
+        <EntityTypeShape EntityType="BasePapersModel.Auths_papers" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Country" Width="1.5" PointX="1.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Language" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Organisation" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Paper" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Reviewers_papers" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Scientist" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.Subject" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BasePapersModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="BasePapersModel.FK_Auths_papers_Papers" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Auths_papers_Scientists" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Organisations_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Papers_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Scientists_Organisations" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Papers_Subjects1" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Reviewers_papers_Papers" ManuallyRouted="false" />
+        <AssociationConnector Association="BasePapersModel.FK_Reviewers_papers_Scientists" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

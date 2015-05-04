@@ -20,9 +20,12 @@ namespace PapersDB
             InitializeComponent();
         }
 
-        public ModifyPaper(List<string> subjectNames, List<string> languageNames)
+        public ModifyPaper(int ID, BindingList<string> subjectNames, BindingList<string> languageNames)
         {
             modifyPaper = new Paper();
+            modifyPaper.p_id = ID;
+            modifyPaper.Language = new Language();
+            modifyPaper.Subject = new Subject();
             InitializeComponent();
             paperLanguage_cmbx.DataSource = languageNames;
             paperSubject_cmbx.DataSource = subjectNames;
@@ -30,24 +33,12 @@ namespace PapersDB
 
         private void modifyPaper_btn_Click(object sender, EventArgs e)
         {
-            if (paperID_txbx.Text.Trim() == "")
-                MessageBox.Show("ID is empty");
-            else
-            {
-                   try
-                   {
-                       modifyPaper.ID = Convert.ToInt32(paperID_txbx.Text.Trim());
-                   }
-                   catch (FormatException)
-                   {
-                       MessageBox.Show("Input string is not a sequence of digits.");
-                   }
-                   modifyPaper.Title = paperName_txbx.Text.Trim();
-                   modifyPaper.Language = paperLanguage_cmbx.Text.Trim();
-                   modifyPaper.Subject = paperSubject_cmbx.Text.Trim();
+          
+                   modifyPaper.p_title = paperName_txbx.Text.Trim();
+                   modifyPaper.Language.language_name = paperLanguage_cmbx.Text.Trim();
+                   modifyPaper.Subject.subj_name = paperSubject_cmbx.Text.Trim();
 
                    DialogResult = DialogResult.OK;
-            }
         }
         
 

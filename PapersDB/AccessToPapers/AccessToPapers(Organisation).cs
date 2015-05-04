@@ -5,121 +5,90 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Common;
+using System.Data.Entity;
+using System.ComponentModel;
 
 namespace AccessToPapers
 {
+    public class ProjectedOrganization
+    {
+        public int org_id { get; set; }
+        public string org_name { get; set; }
+        public string org_country { get; set; }
+        public string org_website { get; set; }
+    }
+
     public partial class AccessToPapers
     {
-        public List<Organisation> GetAllOrganisations(string name, string country)
+        public List<ProjectedOrganization> GetAllOrganisations(string name, string country)
         {
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
-            BasePapersDataSet.OrganisationsRow[] searchedRow = null;
-
-            if (name != "" && country != "")
-            {
-                BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
-                     PapersDataSet.Countries.Select("[country_name] = '" + country + "'");
-                searchedRow = (BasePapersDataSet.OrganisationsRow[])
-                    PapersDataSet.Organisations.Select("[org_name] = '" + name + "' AND " +
-                                                       "[org_country] = '" + countryRow[0].country_id.ToString() + "'");
-            }
-            else
-                if (name != "")
-                {
-                    searchedRow = (BasePapersDataSet.OrganisationsRow[])
-                   PapersDataSet.Organisations.Select("[org_name] = '" + name + "'");
-                }
-                else
-                    if (country != "")
-                    {
-                        BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
-                            PapersDataSet.Countries.Select("[country_name] = '" + country + "'");
-                        searchedRow = (BasePapersDataSet.OrganisationsRow[])
-                          PapersDataSet.Organisations.Select("[org_country] = '" + countryRow[0].country_id.ToString() + "'");
-                    }
-                    else
-                        searchedRow = (BasePapersDataSet.OrganisationsRow[])PapersDataSet.Organisations.Select("");
-            List<Organisation> organisations = new List<Organisation>();
-
-            foreach (BasePapersDataSet.OrganisationsRow organisationRow in searchedRow)
-            {
-                Organisation organisation = new Organisation();
-                organisation.Country = organisationRow.CountriesRow.country_name;
-                organisation.CountryID = organisationRow.CountriesRow.country_id;
-                organisation.ID = organisationRow.org_id;
-                organisation.Name = organisationRow.org_name;
-                organisation.Website = organisationRow.org_website;
-
-                organisations.Add(organisation);
-            }
-
-            return organisations;
+            return (from org in basePapers.Organisations
+                    where org.org_name.Contains(name) && (org.Country.country_name == country || country == "")
+                    join cntry in basePapers.Countries
+                    on org.org_country
+                    equals cntry.country_id
+                    select new ProjectedOrganization {
+                        org_id = org.org_id,
+                        org_name = org.org_name,
+                        org_country = cntry.country_name,
+                        org_website = org.org_website
+                    }).ToList();
         }
+
         public bool addOrganisation(Organisation organisation)
         {
             if (!isOrganisationInDB(organisation))
             {
-                BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
-                 PapersDataSet.Countries.Select("[country_name] = '" + organisation.Country.ToString() + "'");
-                PapersDataSet.Organisations.AddOrganisationsRow(organisation.Name, countryRow[0], organisation.Website);
-                provider.UpdateAllData();
+                basePapers.Organisations.Add(organisation);
+                basePapers.SaveChanges();
                 return true;
             };
             return false;
         }
 
-        public bool modifyOrganisation(Organisation organisation)
+        public void modifyOrganisation(Organisation organisation)
         {
-            if (isOrganisationInDB(organisation.ID))
-            {
-                BasePapersDataSet.OrganisationsRow[] organisationRow = (BasePapersDataSet.OrganisationsRow[])
-                    PapersDataSet.Organisations.Select("[org_id] = '" + organisation.ID.ToString() + "'");
-                if (organisation.Country != "")
+           
+                Organisation org_mod = basePapers.Organisations.First(i => i.org_id == organisation.org_id);
+                if (organisation.Country.country_name != "")
                 {
-                    BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
-                        PapersDataSet.Countries.Select("[country_name] = '" + organisation.Country.ToString() + "'");
-                    organisationRow[0].org_country = countryRow[0].country_id;
+                    org_mod.org_country = basePapers.Countries.First(i => i.country_name == organisation.Country.country_name).country_id;
                 }
-                if (organisation.Name != "")
-                    organisationRow[0].org_name = organisation.Name;
+                if (organisation.org_name != "")
+                    org_mod.org_name = organisation.org_name;
 
-                if (organisation.Website != "")
-                    organisationRow[0].org_website = organisation.Website;
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+                if (organisation.org_website != "")
+                    org_mod.org_website = organisation.org_website;
+
+                basePapers.SaveChanges();
+                
         }
 
-        public bool deleteOrganisation(int ID)
+        public bool deleteOrganisation(Organisation organisation)
         {
-            if (isOrganisationInDB(ID))
-            {
-                DataRow[] countryRow = PapersDataSet.Organisations.Select("[org_id] = '" + ID.ToString() + "'");
-                countryRow[0].Delete();
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+            if (isOrganisationLinked(organisation)) return false;
+
+            basePapers.Organisations.Remove(basePapers.Organisations.Find(organisation.org_id));
+            basePapers.SaveChanges();
+
+            return true;
         }
-        bool isOrganisationInDB(int ID)
+        bool isOrganisationLinked(Organisation organisation)
         {
-            DataRow[] OrganisationRow = PapersDataSet.Organisations.Select("[org_id] = '" + ID.ToString() + "'");
-            return OrganisationRow != null && OrganisationRow.Length > 0;
+            return (from sci in basePapers.Scientists
+                    where
+                        sci.org_id == organisation.org_id
+                    select
+                        sci).Any();
         }
 
 
         bool isOrganisationInDB(Organisation organisation)
         {
-            var orgs = from org in PapersDataSet.Organisations.AsEnumerable()
-                             where org.org_name == organisation.Name
-                             select org;
-            return orgs.Count() > 0;
-
-            /*
-            
-            DataRow[] OrganisationRow = PapersDataSet.Organisations.Select("[org_name] = '" + organisation.Name.ToString() + "'");
-            return OrganisationRow != null && OrganisationRow.Length > 0;*/
+            return (from org in basePapers.Organisations
+                             where org.org_name == organisation.org_name ||
+                                   org.org_id == organisation.org_id
+                             select org).Any();
         }
         
     }

@@ -13,16 +13,18 @@ namespace PapersDB
 {
     public partial class AddAuthor : Form
     {
-        public Scientist NewScientist;
+        public Auths_papers NewAuthor;
         public AddAuthor()
         {
-            NewScientist = new Scientist();
+            NewAuthor = new Auths_papers();
+            NewAuthor.Scientist = new Scientist();
             InitializeComponent();
         }
 
-        public AddAuthor(List<string> scientistNames)
+        public AddAuthor(BindingList<string> scientistNames)
         {
-            NewScientist = new Scientist();
+            NewAuthor = new Auths_papers();
+            NewAuthor.Scientist = new Scientist();
             InitializeComponent();
             authorNames_cmbx.DataSource = scientistNames;
         }
@@ -34,9 +36,9 @@ namespace PapersDB
             else
             {
 
-                NewScientist.Name = authorNames_cmbx.Text.Trim();
+                NewAuthor.Scientist.s_name = authorNames_cmbx.Text.Trim();
               
-                    DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
                 
             }
         }

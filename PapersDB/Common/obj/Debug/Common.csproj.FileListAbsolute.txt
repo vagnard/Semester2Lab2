@@ -4,3 +4,9 @@ C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\Common.pdb
 C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.dll
 C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.pdb
 C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\EntityFramework.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\EntityFramework.xml
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vagnard\Desktop\Lab1\PapersDB\Common\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

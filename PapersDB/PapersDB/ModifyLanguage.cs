@@ -22,26 +22,15 @@ namespace PapersDB
         
         private void modLanguage_btn_Click(object sender, EventArgs e)
         {
-            if (languageID_txbx.Text.Trim() == "")
-                MessageBox.Show("ID is empty");
-            else
-            {
+            
                 if (languageName_txbx.Text.Trim() == "")
                     MessageBox.Show("Name is empty");
                 else
                 {
-                    try
-                    {
-                        modifyLanguage.ID = Convert.ToInt32(languageID_txbx.Text.Trim());
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Input string is not a sequence of digits.");
-                    }
-                    modifyLanguage.Name = languageName_txbx.Text.Trim();
+                   
+                    modifyLanguage.language_name = languageName_txbx.Text.Trim();
                     DialogResult = DialogResult.OK;
                 }
-            }
         }
     }
 }

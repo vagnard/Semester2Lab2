@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.organisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addOrganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,12 +57,21 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.CountriesRefresh_btn = new System.Windows.Forms.Button();
             this.countries_dgv = new System.Windows.Forms.DataGridView();
+            this.countryidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countrynameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.subjectRefresh_btn = new System.Windows.Forms.Button();
             this.subject_dgv = new System.Windows.Forms.DataGridView();
+            this.subjidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.languageRefresh_btn = new System.Windows.Forms.Button();
             this.language_dgv = new System.Windows.Forms.DataGridView();
+            this.languageidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languagenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.SciOrganisation_cmbx = new System.Windows.Forms.ComboBox();
@@ -69,6 +79,12 @@
             this.labell = new System.Windows.Forms.Label();
             this.Scientist_Refresh = new System.Windows.Forms.Button();
             this.sci_dgv = new System.Windows.Forms.DataGridView();
+            this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.snameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shindexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scientistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.lang_cmbx = new System.Windows.Forms.ComboBox();
@@ -86,21 +102,37 @@
             this.OrgCountry_cmbx = new System.Windows.Forms.ComboBox();
             this.OrganisationRefresh = new System.Windows.Forms.Button();
             this.org_dgv = new System.Windows.Forms.DataGridView();
+            this.orgidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgcountryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orgwebsiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.organisationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.abc = new System.Windows.Forms.TabControl();
+            this.paperBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ptitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.languageidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenuStrip.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.countries_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subject_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.language_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sci_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scientistBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.papers_dgv)).BeginInit();
             this.Organisations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.org_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.organisationBindingSource)).BeginInit();
             this.abc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.paperBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -131,21 +163,21 @@
             // addOrganisationToolStripMenuItem
             // 
             this.addOrganisationToolStripMenuItem.Name = "addOrganisationToolStripMenuItem";
-            this.addOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.addOrganisationToolStripMenuItem.Text = "Add";
             this.addOrganisationToolStripMenuItem.Click += new System.EventHandler(this.addOrganisationToolStripMenuItem_Click);
             // 
             // deleteOrganisationToolStripMenuItem
             // 
             this.deleteOrganisationToolStripMenuItem.Name = "deleteOrganisationToolStripMenuItem";
-            this.deleteOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.deleteOrganisationToolStripMenuItem.Text = "Delete";
             this.deleteOrganisationToolStripMenuItem.Click += new System.EventHandler(this.deleteOrganisationToolStripMenuItem_Click);
             // 
             // modifyOrganisationToolStripMenuItem
             // 
             this.modifyOrganisationToolStripMenuItem.Name = "modifyOrganisationToolStripMenuItem";
-            this.modifyOrganisationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modifyOrganisationToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.modifyOrganisationToolStripMenuItem.Text = "Modify";
             this.modifyOrganisationToolStripMenuItem.Click += new System.EventHandler(this.modifyOrganisationToolStripMenuItem_Click);
             // 
@@ -327,11 +359,35 @@
             // 
             // countries_dgv
             // 
+            this.countries_dgv.AllowUserToAddRows = false;
+            this.countries_dgv.AutoGenerateColumns = false;
             this.countries_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.countries_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.countryidDataGridViewTextBoxColumn,
+            this.countrynameDataGridViewTextBoxColumn});
+            this.countries_dgv.DataSource = this.countryBindingSource;
             this.countries_dgv.Location = new System.Drawing.Point(3, 43);
             this.countries_dgv.Name = "countries_dgv";
             this.countries_dgv.Size = new System.Drawing.Size(718, 311);
             this.countries_dgv.TabIndex = 0;
+            // 
+            // countryidDataGridViewTextBoxColumn
+            // 
+            this.countryidDataGridViewTextBoxColumn.DataPropertyName = "country_id";
+            this.countryidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.countryidDataGridViewTextBoxColumn.Name = "countryidDataGridViewTextBoxColumn";
+            this.countryidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countrynameDataGridViewTextBoxColumn
+            // 
+            this.countrynameDataGridViewTextBoxColumn.DataPropertyName = "country_name";
+            this.countrynameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.countrynameDataGridViewTextBoxColumn.Name = "countrynameDataGridViewTextBoxColumn";
+            this.countrynameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countryBindingSource
+            // 
+            this.countryBindingSource.DataSource = typeof(Common.Country);
             // 
             // tabPage4
             // 
@@ -356,11 +412,35 @@
             // 
             // subject_dgv
             // 
+            this.subject_dgv.AllowUserToAddRows = false;
+            this.subject_dgv.AutoGenerateColumns = false;
             this.subject_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subject_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.subjidDataGridViewTextBoxColumn,
+            this.subjnameDataGridViewTextBoxColumn});
+            this.subject_dgv.DataSource = this.subjectBindingSource;
             this.subject_dgv.Location = new System.Drawing.Point(4, 39);
             this.subject_dgv.Name = "subject_dgv";
             this.subject_dgv.Size = new System.Drawing.Size(718, 311);
             this.subject_dgv.TabIndex = 1;
+            // 
+            // subjidDataGridViewTextBoxColumn
+            // 
+            this.subjidDataGridViewTextBoxColumn.DataPropertyName = "subj_id";
+            this.subjidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.subjidDataGridViewTextBoxColumn.Name = "subjidDataGridViewTextBoxColumn";
+            this.subjidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subjnameDataGridViewTextBoxColumn
+            // 
+            this.subjnameDataGridViewTextBoxColumn.DataPropertyName = "subj_name";
+            this.subjnameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.subjnameDataGridViewTextBoxColumn.Name = "subjnameDataGridViewTextBoxColumn";
+            this.subjnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataSource = typeof(Common.Subject);
             // 
             // tabPage3
             // 
@@ -384,11 +464,35 @@
             // 
             // language_dgv
             // 
+            this.language_dgv.AllowUserToAddRows = false;
+            this.language_dgv.AutoGenerateColumns = false;
             this.language_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.language_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.languageidDataGridViewTextBoxColumn,
+            this.languagenameDataGridViewTextBoxColumn});
+            this.language_dgv.DataSource = this.languageBindingSource;
             this.language_dgv.Location = new System.Drawing.Point(4, 39);
             this.language_dgv.Name = "language_dgv";
             this.language_dgv.Size = new System.Drawing.Size(718, 311);
             this.language_dgv.TabIndex = 1;
+            // 
+            // languageidDataGridViewTextBoxColumn
+            // 
+            this.languageidDataGridViewTextBoxColumn.DataPropertyName = "language_id";
+            this.languageidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.languageidDataGridViewTextBoxColumn.Name = "languageidDataGridViewTextBoxColumn";
+            this.languageidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // languagenameDataGridViewTextBoxColumn
+            // 
+            this.languagenameDataGridViewTextBoxColumn.DataPropertyName = "language_name";
+            this.languagenameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.languagenameDataGridViewTextBoxColumn.Name = "languagenameDataGridViewTextBoxColumn";
+            this.languagenameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // languageBindingSource
+            // 
+            this.languageBindingSource.DataSource = typeof(Common.Language);
             // 
             // tabPage1
             // 
@@ -453,11 +557,58 @@
             // 
             // sci_dgv
             // 
+            this.sci_dgv.AllowUserToAddRows = false;
+            this.sci_dgv.AutoGenerateColumns = false;
             this.sci_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sci_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sidDataGridViewTextBoxColumn,
+            this.snameDataGridViewTextBoxColumn,
+            this.shindexDataGridViewTextBoxColumn,
+            this.orgidDataGridViewTextBoxColumn1,
+            this.semailDataGridViewTextBoxColumn});
+            this.sci_dgv.DataSource = this.scientistBindingSource;
             this.sci_dgv.Location = new System.Drawing.Point(4, 44);
             this.sci_dgv.Name = "sci_dgv";
             this.sci_dgv.Size = new System.Drawing.Size(718, 311);
             this.sci_dgv.TabIndex = 8;
+            // 
+            // sidDataGridViewTextBoxColumn
+            // 
+            this.sidDataGridViewTextBoxColumn.DataPropertyName = "s_id";
+            this.sidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.sidDataGridViewTextBoxColumn.Name = "sidDataGridViewTextBoxColumn";
+            this.sidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // snameDataGridViewTextBoxColumn
+            // 
+            this.snameDataGridViewTextBoxColumn.DataPropertyName = "s_name";
+            this.snameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.snameDataGridViewTextBoxColumn.Name = "snameDataGridViewTextBoxColumn";
+            // 
+            // shindexDataGridViewTextBoxColumn
+            // 
+            this.shindexDataGridViewTextBoxColumn.DataPropertyName = "s_hindex";
+            this.shindexDataGridViewTextBoxColumn.HeaderText = "H index";
+            this.shindexDataGridViewTextBoxColumn.Name = "shindexDataGridViewTextBoxColumn";
+            this.shindexDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgidDataGridViewTextBoxColumn1
+            // 
+            this.orgidDataGridViewTextBoxColumn1.DataPropertyName = "org_id";
+            this.orgidDataGridViewTextBoxColumn1.HeaderText = "Organisation";
+            this.orgidDataGridViewTextBoxColumn1.Name = "orgidDataGridViewTextBoxColumn1";
+            this.orgidDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // semailDataGridViewTextBoxColumn
+            // 
+            this.semailDataGridViewTextBoxColumn.DataPropertyName = "s_email";
+            this.semailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.semailDataGridViewTextBoxColumn.Name = "semailDataGridViewTextBoxColumn";
+            this.semailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // scientistBindingSource
+            // 
+            this.scientistBindingSource.DataSource = typeof(Common.Scientist);
             // 
             // tabPage2
             // 
@@ -555,7 +706,15 @@
             // 
             // papers_dgv
             // 
+            this.papers_dgv.AllowUserToAddRows = false;
+            this.papers_dgv.AutoGenerateColumns = false;
             this.papers_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.papers_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pidDataGridViewTextBoxColumn,
+            this.ptitleDataGridViewTextBoxColumn,
+            this.languageidDataGridViewTextBoxColumn1,
+            this.subjidDataGridViewTextBoxColumn1});
+            this.papers_dgv.DataSource = this.paperBindingSource;
             this.papers_dgv.Location = new System.Drawing.Point(4, 45);
             this.papers_dgv.Name = "papers_dgv";
             this.papers_dgv.Size = new System.Drawing.Size(718, 311);
@@ -625,11 +784,51 @@
             // 
             // org_dgv
             // 
+            this.org_dgv.AllowUserToAddRows = false;
+            this.org_dgv.AutoGenerateColumns = false;
             this.org_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.org_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orgidDataGridViewTextBoxColumn,
+            this.orgnameDataGridViewTextBoxColumn,
+            this.orgcountryDataGridViewTextBoxColumn,
+            this.orgwebsiteDataGridViewTextBoxColumn});
+            this.org_dgv.DataSource = this.organisationBindingSource;
             this.org_dgv.Location = new System.Drawing.Point(3, 45);
             this.org_dgv.Name = "org_dgv";
             this.org_dgv.Size = new System.Drawing.Size(718, 311);
             this.org_dgv.TabIndex = 0;
+            // 
+            // orgidDataGridViewTextBoxColumn
+            // 
+            this.orgidDataGridViewTextBoxColumn.DataPropertyName = "org_id";
+            this.orgidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.orgidDataGridViewTextBoxColumn.Name = "orgidDataGridViewTextBoxColumn";
+            this.orgidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgnameDataGridViewTextBoxColumn
+            // 
+            this.orgnameDataGridViewTextBoxColumn.DataPropertyName = "org_name";
+            this.orgnameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.orgnameDataGridViewTextBoxColumn.Name = "orgnameDataGridViewTextBoxColumn";
+            this.orgnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgcountryDataGridViewTextBoxColumn
+            // 
+            this.orgcountryDataGridViewTextBoxColumn.DataPropertyName = "org_country";
+            this.orgcountryDataGridViewTextBoxColumn.HeaderText = "Country";
+            this.orgcountryDataGridViewTextBoxColumn.Name = "orgcountryDataGridViewTextBoxColumn";
+            this.orgcountryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // orgwebsiteDataGridViewTextBoxColumn
+            // 
+            this.orgwebsiteDataGridViewTextBoxColumn.DataPropertyName = "org_website";
+            this.orgwebsiteDataGridViewTextBoxColumn.HeaderText = "Website";
+            this.orgwebsiteDataGridViewTextBoxColumn.Name = "orgwebsiteDataGridViewTextBoxColumn";
+            this.orgwebsiteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // organisationBindingSource
+            // 
+            this.organisationBindingSource.DataSource = typeof(Common.Organisation);
             // 
             // abc
             // 
@@ -645,6 +844,38 @@
             this.abc.Size = new System.Drawing.Size(734, 415);
             this.abc.TabIndex = 0;
             // 
+            // paperBindingSource
+            // 
+            this.paperBindingSource.DataSource = typeof(Common.Paper);
+            // 
+            // pidDataGridViewTextBoxColumn
+            // 
+            this.pidDataGridViewTextBoxColumn.DataPropertyName = "p_id";
+            this.pidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.pidDataGridViewTextBoxColumn.Name = "pidDataGridViewTextBoxColumn";
+            this.pidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ptitleDataGridViewTextBoxColumn
+            // 
+            this.ptitleDataGridViewTextBoxColumn.DataPropertyName = "p_title";
+            this.ptitleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.ptitleDataGridViewTextBoxColumn.Name = "ptitleDataGridViewTextBoxColumn";
+            this.ptitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // languageidDataGridViewTextBoxColumn1
+            // 
+            this.languageidDataGridViewTextBoxColumn1.DataPropertyName = "language_id";
+            this.languageidDataGridViewTextBoxColumn1.HeaderText = "Language";
+            this.languageidDataGridViewTextBoxColumn1.Name = "languageidDataGridViewTextBoxColumn1";
+            this.languageidDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // subjidDataGridViewTextBoxColumn1
+            // 
+            this.subjidDataGridViewTextBoxColumn1.DataPropertyName = "subj_id";
+            this.subjidDataGridViewTextBoxColumn1.HeaderText = "Subject";
+            this.subjidDataGridViewTextBoxColumn1.Name = "subjidDataGridViewTextBoxColumn1";
+            this.subjidDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // ClientLol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,20 +890,26 @@
             this.mainMenuStrip.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.countries_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countryBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.subject_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.language_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.languageBindingSource)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sci_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scientistBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.papers_dgv)).EndInit();
             this.Organisations.ResumeLayout(false);
             this.Organisations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.org_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.organisationBindingSource)).EndInit();
             this.abc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.paperBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -739,6 +976,31 @@
         private System.Windows.Forms.DataGridView papers_dgv;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox lang_cmbx;
+        private System.Windows.Forms.BindingSource subjectBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subjidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subjnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource countryBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languageidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languagenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource languageBindingSource;
+        private System.Windows.Forms.BindingSource organisationBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgcountryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgwebsiteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countryidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countrynameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn snameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shindexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orgidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn semailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource scientistBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ptitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn languageidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subjidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource paperBindingSource;
     }
 }
 

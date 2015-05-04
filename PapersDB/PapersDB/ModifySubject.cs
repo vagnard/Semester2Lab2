@@ -24,26 +24,14 @@ namespace PapersDB
 
         private void modSubject_btn_Click(object sender, EventArgs e)
         {
-            if (subjectID_txbx.Text.Trim() == "")
-                MessageBox.Show("ID is empty");
-            else
-            {
+            
                 if (subjectName_txbx.Text.Trim() == "")
                     MessageBox.Show("Name is empty");
                 else
                 {
-                    try
-                    {
-                        modifySubject.ID = Convert.ToInt32(subjectID_txbx.Text.Trim());
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show("Input string is not a sequence of digits.");
-                    }
-                    modifySubject.Name = subjectName_txbx.Text.Trim();
+                    modifySubject.subj_name = subjectName_txbx.Text.Trim();
                     DialogResult = DialogResult.OK;
                 }
             }
-        }
     }
 }

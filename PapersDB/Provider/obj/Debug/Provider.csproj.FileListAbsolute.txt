@@ -1,7 +1,0 @@
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\bin\Debug\Provider.dll
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\bin\Debug\Provider.pdb
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\bin\Debug\Common.dll
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\bin\Debug\Common.pdb
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\obj\Debug\Provider.csprojResolveAssemblyReference.cache
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\obj\Debug\Provider.dll
-C:\Users\vagnard\Desktop\Lab1\PapersDB\Provider\obj\Debug\Provider.pdb

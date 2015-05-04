@@ -20,9 +20,10 @@ namespace PapersDB
             InitializeComponent();
         }
 
-        public AddScientist(List<string> orgNames)
+        public AddScientist(BindingList<string> orgNames)
         {
             NewScientist = new Scientist();
+            NewScientist.Organisation = new Organisation();
             InitializeComponent();
             sciOrg_cmbx.DataSource = orgNames;
         }
@@ -50,10 +51,10 @@ namespace PapersDB
                             return;
                         }
                     }
-                    NewScientist.Name = sciName_txbx.Text.Trim();
-                    NewScientist.organisationName = sciOrg_cmbx.Text.Trim();
-                    NewScientist.Email = sciEmail_txbx.Text.Trim();
-                    NewScientist.hindex = hindex;
+                    NewScientist.s_name = sciName_txbx.Text.Trim();
+                    NewScientist.Organisation.org_name = sciOrg_cmbx.Text.Trim();
+                    NewScientist.s_email = sciEmail_txbx.Text.Trim();
+                    NewScientist.s_hindex = hindex;
                     DialogResult = DialogResult.OK;
                 }
             }

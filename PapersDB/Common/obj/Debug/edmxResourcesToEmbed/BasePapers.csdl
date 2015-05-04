@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BasePapersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BasePapersEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Auths_papers" EntityType="BasePapersModel.Auths_papers" />
+    <EntitySet Name="Countries" EntityType="BasePapersModel.Country" />
+    <EntitySet Name="Languages" EntityType="BasePapersModel.Language" />
+    <EntitySet Name="Organisations" EntityType="BasePapersModel.Organisation" />
+    <EntitySet Name="Papers" EntityType="BasePapersModel.Paper" />
+    <EntitySet Name="Reviewers_papers" EntityType="BasePapersModel.Reviewers_papers" />
+    <EntitySet Name="Scientists" EntityType="BasePapersModel.Scientist" />
+    <EntitySet Name="Subjects" EntityType="BasePapersModel.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="BasePapersModel.sysdiagram" />
+    <AssociationSet Name="FK_Auths_papers_Papers" Association="BasePapersModel.FK_Auths_papers_Papers">
+      <End Role="Papers" EntitySet="Papers" />
+      <End Role="Auths_papers" EntitySet="Auths_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Auths_papers_Scientists" Association="BasePapersModel.FK_Auths_papers_Scientists">
+      <End Role="Scientists" EntitySet="Scientists" />
+      <End Role="Auths_papers" EntitySet="Auths_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organisations_Countries" Association="BasePapersModel.FK_Organisations_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Organisations" EntitySet="Organisations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Papers_Languages" Association="BasePapersModel.FK_Papers_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Papers" EntitySet="Papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scientists_Organisations" Association="BasePapersModel.FK_Scientists_Organisations">
+      <End Role="Organisations" EntitySet="Organisations" />
+      <End Role="Scientists" EntitySet="Scientists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Papers_Subjects1" Association="BasePapersModel.FK_Papers_Subjects1">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Papers" EntitySet="Papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviewers_papers_Papers" Association="BasePapersModel.FK_Reviewers_papers_Papers">
+      <End Role="Papers" EntitySet="Papers" />
+      <End Role="Reviewers_papers" EntitySet="Reviewers_papers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reviewers_papers_Scientists" Association="BasePapersModel.FK_Reviewers_papers_Scientists">
+      <End Role="Scientists" EntitySet="Scientists" />
+      <End Role="Reviewers_papers" EntitySet="Reviewers_papers" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BasePapersModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BasePapersModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="Auths_papers">
+    <Key>
+      <PropertyRef Name="author_paper_id" />
+    </Key>
+    <Property Name="author_paper_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="s_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Paper" Relationship="BasePapersModel.FK_Auths_papers_Papers" FromRole="Auths_papers" ToRole="Papers" />
+    <NavigationProperty Name="Scientist" Relationship="BasePapersModel.FK_Auths_papers_Scientists" FromRole="Auths_papers" ToRole="Scientists" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="country_id" />
+    </Key>
+    <Property Name="country_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="country_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Organisations" Relationship="BasePapersModel.FK_Organisations_Countries" FromRole="Countries" ToRole="Organisations" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="language_id" />
+    </Key>
+    <Property Name="language_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="language_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Papers" Relationship="BasePapersModel.FK_Papers_Languages" FromRole="Languages" ToRole="Papers" />
+  </EntityType>
+  <EntityType Name="Organisation">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="org_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="org_country" Type="Int32" Nullable="false" />
+    <Property Name="org_website" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Country" Relationship="BasePapersModel.FK_Organisations_Countries" FromRole="Organisations" ToRole="Countries" />
+    <NavigationProperty Name="Scientists" Relationship="BasePapersModel.FK_Scientists_Organisations" FromRole="Organisations" ToRole="Scientists" />
+  </EntityType>
+  <EntityType Name="Paper">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="p_title" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="p_abstract" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="p_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="language_id" Type="Int32" Nullable="false" />
+    <Property Name="subj_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Auths_papers" Relationship="BasePapersModel.FK_Auths_papers_Papers" FromRole="Papers" ToRole="Auths_papers" />
+    <NavigationProperty Name="Language" Relationship="BasePapersModel.FK_Papers_Languages" FromRole="Papers" ToRole="Languages" />
+    <NavigationProperty Name="Subject" Relationship="BasePapersModel.FK_Papers_Subjects1" FromRole="Papers" ToRole="Subjects" />
+    <NavigationProperty Name="Reviewers_papers" Relationship="BasePapersModel.FK_Reviewers_papers_Papers" FromRole="Papers" ToRole="Reviewers_papers" />
+  </EntityType>
+  <EntityType Name="Reviewers_papers">
+    <Key>
+      <PropertyRef Name="paper_reviewer_id" />
+    </Key>
+    <Property Name="paper_reviewer_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="s_id" Type="Int32" Nullable="false" />
+    <Property Name="reviewer_comment" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Paper" Relationship="BasePapersModel.FK_Reviewers_papers_Papers" FromRole="Reviewers_papers" ToRole="Papers" />
+    <NavigationProperty Name="Scientist" Relationship="BasePapersModel.FK_Reviewers_papers_Scientists" FromRole="Reviewers_papers" ToRole="Scientists" />
+  </EntityType>
+  <EntityType Name="Scientist">
+    <Key>
+      <PropertyRef Name="s_id" />
+    </Key>
+    <Property Name="s_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="s_hindex" Type="Double" />
+    <Property Name="org_id" Type="Int32" />
+    <Property Name="s_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="s_email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Auths_papers" Relationship="BasePapersModel.FK_Auths_papers_Scientists" FromRole="Scientists" ToRole="Auths_papers" />
+    <NavigationProperty Name="Organisation" Relationship="BasePapersModel.FK_Scientists_Organisations" FromRole="Scientists" ToRole="Organisations" />
+    <NavigationProperty Name="Reviewers_papers" Relationship="BasePapersModel.FK_Reviewers_papers_Scientists" FromRole="Scientists" ToRole="Reviewers_papers" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="subj_id" />
+    </Key>
+    <Property Name="subj_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="subj_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Papers" Relationship="BasePapersModel.FK_Papers_Subjects1" FromRole="Subjects" ToRole="Papers" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Auths_papers_Papers">
+    <End Role="Papers" Type="BasePapersModel.Paper" Multiplicity="1" />
+    <End Role="Auths_papers" Type="BasePapersModel.Auths_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Papers">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Auths_papers">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Auths_papers_Scientists">
+    <End Role="Scientists" Type="BasePapersModel.Scientist" Multiplicity="1" />
+    <End Role="Auths_papers" Type="BasePapersModel.Auths_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scientists">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="Auths_papers">
+        <PropertyRef Name="s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organisations_Countries">
+    <End Role="Countries" Type="BasePapersModel.Country" Multiplicity="1" />
+    <End Role="Organisations" Type="BasePapersModel.Organisation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="country_id" />
+      </Principal>
+      <Dependent Role="Organisations">
+        <PropertyRef Name="org_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Papers_Languages">
+    <End Role="Languages" Type="BasePapersModel.Language" Multiplicity="1" />
+    <End Role="Papers" Type="BasePapersModel.Paper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="language_id" />
+      </Principal>
+      <Dependent Role="Papers">
+        <PropertyRef Name="language_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scientists_Organisations">
+    <End Role="Organisations" Type="BasePapersModel.Organisation" Multiplicity="0..1" />
+    <End Role="Scientists" Type="BasePapersModel.Scientist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organisations">
+        <PropertyRef Name="org_id" />
+      </Principal>
+      <Dependent Role="Scientists">
+        <PropertyRef Name="org_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Papers_Subjects1">
+    <End Role="Subjects" Type="BasePapersModel.Subject" Multiplicity="1" />
+    <End Role="Papers" Type="BasePapersModel.Paper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="subj_id" />
+      </Principal>
+      <Dependent Role="Papers">
+        <PropertyRef Name="subj_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviewers_papers_Papers">
+    <End Role="Papers" Type="BasePapersModel.Paper" Multiplicity="1" />
+    <End Role="Reviewers_papers" Type="BasePapersModel.Reviewers_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Papers">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Reviewers_papers">
+        <PropertyRef Name="p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reviewers_papers_Scientists">
+    <End Role="Scientists" Type="BasePapersModel.Scientist" Multiplicity="1" />
+    <End Role="Reviewers_papers" Type="BasePapersModel.Reviewers_papers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scientists">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="Reviewers_papers">
+        <PropertyRef Name="s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

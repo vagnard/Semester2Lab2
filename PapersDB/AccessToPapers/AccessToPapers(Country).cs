@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Common;
+using System.Data.Entity;
+using System.ComponentModel;
 
 namespace AccessToPapers
 {
@@ -12,62 +14,55 @@ namespace AccessToPapers
     {
         public List<Country> GetAllCountries()
         {
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
-            DataRowCollection searchedRow = PapersDataSet.Countries.Rows;
-            List<Country> countries = new List<Country>();
-
-            foreach (BasePapersDataSet.CountriesRow countryRow in searchedRow)
-            {
-                Country country = new Country();
-                country.Name = countryRow.country_name;
-                country.ID = countryRow.country_id;
-                countries.Add(country);
-            }
-
-            return countries;
+            return basePapers.Countries.Local.ToList();
         }
         public bool addCountry(Country country)
         {
-            if (!isCountryInDB(country.Name))
+            if (!isCountryInDB(country))
             {
-                PapersDataSet.Countries.AddCountriesRow(country.Name);
-                provider.UpdateAllData();
+                basePapers.Countries.Add(country);
+                basePapers.SaveChanges();
                 return true;
             };
             return false;
         }
-        public bool deleteCountry(int ID)
+        public bool deleteCountry(Country country)
         {
-            if (isCountryInDB(ID)) 
-            {
-                DataRow[] countryRow = PapersDataSet.Countries.Select("[country_id] = '" + ID.ToString() + "'");
-                countryRow[0].Delete();
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+            if (countryLinked(country)) return false;
+            
+            basePapers.Countries.Remove(basePapers.Countries.Find(country.country_id));
+            basePapers.SaveChanges();
+
+            return true;
         }
-        public bool modifyCountry(Country country)
+        public void modifyCountry(Country country)
         {
-            if (isCountryInDB(country.ID))
-            {
-                BasePapersDataSet.CountriesRow[] countryRow = (BasePapersDataSet.CountriesRow[])
-                    PapersDataSet.Countries.Select("[country_id] = '" + country.ID.ToString() + "'");
-                countryRow[0].country_name = country.Name;
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+           Country country_mod = basePapers.Countries.First(i => i.country_id == country.country_id);
+                
+           country_mod.country_name = country.country_name;
+                
+           basePapers.SaveChanges();
+             
+
         }
-        bool isCountryInDB(string name)
+        bool isCountryInDB(Country country)
         {
-            DataRow[] countryRow = PapersDataSet.Countries.Select("[country_name] = '" + name.ToString() + "'");
-            return countryRow != null && countryRow.Length > 0;
+            return (from country_f in basePapers.Countries 
+                    where 
+                     country_f.country_name == country.country_name ||
+                     country_f.country_id == country.country_id 
+                    select 
+                     country.country_id).Any();
+
         }
-        bool isCountryInDB(int ID)
+
+        bool countryLinked(Country country)
         {
-            DataRow[] countryRow = PapersDataSet.Countries.Select("[country_id] = '" + ID.ToString() + "'");
-            return countryRow != null && countryRow.Length > 0;
+            return (from org in basePapers.Organisations
+                    where
+                        org.Country.country_id == country.country_id
+                    select
+                        org).Any();
         }
     }
 }

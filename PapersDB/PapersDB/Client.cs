@@ -9,38 +9,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AccessToPapers;
 using Common;
+using System.Data.Entity;
 
 namespace PapersDB
 {
     public partial class ClientLol : Form
     {
-        AccessToPapers.AccessToPapers accessToPapers;
-        List<string> CountryNames;
-        List<string> LanguageNames;
-        List<string> SubjectNames;
-        List<string> OrgNames;
-        List<string> ScientistNames;
+        private AccessToPapers.AccessToPapers accessToPapers = new AccessToPapers.AccessToPapers();
+        BindingList<string> CountryNames;
+        BindingList<string> LanguageNames;
+        BindingList<string> SubjectNames;
+        BindingList<string> OrgNames;
+        BindingList<string> ScientistNames;
         public ClientLol()
         {
             InitializeComponent();
-            CountryNames = new List<string>();
-            LanguageNames = new List<string>();
-            SubjectNames = new List<string>();
-            OrgNames = new List<string>();
-            ScientistNames = new List<string>();
-
-            LogIn logIn = new LogIn();
-            if (logIn.ShowDialog() == DialogResult.OK)
-            {
-                accessToPapers = new AccessToPapers.AccessToPapers(logIn.DBType, logIn.ConnectionParameters);
-
-                CountriesRefresh_btn_Click(null, null);
-                OrganisationRefresh_Click(null, null);
-                languageRefresh_btn_Click(null, null);
-                subjectRefresh_btn_Click(null, null);
-                Scientist_Refresh_Click(null, null);
-                PapersRefresh_Click(null, null);
-            }
+            CountryNames = new BindingList<string>();
+            LanguageNames = new BindingList<string>();
+            SubjectNames = new BindingList<string>();
+            OrgNames = new BindingList<string>();
+            ScientistNames = new BindingList<string>();
+            
+            CountriesRefresh_btn_Click(null, null);
+            OrganisationRefresh_Click(null, null);
+            languageRefresh_btn_Click(null, null);
+            subjectRefresh_btn_Click(null, null);
+            Scientist_Refresh_Click(null, null);
+            PapersRefresh_Click(null, null);
+            
             
         }
 
@@ -52,17 +48,15 @@ namespace PapersDB
 
         private void CountriesRefresh_btn_Click(object sender, EventArgs e)
         {
-            List<Country> allCountries = new List<Country>();
-            allCountries = accessToPapers.GetAllCountries();
-            countries_dgv.DataSource = allCountries;
-            countries_dgv.Columns["ID"].ReadOnly = true;
-            countries_dgv.Columns["Name"].ReadOnly = true;
+            List<Country> allCountries = accessToPapers.GetAllCountries();
+            countryBindingSource.DataSource = null;
+            countryBindingSource.DataSource = allCountries;
 
             CountryNames.Clear();
             CountryNames.Add("");
             foreach (Country country in allCountries)
-                CountryNames.Add(country.Name);
-
+              CountryNames.Add(country.country_name);
+            
         }
 
         private void addCountryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,8 +64,7 @@ namespace PapersDB
             AddCountry newCountry = new AddCountry();
             if (newCountry.ShowDialog() == DialogResult.OK)
             {
-
-                if (!accessToPapers.addCountry(newCountry.NewCountry))
+                if (!accessToPapers.addCountry(newCountry.country))
                     MessageBox.Show("Such country already exists");
                 CountriesRefresh_btn_Click(null, null);
             }
@@ -80,48 +73,41 @@ namespace PapersDB
         
         private void deleteCountryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteCountry deleteCountry = new DeleteCountry();
-            if (deleteCountry.ShowDialog() == DialogResult.OK)
-            {
-
-                if (!accessToPapers.deleteCountry(deleteCountry.ID))
-                    MessageBox.Show("Such country does not exist");
-                CountriesRefresh_btn_Click(null, null);
-            }
+            Country delCountry = new Country();
+            delCountry.country_id = Convert.ToInt32(countries_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deleteCountry(delCountry))
+                MessageBox.Show("Some organisation depends on this country");
+            CountriesRefresh_btn_Click(null, null);
         }
 
         private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyCountry modifyCountry = new ModifyCountry();
+            ModifyCountry modifyCountry = new ModifyCountry(Convert.ToInt32(countries_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString()));
             if (modifyCountry.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifyCountry(modifyCountry.modifyCountry))
-                    MessageBox.Show("Such country does not exist");
+                accessToPapers.modifyCountry(modifyCountry.modifyCountry);
                 CountriesRefresh_btn_Click(null, null);
             }
         }
-
+        
         // Organisation
+
+        string filterCountry = "";
 
         private void OrganisationRefresh_Click(object sender, EventArgs e)
         {
-            List<Organisation> allOrgs = new List<Organisation>();
-            allOrgs = accessToPapers.GetAllOrganisations(orgNameFilter_txbx.Text.Trim(), OrgCountry_cmbx.Text.Trim());
-            org_dgv.DataSource = allOrgs;
-
-            org_dgv.Columns["CountryID"].Visible = false;
-
-            org_dgv.Columns["ID"].ReadOnly = true;
-            org_dgv.Columns["Name"].ReadOnly = true;
-            org_dgv.Columns["Country"].ReadOnly = true;
-            org_dgv.Columns["Website"].ReadOnly = true;
-
+           
             OrgCountry_cmbx.DataSource = CountryNames;
+
+            var allOrgs = accessToPapers.GetAllOrganisations(orgNameFilter_txbx.Text.Trim(), filterCountry);
+
+            organisationBindingSource.DataSource = null;
+            organisationBindingSource.DataSource = allOrgs;
 
             OrgNames.Clear();
             OrgNames.Add("");
-            foreach (Organisation Org in allOrgs)
-                OrgNames.Add(Org.Name);
+            foreach (var Org in allOrgs)
+                OrgNames.Add(Org.org_name);
         }
 
         private void addOrganisationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,7 +117,7 @@ namespace PapersDB
             {
 
                 if (!accessToPapers.addOrganisation(newOrganisation.NewOrganisation))
-                    MessageBox.Show("Such Organisation already exists");
+                    MessageBox.Show("Such organisation already exists");
                 OrganisationRefresh_Click(null, null);
             }
         }
@@ -139,29 +125,29 @@ namespace PapersDB
 
         private void deleteOrganisationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteOrganisation deleteOrganisation = new DeleteOrganisation();
-            if (deleteOrganisation.ShowDialog() == DialogResult.OK)
-            {
-
-                if (!accessToPapers.deleteOrganisation(deleteOrganisation.ID))
-                    MessageBox.Show("Such Organisation does not exist");
-                OrganisationRefresh_Click(null, null);
-            }
+            Organisation delOrganisation = new Organisation();
+            delOrganisation.org_id = Convert.ToInt32(org_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deleteOrganisation(delOrganisation))
+                MessageBox.Show("Some scientist depends on this organisation");
+            OrganisationRefresh_Click(null, null);
         }
 
         private void modifyOrganisationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyOrganisation modifyOrganisation = new ModifyOrganisation(CountryNames);
+            
+            ModifyOrganisation modifyOrganisation =
+                new ModifyOrganisation(Convert.ToInt32(org_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString()), CountryNames);
             if (modifyOrganisation.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifyOrganisation(modifyOrganisation.modifyOrg))
-                    MessageBox.Show("Such Organisation does not exist");
+                accessToPapers.modifyOrganisation(modifyOrganisation.modifyOrg);
                 OrganisationRefresh_Click(null, null);
             }
+            
         }
 
         private void OrgCountry_cmbx_TextChanged(object sender, EventArgs e)
         {
+            filterCountry = OrgCountry_cmbx.Text.Trim();
             OrganisationRefresh_Click(null, null);
         }
 
@@ -174,17 +160,16 @@ namespace PapersDB
 
         private void languageRefresh_btn_Click(object sender, EventArgs e)
         {
-            List<Language> allLanguages = new List<Language>();
-            allLanguages = accessToPapers.GetAllLanguages();
-            language_dgv.DataSource = allLanguages;
-            language_dgv.Columns["ID"].ReadOnly = true;
-            language_dgv.Columns["Name"].ReadOnly = true;
+            List<Language> allLanguages = accessToPapers.GetAllLanguages();
 
+            languageBindingSource.DataSource = null;
+            languageBindingSource.DataSource = allLanguages;
+            
             LanguageNames.Clear();
             LanguageNames.Add("");
-            foreach (Language Language in allLanguages)
-                LanguageNames.Add(Language.Name);
-
+            foreach (Language language in allLanguages)
+                LanguageNames.Add(language.language_name);
+            
         }
 
         private void addLanguageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,21 +179,20 @@ namespace PapersDB
             {
 
                 if (!accessToPapers.addLanguage(newLanguage.NewLanguage))
-                    MessageBox.Show("Such Language already exists");
+                    MessageBox.Show("Such language already exists");
                 languageRefresh_btn_Click(null, null);
             }
         }
 
         private void deleteLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteLanguage deleteLanguage = new DeleteLanguage();
-            if (deleteLanguage.ShowDialog() == DialogResult.OK)
-            {
+            Language delLanguage = new Language();
+            delLanguage.language_id = Convert.ToInt32(language_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deleteLanguage(delLanguage))
+                MessageBox.Show("Some paper depends on this language");
 
-                if (!accessToPapers.deleteLanguage(deleteLanguage.ID))
-                    MessageBox.Show("Such Language does not exist");
-                languageRefresh_btn_Click(null, null);
-            }
+            languageRefresh_btn_Click(null, null);
+
         }
 
         private void modifyLanguageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -216,8 +200,8 @@ namespace PapersDB
             ModifyLanguage modifyLanguage = new ModifyLanguage();
             if (modifyLanguage.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifyLanguage(modifyLanguage.modifyLanguage))
-                    MessageBox.Show("Such Language does not exist");
+                accessToPapers.modifyLanguage(modifyLanguage.modifyLanguage);
+      
                 languageRefresh_btn_Click(null, null);
             }
         }
@@ -226,16 +210,15 @@ namespace PapersDB
 
         private void subjectRefresh_btn_Click(object sender, EventArgs e)
         {
-            List<Subject> allSubjects = new List<Subject>();
-            allSubjects = accessToPapers.GetAllSubjects();
-            subject_dgv.DataSource = allSubjects;
-            subject_dgv.Columns["ID"].ReadOnly = true;
-            subject_dgv.Columns["Name"].ReadOnly = true;
+            List<Subject> allSubjects = accessToPapers.GetAllSubjects();
 
+            subjectBindingSource.DataSource = null;
+            subjectBindingSource.DataSource = allSubjects;
+            
             SubjectNames.Clear();
             SubjectNames.Add("");
-            foreach (Subject Subject in allSubjects)
-                SubjectNames.Add(Subject.Name);
+            foreach (Subject subject in allSubjects)
+                SubjectNames.Add(subject.subj_name);
         }
 
         private void addSubjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -252,14 +235,13 @@ namespace PapersDB
 
         private void deleteSubjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteSubject deleteSubject = new DeleteSubject();
-            if (deleteSubject.ShowDialog() == DialogResult.OK)
-            {
+            Subject delSubject = new Subject();
+            delSubject.subj_id = Convert.ToInt32(subject_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deleteSubject(delSubject))
+                MessageBox.Show("Some paper depends on this language");
 
-                if (!accessToPapers.deleteSubject(deleteSubject.ID))
-                    MessageBox.Show("Such Subject does not exist");
-                subjectRefresh_btn_Click(null, null);
-            }
+            subjectRefresh_btn_Click(null, null);
+ 
         }
 
         private void modifySubjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -267,31 +249,29 @@ namespace PapersDB
             ModifySubject modifySubject = new ModifySubject();
             if (modifySubject.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifySubject(modifySubject.modifySubject))
-                    MessageBox.Show("Such Subject does not exist");
+                accessToPapers.modifySubject(modifySubject.modifySubject);
                 subjectRefresh_btn_Click(null, null);
             }
         }
 
         // Scientist
 
+        string filterOrganisation = "";
+
         private void Scientist_Refresh_Click(object sender, EventArgs e)
         {
-           
-            List<Scientist> allScientists = new List<Scientist>();
-            allScientists = accessToPapers.GetAllScientists(SciNameFilter_txbx.Text.Trim(), SciOrganisation_cmbx.Text.Trim());
             SciOrganisation_cmbx.DataSource = OrgNames;
-            sci_dgv.DataSource = allScientists;
-            sci_dgv.Columns["OrganisationID"].Visible = false;
-            sci_dgv.Columns["ID"].ReadOnly = true;
-            sci_dgv.Columns["Name"].ReadOnly = true;
-            sci_dgv.Columns["organisationName"].ReadOnly = true;
-            sci_dgv.Columns["Email"].ReadOnly = true;
-            sci_dgv.Columns["hindex"].ReadOnly = true;
+
+            var allSci = accessToPapers.GetAllScientists(SciNameFilter_txbx.Text.Trim(), filterOrganisation);
+
+            scientistBindingSource.DataSource = null;
+            scientistBindingSource.DataSource = allSci;
+           
 
             ScientistNames.Clear();
-            foreach (Scientist sci in allScientists)
-                ScientistNames.Add(sci.Name);
+            
+            foreach (var sci in allSci)
+                ScientistNames.Add(sci.s_name);
         }
 
         private void addScientistToolStripMenuItem_Click(object sender, EventArgs e)
@@ -306,58 +286,57 @@ namespace PapersDB
             }
         }
 
+
         private void deleteScientistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeleteScientist deleteScientist = new DeleteScientist();
-            if (deleteScientist.ShowDialog() == DialogResult.OK)
-            {
-
-                if (!accessToPapers.deleteScientist(deleteScientist.ID))
-                    MessageBox.Show("Such scientist does not exist");
-                Scientist_Refresh_Click(null, null);
-            }
+            Scientist delSci = new Scientist();
+            delSci.s_id = Convert.ToInt32(sci_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deleteScientist(delSci))
+                MessageBox.Show("Some paper depends on this scientist");
+            Scientist_Refresh_Click(null, null); 
         }
 
         private void modifyScientistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyScientist modifyScientist = new ModifyScientist(OrgNames);
-            if (modifyScientist.ShowDialog() == DialogResult.OK)
+            ModifyScientist modifySci =
+               new ModifyScientist(Convert.ToInt32(sci_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString()), OrgNames);
+            
+            if (modifySci.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifyScientist(modifyScientist.modifySci))
-                    MessageBox.Show("Such scientist does not exist");
+                accessToPapers.modifyScientist(modifySci.modifySci);
+                    
                 Scientist_Refresh_Click(null, null);
             }
         }
 
         private void SciNameFilter_txbx_TextChanged(object sender, EventArgs e)
         {
+            
             Scientist_Refresh_Click(null, null);
         }
-
+       
         private void SciOrganisation_cmbx_TextChanged(object sender, EventArgs e)
         {
+            filterOrganisation = SciOrganisation_cmbx.Text.Trim();
             Scientist_Refresh_Click(null, null);
         }
 
-        
-
+      
         // Papers
+
+        string filterSubject = "";
+        string filterLanguage = "";
 
         private void PapersRefresh_Click(object sender, EventArgs e)
         {
-            List<Paper> allPaper = new List<Paper>();
-            allPaper = accessToPapers.GetAllPapers(title_txbx.Text.Trim(), subj_cmbx.Text.Trim(), lang_cmbx.Text.Trim());
-            subj_cmbx.DataSource = SubjectNames;
             lang_cmbx.DataSource = LanguageNames;
-            papers_dgv.DataSource = allPaper;
-            papers_dgv.Columns["Abstract"].Visible = false;
-            papers_dgv.Columns["PublishedDate"].Visible = false;
-            papers_dgv.Columns["LanguageID"].Visible = false;
-            papers_dgv.Columns["SubjectID"].Visible = false;
-            papers_dgv.Columns["ID"].ReadOnly = true;
-            papers_dgv.Columns["Title"].ReadOnly = true;
-            papers_dgv.Columns["Subject"].ReadOnly = true;
-            papers_dgv.Columns["Language"].ReadOnly = true;
+            subj_cmbx.DataSource = SubjectNames;
+
+            var allPaper = accessToPapers.GetAllPapers(title_txbx.Text.Trim(), filterSubject, filterLanguage);
+
+            paperBindingSource.DataSource = null;
+            paperBindingSource.DataSource = allPaper;
+           
         }
 
         private void addPaperToolStripMenuItem_Click(object sender, EventArgs e)
@@ -371,39 +350,38 @@ namespace PapersDB
                 PapersRefresh_Click(null, null);
             }
         }
+        
 
         private void deletePaperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DeletePaper deletePaper = new DeletePaper();
-            if (deletePaper.ShowDialog() == DialogResult.OK)
-            {
-
-                if (!accessToPapers.deletePaper(deletePaper.ID))
-                    MessageBox.Show("Such paper does not exist");
-                PapersRefresh_Click(null, null);
-            }
+            Paper delPaper = new Paper();
+            
+            delPaper.p_id = Convert.ToInt32(papers_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString());
+            if (!accessToPapers.deletePaper(delPaper))
+                MessageBox.Show("Some scientist depends on this paper");
+            PapersRefresh_Click(null, null);
         }
+        
 
         private void modifyPaperToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyPaper modifyPaper = new ModifyPaper(SubjectNames, LanguageNames);
+            ModifyPaper modifyPaper =
+               new ModifyPaper(Convert.ToInt32(papers_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString()), SubjectNames, LanguageNames);
+
             if (modifyPaper.ShowDialog() == DialogResult.OK)
             {
-                if (!accessToPapers.modifyPaper(modifyPaper.modifyPaper))
-                    MessageBox.Show("Such paper does not exist");
+                accessToPapers.modifyPaper(modifyPaper.modifyPaper);
+
                 PapersRefresh_Click(null, null);
             }
         }
+       
 
+     
         private void authorCall_btn_Click(object sender, EventArgs e)
         {
-            Authors author = new Authors(accessToPapers, (int)papers_dgv.CurrentRow.Cells["ID"].Value, ScientistNames);
+            Authors author = new Authors(accessToPapers, Convert.ToInt32(papers_dgv.CurrentRow.Cells[0].EditedFormattedValue.ToString()), ScientistNames);
             author.ShowDialog();
-        }
-
-        private void reviewerCall_btn_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void title_txbx_TextChanged(object sender, EventArgs e)
@@ -413,15 +391,17 @@ namespace PapersDB
 
         private void subj_cmbx_TextChanged(object sender, EventArgs e)
         {
+            filterSubject = subj_cmbx.Text.Trim();
             PapersRefresh_Click(null, null);
         }
 
         private void lang_cmbx_TextChanged(object sender, EventArgs e)
         {
+            filterLanguage = lang_cmbx.Text.Trim();
             PapersRefresh_Click(null, null);
         }
 
-
+        
        
 
 

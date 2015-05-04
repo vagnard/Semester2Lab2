@@ -26,7 +26,7 @@ namespace PapersDB
                 MessageBox.Show("Name is empty");
             else
             {
-                NewSubject.Name = subjectName_txbx.Text.Trim();
+                NewSubject.subj_name = subjectName_txbx.Text.Trim();
                 DialogResult = DialogResult.OK;
             }
         }

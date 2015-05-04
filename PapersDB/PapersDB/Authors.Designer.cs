@@ -28,17 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Organisations = new System.Windows.Forms.TabPage();
-            this.Author_dgv = new System.Windows.Forms.DataGridView();
-            this.AuthorRefresh = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.authorNameFilter_txbx = new System.Windows.Forms.TextBox();
-            this.abc = new System.Windows.Forms.TabControl();
-            this.addAuthor = new System.Windows.Forms.Button();
             this.deleteAuthor = new System.Windows.Forms.Button();
+            this.addAuthor = new System.Windows.Forms.Button();
+            this.authorNameFilter_txbx = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AuthorRefresh = new System.Windows.Forms.Button();
+            this.Author_dgv = new System.Windows.Forms.DataGridView();
+            this.abc = new System.Windows.Forms.TabControl();
+            this.authspapersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.authorpaperidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Organisations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Author_dgv)).BeginInit();
             this.abc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.authspapersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Organisations
@@ -57,13 +62,42 @@
             this.Organisations.Text = "Authors";
             this.Organisations.UseVisualStyleBackColor = true;
             // 
-            // Author_dgv
+            // deleteAuthor
             // 
-            this.Author_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Author_dgv.Location = new System.Drawing.Point(3, 45);
-            this.Author_dgv.Name = "Author_dgv";
-            this.Author_dgv.Size = new System.Drawing.Size(718, 311);
-            this.Author_dgv.TabIndex = 0;
+            this.deleteAuthor.Location = new System.Drawing.Point(169, 362);
+            this.deleteAuthor.Name = "deleteAuthor";
+            this.deleteAuthor.Size = new System.Drawing.Size(75, 23);
+            this.deleteAuthor.TabIndex = 7;
+            this.deleteAuthor.Text = "Delete";
+            this.deleteAuthor.UseVisualStyleBackColor = true;
+            this.deleteAuthor.Click += new System.EventHandler(this.deleteAuthor_Click);
+            // 
+            // addAuthor
+            // 
+            this.addAuthor.Location = new System.Drawing.Point(88, 362);
+            this.addAuthor.Name = "addAuthor";
+            this.addAuthor.Size = new System.Drawing.Size(75, 23);
+            this.addAuthor.TabIndex = 6;
+            this.addAuthor.Text = "Add";
+            this.addAuthor.UseVisualStyleBackColor = true;
+            this.addAuthor.Click += new System.EventHandler(this.addAuthor_Click);
+            // 
+            // authorNameFilter_txbx
+            // 
+            this.authorNameFilter_txbx.Location = new System.Drawing.Point(3, 19);
+            this.authorNameFilter_txbx.Name = "authorNameFilter_txbx";
+            this.authorNameFilter_txbx.Size = new System.Drawing.Size(290, 20);
+            this.authorNameFilter_txbx.TabIndex = 2;
+            this.authorNameFilter_txbx.TextChanged += new System.EventHandler(this.authorNameFilter_txbx_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Name";
             // 
             // AuthorRefresh
             // 
@@ -75,22 +109,19 @@
             this.AuthorRefresh.UseVisualStyleBackColor = true;
             this.AuthorRefresh.Click += new System.EventHandler(this.AuthorRefresh_Click);
             // 
-            // label1
+            // Author_dgv
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Name";
-            // 
-            // authorNameFilter_txbx
-            // 
-            this.authorNameFilter_txbx.Location = new System.Drawing.Point(3, 19);
-            this.authorNameFilter_txbx.Name = "authorNameFilter_txbx";
-            this.authorNameFilter_txbx.Size = new System.Drawing.Size(290, 20);
-            this.authorNameFilter_txbx.TabIndex = 2;
-            this.authorNameFilter_txbx.TextChanged += new System.EventHandler(this.authorNameFilter_txbx_TextChanged);
+            this.Author_dgv.AllowUserToAddRows = false;
+            this.Author_dgv.AutoGenerateColumns = false;
+            this.Author_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Author_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.authorpaperidDataGridViewTextBoxColumn,
+            this.sidDataGridViewTextBoxColumn});
+            this.Author_dgv.DataSource = this.authspapersBindingSource;
+            this.Author_dgv.Location = new System.Drawing.Point(3, 45);
+            this.Author_dgv.Name = "Author_dgv";
+            this.Author_dgv.Size = new System.Drawing.Size(718, 311);
+            this.Author_dgv.TabIndex = 0;
             // 
             // abc
             // 
@@ -101,25 +132,23 @@
             this.abc.Size = new System.Drawing.Size(734, 415);
             this.abc.TabIndex = 2;
             // 
-            // addAuthor
+            // authspapersBindingSource
             // 
-            this.addAuthor.Location = new System.Drawing.Point(88, 360);
-            this.addAuthor.Name = "addAuthor";
-            this.addAuthor.Size = new System.Drawing.Size(75, 23);
-            this.addAuthor.TabIndex = 6;
-            this.addAuthor.Text = "Add";
-            this.addAuthor.UseVisualStyleBackColor = true;
-            this.addAuthor.Click += new System.EventHandler(this.addAuthor_Click);
+            this.authspapersBindingSource.DataSource = typeof(Common.Auths_papers);
             // 
-            // deleteAuthor
+            // authorpaperidDataGridViewTextBoxColumn
             // 
-            this.deleteAuthor.Location = new System.Drawing.Point(186, 363);
-            this.deleteAuthor.Name = "deleteAuthor";
-            this.deleteAuthor.Size = new System.Drawing.Size(75, 23);
-            this.deleteAuthor.TabIndex = 7;
-            this.deleteAuthor.Text = "Delete";
-            this.deleteAuthor.UseVisualStyleBackColor = true;
-            this.deleteAuthor.Click += new System.EventHandler(this.deleteAuthor_Click);
+            this.authorpaperidDataGridViewTextBoxColumn.DataPropertyName = "author_paper_id";
+            this.authorpaperidDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.authorpaperidDataGridViewTextBoxColumn.Name = "authorpaperidDataGridViewTextBoxColumn";
+            this.authorpaperidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sidDataGridViewTextBoxColumn
+            // 
+            this.sidDataGridViewTextBoxColumn.DataPropertyName = "s_id";
+            this.sidDataGridViewTextBoxColumn.HeaderText = "Author";
+            this.sidDataGridViewTextBoxColumn.Name = "sidDataGridViewTextBoxColumn";
+            this.sidDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Authors
             // 
@@ -133,6 +162,7 @@
             this.Organisations.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Author_dgv)).EndInit();
             this.abc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.authspapersBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,6 +177,9 @@
         private System.Windows.Forms.TabControl abc;
         private System.Windows.Forms.Button deleteAuthor;
         private System.Windows.Forms.Button addAuthor;
+        private System.Windows.Forms.BindingSource authspapersBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authorpaperidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sidDataGridViewTextBoxColumn;
 
     }
 }

@@ -10,123 +10,94 @@ namespace AccessToPapers
 {
     public partial class AccessToPapers
     {
-        public List<Scientist> GetAllScientists(string name, string organisation)
+        public class ProjectedScientist
         {
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
-            BasePapersDataSet.ScientistsRow[] searchedRow = null;
-                
-                if (name != "" && organisation != "")
-                {
-                    BasePapersDataSet.OrganisationsRow[] organisationRow = (BasePapersDataSet.OrganisationsRow[])
-                         PapersDataSet.Organisations.Select("[org_name] = '" + organisation + "'");
-                    searchedRow = (BasePapersDataSet.ScientistsRow[])
-                        PapersDataSet.Scientists.Select("[s_name] = '" + name + "' AND " +
-                                                           "[org_id] = '" + organisationRow[0].org_id.ToString() + "'");
-                }
-                else
-                    if (name != "")
-                    {
-                        searchedRow = (BasePapersDataSet.ScientistsRow[])
-                       PapersDataSet.Scientists.Select("[s_name] = '" + name + "'");
-                    }
-                    else
-                        if (organisation != "")
-                        {
-                            BasePapersDataSet.OrganisationsRow[] organisationRow = (BasePapersDataSet.OrganisationsRow[])
-                         PapersDataSet.Organisations.Select("[org_name] = '" + organisation + "'");
-                            searchedRow = (BasePapersDataSet.ScientistsRow[])
-                                PapersDataSet.Scientists.Select("[org_id] = '" + organisationRow[0].org_id.ToString() + "'");
-                        }
-                        else {
-                            
-                            searchedRow = (BasePapersDataSet.ScientistsRow[])PapersDataSet.Scientists.Select("");
-                        }
-                 
-            List <Scientist> scientists = new List<Scientist>();
-
-            foreach (BasePapersDataSet.ScientistsRow scientistRow in searchedRow)
-            {
-                Scientist scientist = new Scientist();
-                scientist.Email = scientistRow.s_email;
-                scientist.hindex = (float)scientistRow.s_hindex;
-                scientist.ID = scientistRow.s_id;
-                scientist.Name = scientistRow.s_name;
-                scientist.organisationID = scientistRow.OrganisationsRow.org_id;
-                scientist.organisationName = scientistRow.OrganisationsRow.org_name;
-
-               scientists.Add(scientist);
-            }
-
-            return scientists;
+            public int s_id { get; set; }
+            public Nullable<double> s_hindex { get; set; }
+            public string org_id { get; set; }
+            public string s_name { get; set; }
+            public string s_email { get; set; }
         }
+
+        public List<ProjectedScientist> GetAllScientists(string name, string organisation)
+        {
+            return (from sci in basePapers.Scientists
+                    where sci.s_name.Contains(name) && (sci.Organisation.org_name == organisation || organisation == "")
+                    join org in basePapers.Organisations
+                    on sci.org_id
+                    equals org.org_id
+                    select new ProjectedScientist
+                    {
+                        s_id = sci.s_id,
+                        s_hindex = sci.s_hindex,
+                        org_id = org.org_name,
+                        s_name = sci.s_name,
+                        s_email = sci.s_email
+                    }).ToList();
+            
+        }
+
         public bool addScientist(Scientist scientist)
         {
             if (!isScientistInDB(scientist))
-            {
-                BasePapersDataSet.OrganisationsRow[] organisationRow = (BasePapersDataSet.OrganisationsRow[])
-                 PapersDataSet.Organisations.Select("[org_name] = '" + scientist.organisationName.ToString() + "'");
-                PapersDataSet.Scientists.AddScientistsRow(scientist.hindex, organisationRow[0], scientist.Name, scientist.Email);
-                provider.UpdateAllData();
+            { 
+            
+                scientist.Organisation = basePapers.Organisations.First(i => i.org_name == scientist.Organisation.org_name);
+                
+                basePapers.Scientists.Add(scientist);
+
+                basePapers.SaveChanges();
                 return true;
             };
             return false;
         }
-        
-        public bool modifyScientist(Scientist scientist)
+
+        public void modifyScientist(Scientist scientist)
         {
-            if (isScientistInDB(scientist.ID))
-            {
-                BasePapersDataSet.ScientistsRow[] scientistRow = (BasePapersDataSet.ScientistsRow[])
-                    PapersDataSet.Scientists.Select("[s_id] = '" + scientist.ID.ToString() + "'");
-                if (scientist.organisationName != "")
+          
+                Scientist sci_mod = basePapers.Scientists.First(i => i.s_id == scientist.s_id);
+                if (scientist.Organisation.org_name != "")
                 {
-                    BasePapersDataSet.OrganisationsRow[] organisationRow = (BasePapersDataSet.OrganisationsRow[])
-                        PapersDataSet.Countries.Select("[org_name] = '" + scientist.organisationName.ToString() + "'");
-                    scientistRow[0].org_id = organisationRow[0].org_id;
+                    sci_mod.org_id = basePapers.Organisations.First(i => i.org_name == scientist.Organisation.org_name).org_id;
                 }
-                if (scientist.Name != "")
-                    scientistRow[0].s_name = scientist.Name;
+                if (scientist.s_name != "")
+                    sci_mod.s_name = scientist.s_name;
 
-                if (scientist.Email != "")
-                    scientistRow[0].s_email = scientist.Email;
-                if (scientist.hindex != 0)
-                    scientistRow[0].s_hindex = scientist.hindex;
+                if (scientist.s_email != "")
+                    sci_mod.s_email = scientist.s_email;
 
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+                if (scientist.s_hindex != 0)
+                    sci_mod.s_hindex = scientist.s_hindex;
+
+                basePapers.SaveChanges();
+                
         }
-        
-        public bool deleteScientist(int ID)
+
+        public bool deleteScientist(Scientist scientist)
         {
-            if (isScientistInDB(ID))
-            {
-                DataRow[] ScientistRow = PapersDataSet.Scientists.Select("[s_id] = '" + ID.ToString() + "'");
-                ScientistRow[0].Delete();
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+            if (isScientistLinked(scientist)) return false;
+
+            basePapers.Scientists.Remove(basePapers.Scientists.Find(scientist.s_id));
+            basePapers.SaveChanges();
+
+            return true;
         }
-        bool isScientistInDB(int ID)
+        bool isScientistLinked(Scientist scientist)
         {
-            DataRow[] ScientistRow = PapersDataSet.Scientists.Select("[s_id] = '" + ID.ToString() + "'");
-            return ScientistRow != null && ScientistRow.Length > 0;
+            return (from paper in basePapers.Auths_papers
+                    where
+                        paper.s_id == scientist.s_id
+                    select
+                        paper).Any();
         }
 
 
         bool isScientistInDB(Scientist scientist)
         {
-            var scies = from sci in PapersDataSet.Scientists.AsEnumerable()
-                       where sci.s_name == scientist.Name
-                       select sci;
-            return scies.Count() > 0;
-
-            /*
-            
-            DataRow[] OrganisationRow = PapersDataSet.Organisations.Select("[org_name] = '" + organisation.Name.ToString() + "'");
-            return OrganisationRow != null && OrganisationRow.Length > 0;*/
+            return (from sci in basePapers.Scientists
+                    where sci.s_name == scientist.s_name ||
+                          sci.s_id == scientist.s_id
+                    select sci).Any();
         }
 
     }

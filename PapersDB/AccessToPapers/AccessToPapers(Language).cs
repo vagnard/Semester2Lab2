@@ -12,62 +12,51 @@ namespace AccessToPapers
     {
         public List<Language> GetAllLanguages()
         {
-            PapersDataSet = provider.GetAllData(TargetData, DataType);
-            DataRowCollection searchedRow = PapersDataSet.Languages.Rows;
-            List<Language> languages = new List<Language>();
+            return basePapers.Languages.Local.ToList();
+        }
+        public bool addLanguage(Language language)
+        {
+            if (!isLanguageInDB(language))
+            {
+                basePapers.Languages.Add(language);
+                basePapers.SaveChanges();
+                return true;
+            };
+            return false;
+        }
+        public bool deleteLanguage(Language language)
+        {
+            if (languageLinked(language)) return true;
 
-            foreach (BasePapersDataSet.LanguagesRow LanguageRow in searchedRow)
-            {
-                Language Language = new Language();
-                Language.Name = LanguageRow.language_name;
-                Language.ID = LanguageRow.language_id;
-                languages.Add(Language);
-            }
+            basePapers.Languages.Remove(basePapers.Languages.Find(language.language_id));
+            basePapers.SaveChanges();
 
-            return languages;
-        }
-        public bool addLanguage(Language Language)
-        {
-            if (!isLanguageInDB(Language.Name))
-            {
-                PapersDataSet.Languages.AddLanguagesRow(Language.Name);
-                provider.UpdateAllData();
-                return true;
-            };
             return false;
         }
-        public bool deleteLanguage(int ID)
+        public void modifyLanguage(Language language)
         {
-            if (isLanguageInDB(ID))
-            {
-                DataRow[] LanguageRow = PapersDataSet.Languages.Select("[language_id] = '" + ID.ToString() + "'");
-                LanguageRow[0].Delete();
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+                Language language_mod = basePapers.Languages.First(i => i.language_id == language.language_id);
+
+                language_mod.language_name = language.language_name;
+
+                basePapers.SaveChanges();
         }
-        public bool modifyLanguage(Language Language)
+        bool isLanguageInDB(Language language)
         {
-            if (isLanguageInDB(Language.ID))
-            {
-                BasePapersDataSet.LanguagesRow[] LanguageRow = (BasePapersDataSet.LanguagesRow[])
-                    PapersDataSet.Languages.Select("[language_id] = '" + Language.ID.ToString() + "'");
-                LanguageRow[0].language_name = Language.Name;
-                provider.UpdateAllData();
-                return true;
-            };
-            return false;
+            return (from language_f in basePapers.Languages
+                    where
+                     language_f.language_name == language.language_name ||
+                     language_f.language_id == language.language_id
+                    select
+                     language_f.language_id).Any();
         }
-        bool isLanguageInDB(string name)
+        bool languageLinked(Language language)
         {
-            DataRow[] LanguageRow = PapersDataSet.Languages.Select("[language_name] = '" + name.ToString() + "'");
-            return LanguageRow != null && LanguageRow.Length > 0;
-        }
-        bool isLanguageInDB(int ID)
-        {
-            DataRow[] LanguageRow = PapersDataSet.Languages.Select("[language_id] = '" + ID.ToString() + "'");
-            return LanguageRow != null && LanguageRow.Length > 0;
+            return (from paper in basePapers.Papers
+                    where
+                        paper.language_id == language.language_id
+                    select
+                        paper).Any();
         }
     }
 }

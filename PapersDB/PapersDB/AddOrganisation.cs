@@ -17,12 +17,14 @@ namespace PapersDB
         public AddOrganisation()
         {
             NewOrganisation = new Organisation();
+            NewOrganisation.Country = new Country();
             InitializeComponent();
         }
 
-        public AddOrganisation(List<string> countryNames)
+        public AddOrganisation(BindingList<string> countryNames)
         {
             NewOrganisation = new Organisation();
+            NewOrganisation.Country = new Country();
             InitializeComponent();
             orgCountry_cmbx.DataSource = countryNames;
         }
@@ -37,9 +39,9 @@ namespace PapersDB
                     MessageBox.Show("Country is empty");
                 else
                 {
-                    NewOrganisation.Country = orgCountry_cmbx.Text.Trim();
-                    NewOrganisation.Name = orgName_txbx.Text.Trim();
-                    NewOrganisation.Website = orgWebsity_txbx.Text.Trim();
+                    NewOrganisation.Country.country_name = orgCountry_cmbx.Text.Trim();
+                    NewOrganisation.org_name= orgName_txbx.Text.Trim();
+                    NewOrganisation.org_website = orgWebsity_txbx.Text.Trim();
                     DialogResult = DialogResult.OK;
                 }
             }

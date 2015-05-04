@@ -21,30 +21,21 @@ namespace PapersDB
             InitializeComponent();
         }
 
-        public ModifyScientist(List<string> orgNames)
+        public ModifyScientist(int ID, BindingList<string> orgNames)
         {
             modifySci = new Scientist();
+            modifySci.s_id = ID;
+            modifySci.Organisation = new Organisation();
             InitializeComponent();
             sciOrg_cmbx.DataSource = orgNames;
         }
 
         private void modifySci_btn_Click(object sender, EventArgs e)
         {
-            if (sciID_txbx.Text.Trim() == "")
-                MessageBox.Show("ID is empty");
-            else
-            {
-                try
-                {
-                    modifySci.ID = Convert.ToInt32(sciID_txbx.Text.Trim());
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Input string is not a sequence of digits.");
-                }
-                modifySci.Name = sciName_txbx.Text.Trim();
-                modifySci.organisationName = sciOrg_cmbx.Text.Trim();
-                modifySci.Email = sciEmail_txbx.Text.Trim();
+           
+                modifySci.s_name = sciName_txbx.Text.Trim();
+                modifySci.Organisation.org_name = sciOrg_cmbx.Text.Trim();
+                modifySci.s_email = sciEmail_txbx.Text.Trim();
                 float hindex = 0;
                 try
                 {
@@ -58,10 +49,9 @@ namespace PapersDB
                         return;
                     }
                 }
-                modifySci.hindex = hindex;
+                modifySci.s_hindex= hindex;
 
                 DialogResult = DialogResult.OK;
             }
-        }
     }
 }
